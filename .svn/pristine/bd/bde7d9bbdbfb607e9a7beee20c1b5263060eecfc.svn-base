@@ -1,0 +1,35 @@
+package Projekt.Frame;
+
+
+public class InstrumentPopupFactory {
+
+    public InstrumentPopupFactory(String popupType, SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        switch(popupType){
+            case "Guitar":
+                new GuitarPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Sax":
+                new SaxPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Bass":
+                new BassPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Piano":
+                new PianoPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Drums":
+                new DrumPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Misc":
+                new MiscPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Swag":
+                new SwagPopup(soundGrabber, rectangleGrabber);
+                break;
+            case "Horse":
+                new HorsePopup(soundGrabber, rectangleGrabber);
+                break;
+
+        }
+    }
+}

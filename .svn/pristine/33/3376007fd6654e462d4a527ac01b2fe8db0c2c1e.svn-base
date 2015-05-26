@@ -1,0 +1,38 @@
+package Projekt.Frame;
+
+class SaxPopup extends InstrumentPopup {
+
+    private static final String sax1 = " I[SOPRANO_SAX] ";
+    private static final String sax2 = " I[ALTO_SAX] ";
+    private static final String sax3 = " I[TENOR_SAX] ";
+    private static final String sax4 = " I[BARITONE_SAX] ";
+    private static final String sax5 = " I[OBOE] ";
+
+    public SaxPopup(MainFrame main, SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Sax");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setMainFrame(main);
+
+        String[] saxLabels = new String[5];
+        saxLabels[0] = "Soprano sax";
+        saxLabels[1] = "Alto sax";
+        saxLabels[2] = "Tenor sax";
+        saxLabels[3] = "Baritone sax";
+        saxLabels[4] = "Oboe";
+
+        String[] saxList = new String[5];
+        saxList[0] = sax1;
+        saxList[1] = sax2;
+        saxList[2] = sax3;
+        saxList[3] = sax4;
+        saxList[4] = sax5;
+
+        this.setInstrumentLabels(saxLabels);
+        this.setInstrumentList(saxList);
+
+        panelMaker(getContentPane());
+        createWindow();
+
+    }
+}

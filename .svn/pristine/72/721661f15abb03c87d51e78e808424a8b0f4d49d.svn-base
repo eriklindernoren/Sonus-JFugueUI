@@ -1,0 +1,10 @@
+package Projekt.Frame;
+
+
+
+public interface DataListener {
+
+    public void dataChanged(Object dataObject);
+
+
+}

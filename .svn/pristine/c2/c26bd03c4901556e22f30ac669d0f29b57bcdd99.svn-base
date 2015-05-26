@@ -1,0 +1,9 @@
+package Projekt.Frame;
+
+/**
+* Houses the method and arguments needed to implement the RectangleObserver.
+ */
+
+interface RectangleObserver {
+    public void update(int channel, String instrument, int times);
+}

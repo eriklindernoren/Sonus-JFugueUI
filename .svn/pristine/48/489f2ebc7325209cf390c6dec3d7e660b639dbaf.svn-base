@@ -1,0 +1,39 @@
+/*
+Handles the creation and modifying of music strings.
+ */
+    package Projekt.Frame;
+
+    import org.jfugue.Pattern;
+
+/**
+ * Extends Pattern which is handles the string that the Player class in JFugue reads when it's
+ * time to play a created soundpattern. We extended that class
+ * to be able to add the methods we needed in the GUI.
+ */
+
+    public class Sound extends Pattern{
+
+        public void addSoundLoop(String sound, int times){
+            for(int i = 1; i <= times; i++){
+                this.add(sound);
+            }
+
+        }
+
+        public void insertInstrumentToMusicString(String instrument){
+            this.insert(instrument);
+        }
+
+        public void insertVolume(int volumeLevel){
+            this.insert(" x[volume]=" + volumeLevel);
+        }
+
+        public void insertChannel(int channel){
+            this.insert(" V" + channel + " ");
+        }
+
+        public void addBeatToMusicString(String beat){
+            this.add(" V" + 9 + " " + beat);
+        }
+
+}

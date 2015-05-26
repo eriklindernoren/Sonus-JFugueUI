@@ -1,0 +1,48 @@
+package Projekt.Sound;
+
+import org.jfugue.*;
+
+public class Main{
+
+    private static final String bass = "I[ACOUSTIC_BASS]";
+    private static final String guitar = "I[NYLON_STRING_GUITAR]";
+    private static final String synth = "I[ELECTRIC_PIANO]";
+    private static final String saxophone = "I[SOPRANO_SAX]";
+    private static final String piano = "I[PIANO]";
+    private static final String drum1 = "I[BASS_DRUM]";
+    private static final String choir = "I[VOICE_OOHS]";
+
+    private static final String channel1 = "V0";
+    private static final String channel2 = "V1";
+    private static final String channel3 = "V2";
+    private static final String channel4 = "V3";
+    private static final String channel5 = "V4";
+    private static final String channel6 = "V5";
+
+
+    public static void main(String[] args) {
+
+        Player player = new Player();
+
+        Sound epicSaxGuyMelody = new Sound();
+        epicSaxGuyMelody.addInstrumentToMusicString(channel1, saxophone);
+        epicSaxGuyMelody.addMusicToMusicstring(channel1, "Bhi Bq");
+        epicSaxGuyMelody.addSoundLoop("Bs Bs Bs As Bs Bh Bs Bs Bs As Bs Bh D6h Bs Ah Gs Eq Es F#q Gs E", 2);
+
+        epicSaxGuyMelody.addInstrumentToMusicString(channel2, guitar);
+        epicSaxGuyMelody.addMusicToMusicstring(channel2, "Bhi Bq");
+        epicSaxGuyMelody.addSoundLoop("Bs Bs Bs As Bs Bh Bs Bs Bs As Bs Bh D6h Bs Ah Gs Eq Es F#q Gs E", 2);
+
+
+        epicSaxGuyMelody.addDrumToMusicString(drum1);
+        epicSaxGuyMelody.addBeatToMusicString("B A D B A D", 20);
+
+        Sound test = new Sound();
+        test.addInstrumentToMusicString(channel1, guitar);
+        test.addMusicToMusicstring(channel1, "Bhi Bq DMajw");
+
+
+        player.play(test);
+
+    }
+}

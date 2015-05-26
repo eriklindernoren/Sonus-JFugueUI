@@ -1,0 +1,48 @@
+package Projekt.Frame;
+
+import java.util.ArrayList;
+
+
+class SoundGrabber implements SoundListener {
+
+    private final ArrayList<SoundObserver> observers;
+    private Sound sound;
+
+    public SoundGrabber(){
+        observers = new ArrayList<SoundObserver>();
+        sound = new Sound();
+    }
+
+    @Override
+    public void register(SoundObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(SoundObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        System.out.println("Observer " + (observerIndex+1) +  " deleted");
+
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(SoundObserver observer: observers){
+            observer.update(sound);
+        }
+    }
+
+    public void setSound(Sound newSound){
+        this.sound = newSound;
+        notifyObserver();
+    }
+
+    public void addToSound(Sound s){
+        this.sound.add(s);
+        notifyObserver();
+    }
+    public Sound getSound(){
+        return sound;
+    }
+}

@@ -1,0 +1,35 @@
+
+    package Projekt.Sound;
+
+    import org.jfugue.*;
+
+    public class Sound {
+
+        private Pattern pattern;
+
+
+        public Sound() {
+            this.pattern = new Pattern();
+        }
+
+        public Pattern getPattern() {
+            return pattern;
+        }
+
+        public void addSoundLoop(String sound, int times){
+            for(int i = 1; i <= times; i++){
+                pattern.add(sound);
+            }
+
+        }
+
+        public void addMusicToMusicstring(String sound){
+            pattern.add(sound);
+        }
+
+        public void addInstrumentToMusicstring(String instrument){
+            pattern.add("I[" + instrument + "] ");
+        }
+
+
+}

@@ -1,0 +1,17 @@
+package Projekt.Frame;
+
+
+public class Main {
+
+
+    public Main(){
+        Frame frame = new Frame();
+        frame.windowmaker();
+    }
+
+
+    public static void main(String[] args) {
+        new Main();
+    }
+
+}

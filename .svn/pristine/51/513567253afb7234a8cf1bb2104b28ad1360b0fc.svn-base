@@ -1,0 +1,194 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+final class MainFrame extends JFrame implements SoundObserver{
+
+    private DisplayPanel displayPanel;
+    //LAYOUT
+    private GridBagLayout mainLayout;
+    //COLORS
+    private final Color backGroundColor = new Color(210,210,210);
+    private final Color separatorBackground = Color.WHITE;
+    //CONSTANTS
+    private static final int LINE_LENGTH = 500;
+    //SOUND
+    private Sound sound;
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+    //RECTANGLE GRABBER
+    private RectangleGrabber rectangleGrabber;
+    //GRID GRABBER
+    private GridGrabber gridGrabber;
+
+    // Constructor
+    public MainFrame()
+    {
+        //CrossPlatformLook
+
+        /*
+        try {
+            UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
+        sound = new Sound();
+        soundGrabber = new SoundGrabber();
+        rectangleGrabber = new RectangleGrabber();
+        gridGrabber = new GridGrabber();
+        registerObserver();
+
+        layoutMaker();
+        menuMaker();
+        panelMaker(getContentPane());
+
+        windowMaker();
+
+    }
+
+    //Methods
+    private void layoutMaker(){
+        mainLayout = new GridBagLayout();
+    }
+
+    void windowMaker()
+    {
+
+        setBackground(backGroundColor);
+        String WINDOW_TITLE = "NO SCOPE";
+        setTitle(WINDOW_TITLE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setVisible(true);
+
+    }
+
+    void menuMaker()
+    {
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu file = new JMenu("File");
+
+        JMenuItem about = new JMenuItem("About");
+        JMenuItem save = new JMenuItem("Save");
+        JMenuItem load = new JMenuItem("Load");
+        JMenuItem quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        setJMenuBar(menuBar);
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "ARE YOU LAME?",
+                        "Choose",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
+    }
+
+    void panelMaker(Container pane)
+    {
+        pane.setLayout(mainLayout);
+        GridBagConstraints layoutConstraints = new GridBagConstraints();
+
+
+        InstrumentPanel instrumentPanel = new InstrumentPanel();
+        instrumentPanel.setRectangleGrabber(rectangleGrabber);
+        instrumentPanel.setSoundGrabber(soundGrabber);
+        instrumentPanel.setBackground(backGroundColor);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(instrumentPanel, layoutConstraints);
+
+
+        displayPanel = new DisplayPanel(gridGrabber);
+        displayPanel.registerGridObserver(rectangleGrabber);
+        displayPanel.setBackground(backGroundColor);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 0;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridwidth = 3;
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(displayPanel, layoutConstraints);
+
+        DirectoryPanel directoryPanel = new DirectoryPanel();
+        directoryPanel.setGridGrabber(gridGrabber);
+        directoryPanel.setSoundGrabber(soundGrabber);
+        directoryPanel.setBackground(backGroundColor);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 4;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.gridheight = 2;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(directoryPanel, layoutConstraints);
+
+        JSeparator separatorLine = new JSeparator();
+        separatorLine.setBackground(separatorBackground);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.gridwidth = 8;
+        layoutConstraints.ipadx = LINE_LENGTH;
+        pane.add(separatorLine, layoutConstraints);
+
+
+        PlayPanel playPanel = new PlayPanel();
+        playPanel.setGridGrabber(gridGrabber);
+        playPanel.setSoundGrabber(soundGrabber);
+        playPanel.registerSoundObserver(soundGrabber);
+        playPanel.setBackground(backGroundColor);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 40;
+        layoutConstraints.gridwidth = 8;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(playPanel, layoutConstraints);
+
+    }
+
+
+    @Override
+    public void update(Sound sound) {
+        this.sound = sound;
+    }
+
+    public void registerObserver() {
+        SoundListener mainSoundListener = soundGrabber;
+        mainSoundListener.register(this);
+    }
+}

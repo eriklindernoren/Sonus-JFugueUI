@@ -1,0 +1,547 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
+/*
+ * This class handles the information needed to load and save the grid. The fillCells field stores the position in which
+ * to draw the rectangles, the cellColors stores the color of the rectangle and the icons field stores the name of the
+ * icon for that rectangle. It also needs to keep track of how many rectangles has been drawn out in the grids channels
+ * to enable the user to add to those channels when a project is loaded. The reasons that we have so many fields
+ * is so that we could implement a back and forward functionality so that the user can regret adding something.
+ * To do that we needed so save the previously made grid and give the program the possibility to go back and forth.
+ */
+
+
+public class GridGrabber implements GridListener{
+    private final ArrayList<GridObserver> observers;
+
+    private static boolean backTrackable = false;
+
+    private static int tracker = 0;
+    private final static int backTrackerLimit = -1;
+
+    private java.util.List<Point> oldestFillCells;
+    private java.util.List<Point> olderFillCells;
+    private java.util.List<Point> prevFillCells;
+    private java.util.List<Point> fillCells;
+    private java.util.List<Point> nextFillCells;
+    private java.util.List<Point> newerFillCells;
+    private java.util.List<Point> newestFillCells;
+
+    private java.util.List<Color> oldestCellColor;
+    private java.util.List<Color> olderCellColor;
+    private java.util.List<Color> prevCellColor;
+    private java.util.List<Color> cellColor;
+    private java.util.List<Color> nextCellColor;
+    private java.util.List<Color> newerCellColor;
+    private java.util.List<Color> newestCellColor;
+
+    private java.util.List<String> oldestIcons;
+    private java.util.List<String> olderIcons;
+    private java.util.List<String> prevIcons;
+    private java.util.List<String> icons;
+    private java.util.List<String> nextIcons;
+    private java.util.List<String> newerIcons;
+    private java.util.List<String> newestIcons;
+
+    private int oldestChannelCount1;
+    private int olderChannelCount1;
+    private int prevChannelCount1;
+    private int channelCount1;
+    private int nextChannelCount1;
+    private int newerChannelCount1;
+    private int newestChannelCount1;
+
+    private int oldestChannelCount2;
+    private int olderChannelCount2;
+    private int prevChannelCount2;
+    private int channelCount2;
+    private int nextChannelCount2;
+    private int newerChannelCount2;
+    private int newestChannelCount2;
+
+    private int oldestChannelCount3;
+    private int olderChannelCount3;
+    private int prevChannelCount3;
+    private int channelCount3;
+    private int nextChannelCount3;
+    private int newerChannelCount3;
+    private int newestChannelCount3;
+
+    private int oldestChannelCount4;
+    private int olderChannelCount4;
+    private int prevChannelCount4;
+    private int channelCount4;
+    private int nextChannelCount4;
+    private int newerChannelCount4;
+    private int newestChannelCount4;
+
+    private int oldestChannelCount5;
+    private int olderChannelCount5;
+    private int prevChannelCount5;
+    private int channelCount5;
+    private int nextChannelCount5;
+    private int newerChannelCount5;
+    private int newestChannelCount5;
+
+    private int oldestChannelCount6;
+    private int olderChannelCount6;
+    private int prevChannelCount6;
+    private int channelCount6;
+    private int nextChannelCount6;
+    private int newerChannelCount6;
+    private int newestChannelCount6;
+
+    private int oldestChannelCount7;
+    private int olderChannelCount7;
+    private int prevChannelCount7;
+    private int channelCount7;
+    private int nextChannelCount7;
+    private int newerChannelCount7;
+    private int newestChannelCount7;
+
+
+    public GridGrabber(){
+
+        observers = new ArrayList<GridObserver>();
+        fillCells = new ArrayList<>(25);
+        cellColor = new ArrayList<>(25);
+        icons = new ArrayList<>(25);
+
+        channelCount1=0;
+        channelCount2=0;
+        channelCount3=0;
+        channelCount4=0;
+        channelCount5=0;
+        channelCount6=0;
+        channelCount7=0;
+
+    }
+    @Override
+    public void register(GridObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(GridObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(GridObserver observer: observers){
+            observer.update(fillCells, cellColor, icons);
+        }
+    }
+
+    public void setGrid(java.util.List<Point> fillCells, java.util.List<Color> cellColor, java.util.List<String> icons,
+                        int channel1, int channel2, int channel3, int channel4, int channel5, int channel6, int channel7) {
+        this.fillCells = fillCells;
+        this.cellColor = cellColor;
+        this.icons = icons;
+        this.channelCount1 = channel1;
+        this.channelCount2 = channel2;
+        this.channelCount3 = channel3;
+        this.channelCount4 = channel4;
+        this.channelCount5 = channel5;
+        this.channelCount6 = channel6;
+        this.channelCount7 = channel7;
+        notifyObserver();
+    }
+
+    public java.util.List<Point> getFillCells() {
+        return fillCells;
+    }
+
+    public java.util.List<Color> getCellColor() {
+        return cellColor;
+    }
+
+    public java.util.List<String> getIcons() {
+        return icons;
+    }
+
+    public int getChannelCount1() {
+        return channelCount1;
+    }
+
+
+    public int getChannelCount2() {
+        return channelCount2;
+    }
+
+    public int getChannelCount3() {
+        return channelCount3;
+    }
+
+
+    public int getChannelCount4() {
+        return channelCount4;
+    }
+
+    public int getChannelCount5() {
+        return channelCount5;
+    }
+
+    public int getChannelCount6() {
+        return channelCount6;
+    }
+
+
+    public int getChannelCount7() {
+        return channelCount7;
+    }
+
+    public void backChannelCount1(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount1 = newerChannelCount1;
+            newerChannelCount1 = nextChannelCount1;
+            nextChannelCount1 = channelCount1;
+            channelCount1 = prevChannelCount1;
+            prevChannelCount1 = olderChannelCount1;
+            System.out.println(prevChannelCount1);
+            System.out.println(channelCount1);
+            olderChannelCount1 = oldestChannelCount1;
+            oldestChannelCount1 = 0;
+        }
+    }
+    public void setChannelCount1(int channelCount1) {
+        oldestChannelCount1 = (channelCount1>3? channelCount1-3:0);
+        olderChannelCount1 = (channelCount1>2? channelCount1-2:0);
+        prevChannelCount1 = (channelCount1>1? channelCount1-1:0);
+        System.out.println(prevChannelCount1);
+        this.channelCount1 = channelCount1;
+        System.out.println(channelCount1);
+        nextChannelCount1 = 0;
+        newerChannelCount1 = 0;
+        newestChannelCount1 = 0;
+    }
+    public void forwardChannelCount1(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount1 = olderChannelCount1;
+            olderChannelCount1 = oldestChannelCount1;
+            prevChannelCount1 = channelCount1;
+            channelCount1 = nextChannelCount1;
+            nextChannelCount1 = newerChannelCount1;
+            newerChannelCount1 = newestChannelCount1;
+            newestChannelCount1 = 0;
+        }
+    }
+
+    public void backChannelCount2(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount2 = newerChannelCount2;
+            newerChannelCount2 = nextChannelCount2;
+            nextChannelCount2 = channelCount2;
+            channelCount2 = prevChannelCount2;
+            prevChannelCount2 = olderChannelCount2;
+            olderChannelCount2 = oldestChannelCount2;
+            oldestChannelCount2 = 0;
+        }
+    }
+    public void setChannelCount2(int channelCount2) {
+        oldestChannelCount2 = (channelCount2>3? channelCount2-3:0);
+        olderChannelCount2 = (channelCount2>2? channelCount2-2:0);
+        prevChannelCount2 = (channelCount2>1? channelCount2-1:0);
+        this.channelCount2 = channelCount2;
+        nextChannelCount2 = 0;
+        newerChannelCount2 = 0;
+        newestChannelCount2 = 0;
+    }
+    public void forwardChannelCount2(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount2 = olderChannelCount2;
+            olderChannelCount2 = oldestChannelCount2;
+            prevChannelCount2 = channelCount2;
+            channelCount2 = nextChannelCount2;
+            nextChannelCount2 = newerChannelCount2;
+            newerChannelCount2 = newestChannelCount2;
+            newestChannelCount2 = 0;
+        }
+    }
+
+    public void backChannelCount3(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount3 = newerChannelCount3;
+            newerChannelCount3 = nextChannelCount3;
+            nextChannelCount3 = channelCount3;
+            channelCount3 = prevChannelCount3;
+            prevChannelCount3 = olderChannelCount3;
+            olderChannelCount3 = oldestChannelCount3;
+            oldestChannelCount3 = 0;
+        }
+    }
+    public void setChannelCount3(int channelCount3) {
+        oldestChannelCount3 = (channelCount3>3? channelCount3-3:0);
+        olderChannelCount3 = (channelCount3>2? channelCount3-2:0);
+        prevChannelCount3 = (channelCount3>1? channelCount3-1:0);
+        this.channelCount3 = channelCount3;
+        nextChannelCount3 = 0;
+        newerChannelCount3 = 0;
+        newestChannelCount3 = 0;
+    }
+    public void forwardChannelCount3(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount3 = olderChannelCount3;
+            olderChannelCount3 = oldestChannelCount3;
+            prevChannelCount3 = channelCount3;
+            channelCount3 = nextChannelCount3;
+            nextChannelCount3 = newerChannelCount3;
+            newerChannelCount3 = newestChannelCount3;
+            newestChannelCount3 = 0;
+        }
+    }
+
+    public void backChannelCount4(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount4 = newerChannelCount4;
+            newerChannelCount4 = nextChannelCount4;
+            nextChannelCount4 = channelCount4;
+            channelCount4 = prevChannelCount4;
+            prevChannelCount4 = olderChannelCount4;
+            olderChannelCount4 = oldestChannelCount4;
+            oldestChannelCount4 = 0;
+        }
+    }
+    public void setChannelCount4(int channelCount4) {
+        oldestChannelCount4 = (channelCount4>3? channelCount4-3:0);
+        olderChannelCount4 = (channelCount4>2? channelCount4-2:0);
+        prevChannelCount4 = (channelCount4>1? channelCount4-1:0);
+        this.channelCount4 = channelCount4;
+        nextChannelCount4 = 0;
+        newerChannelCount4 = 0;
+        newestChannelCount4 = 0;
+    }
+    public void forwardChannelCount4(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount4 = olderChannelCount4;
+            olderChannelCount4 = oldestChannelCount4;
+            prevChannelCount4 = channelCount4;
+            channelCount4 = nextChannelCount4;
+            nextChannelCount4 = newerChannelCount4;
+            newerChannelCount4 = newestChannelCount4;
+            newestChannelCount4 = 0;
+        }
+    }
+
+    public void backChannelCount5(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount5 = newerChannelCount5;
+            newerChannelCount5 = nextChannelCount5;
+            nextChannelCount5 = channelCount5;
+            channelCount5 = prevChannelCount5;
+            prevChannelCount5 = olderChannelCount5;
+            olderChannelCount5 = oldestChannelCount5;
+            oldestChannelCount5 = 0;
+        }
+    }
+    public void setChannelCount5(int channelCount5) {
+        oldestChannelCount5 = (channelCount5>3? channelCount5-3:0);
+        olderChannelCount5 = (channelCount5>2? channelCount5-2:0);
+        prevChannelCount5 = (channelCount5>1? channelCount5-1:0);
+        this.channelCount5 = channelCount5;
+        nextChannelCount5 = 0;
+        newerChannelCount5 = 0;
+        newestChannelCount5 = 0;
+    }
+    public void forwardChannelCount5(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount5 = olderChannelCount5;
+            olderChannelCount5 = oldestChannelCount5;
+            prevChannelCount5 = channelCount5;
+            channelCount5 = nextChannelCount5;
+            nextChannelCount5 = newerChannelCount5;
+            newerChannelCount5 = newestChannelCount5;
+            newestChannelCount5 = 0;
+        }
+    }
+
+    public void backChannelCount6(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount6 = newerChannelCount6;
+            newerChannelCount6 = nextChannelCount6;
+            nextChannelCount6 = channelCount6;
+            channelCount6 = prevChannelCount6;
+            prevChannelCount6 = olderChannelCount6;
+            olderChannelCount6 = oldestChannelCount6;
+            oldestChannelCount6 = 0;
+        }
+    }
+    public void setChannelCount6(int channelCount6) {
+        oldestChannelCount6 = (channelCount6>3? channelCount6-3:0);
+        olderChannelCount6 = (channelCount6>2? channelCount6-2:0);
+        prevChannelCount6 = (channelCount6>1? channelCount6-1:0);
+        this.channelCount6 = channelCount6;
+        nextChannelCount6 = 0;
+        newerChannelCount6 = 0;
+        newestChannelCount6 = 0;
+    }
+    public void forwardChannelCount6(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount6 = olderChannelCount6;
+            olderChannelCount6 = oldestChannelCount6;
+            prevChannelCount6 = channelCount6;
+            channelCount6 = nextChannelCount6;
+            nextChannelCount6 = newerChannelCount6;
+            newerChannelCount6 = newestChannelCount6;
+            newestChannelCount6 = 0;
+        }
+    }
+
+    public void backChannelCount7(){
+        if(tracker> backTrackerLimit && backTrackable){
+            newestChannelCount7 = newerChannelCount7;
+            newerChannelCount7 = nextChannelCount7;
+            nextChannelCount7 = channelCount7;
+            channelCount7 = prevChannelCount7;
+            prevChannelCount7 = olderChannelCount7;
+            olderChannelCount7 = oldestChannelCount7;
+            oldestChannelCount7 = 0;
+        }
+    }
+    public void setChannelCount7(int channelCount7) {
+        oldestChannelCount7 = (channelCount7>3? channelCount7-3:0);
+        olderChannelCount7 = (channelCount7>2? channelCount7-2:0);
+        prevChannelCount7 = (channelCount7>1? channelCount7-1:0);
+        this.channelCount7 = channelCount7;
+        nextChannelCount7 = 0;
+        newerChannelCount7 = 0;
+        newestChannelCount7 = 0;
+    }
+    public void forwardChannelCount7(){
+        if(tracker< 0 && backTrackable){
+            oldestChannelCount7 = olderChannelCount7;
+            olderChannelCount7 = oldestChannelCount7;
+            prevChannelCount7 = channelCount7;
+            channelCount7 = nextChannelCount7;
+            nextChannelCount7 = newerChannelCount7;
+            newerChannelCount7 = newestChannelCount7;
+            newestChannelCount7 = 0;
+        }
+    }
+
+    public void backFillCells(){
+        if(tracker> backTrackerLimit && prevFillCells != null && backTrackable){
+            newestFillCells = newerFillCells;
+            newerFillCells = nextFillCells;
+            nextFillCells = fillCells;
+            fillCells = prevFillCells;
+            prevFillCells = olderFillCells;
+            olderFillCells = oldestFillCells;
+            oldestFillCells = null;
+
+        }
+    }
+    public void setFillCells(List<Point> newFillCells) {
+        this.fillCells = newFillCells;
+        prevFillCells = (newFillCells.size()>0? newFillCells.subList(0, newFillCells.size()-1): null);
+        olderFillCells = (newFillCells.size()>1? newFillCells.subList(0, newFillCells.size()-2): null);
+        oldestFillCells = (newFillCells.size()>2? newFillCells.subList(0, newFillCells.size()-3): null);
+        nextFillCells = null;
+        newerFillCells = null;
+        newestFillCells = null;
+    }
+    public void forwardFillCells(){
+        if(tracker< 0 && nextFillCells != null && backTrackable){
+            fillCells = nextFillCells;
+            prevFillCells = (nextFillCells.size() >= 1 ? nextFillCells.subList(0, nextFillCells.size()-1): null);
+            olderFillCells = (nextFillCells.size() >= 2 ? nextFillCells.subList(0, nextFillCells.size()-1): null);
+            oldestFillCells = (nextFillCells.size() >= 3 ? nextFillCells.subList(0, nextFillCells.size()-1): null);
+            nextFillCells = (newerFillCells != null ? newerFillCells.subList(0, newerFillCells.size()-1): null);
+            newerFillCells = (newestFillCells != null ? newestFillCells.subList(0, newestFillCells.size()-1): null);
+            newestFillCells= null;
+        }
+    }
+
+    public void backCellColor(){
+        if(tracker> backTrackerLimit && prevCellColor != null && backTrackable){
+            newestCellColor = newerCellColor;
+            newerCellColor = nextCellColor;
+            nextCellColor = cellColor;
+            cellColor = prevCellColor;
+            prevCellColor = olderCellColor;
+            olderCellColor = oldestCellColor;
+            oldestCellColor = null;
+        }
+    }
+    public void setCellColor(List<Color> newCellColor) {
+        this.cellColor = newCellColor;
+        prevCellColor = (newCellColor.size()>0? newCellColor.subList(0, newCellColor.size()-1): null);
+        olderCellColor = (newCellColor.size()>1 ? newCellColor.subList(0, newCellColor.size()-2): null);
+        oldestCellColor = (newCellColor.size() > 2  ? newCellColor.subList(0, newCellColor.size()-3): null);
+        nextCellColor = null;
+        newerCellColor = null;
+        newestCellColor = null;
+    }
+    public void forwardCellColor(){
+        if(tracker< 0 && nextCellColor != null && backTrackable){
+            cellColor = nextCellColor;
+            prevCellColor = (nextCellColor.size() >= 1 ? nextCellColor.subList(0, nextCellColor.size()-1): null);
+            olderCellColor = (nextCellColor.size() >= 2 ? nextCellColor.subList(0, nextCellColor.size() - 1): null);
+            oldestCellColor = (nextCellColor.size() >= 3 ? nextCellColor.subList(0, nextCellColor.size()-1): null);
+            nextCellColor = (newerCellColor != null ? newerCellColor.subList(0, newerCellColor.size()-1): null);
+            newerCellColor = (newestCellColor != null ? newestCellColor.subList(0, newestCellColor.size()-1): null);
+            newestCellColor = null;
+        }
+    }
+
+    public void backIcons(){
+        if(tracker> backTrackerLimit && prevIcons != null && backTrackable){
+            tracker -= 1;
+            newestIcons = newerIcons;
+            newerIcons = nextIcons;
+            nextIcons = icons;
+            icons = prevIcons;
+            prevIcons = olderIcons;
+            olderIcons = oldestIcons;
+            oldestIcons = null;
+
+            setGrid(fillCells, cellColor, icons, channelCount1, channelCount2, channelCount3, channelCount4, channelCount5, channelCount6, channelCount7);
+        }
+    }
+    public void setIcons(List<String> newIcons) {
+        tracker = 0;
+        setBackTrackable(true);
+        this.icons = newIcons;
+        prevIcons = (newIcons.size()>0? newIcons.subList(0, newIcons.size()-1): null);
+        olderIcons = (newIcons.size() > 1  ? newIcons.subList(0, newIcons.size()-2): null);
+        oldestIcons = (newIcons.size() > 2  ? newIcons.subList(0, newIcons.size()-3): null);
+        System.out.println(oldestIcons);
+        System.out.println(olderIcons);
+        System.out.println(prevIcons);
+        System.out.println(icons);
+        nextIcons = null;
+        newerIcons = null;
+        newestIcons = null;
+    }
+    public void forwardIcons(){
+        if(tracker < 0 && nextIcons != null && backTrackable){
+            tracker += 1;
+            icons = nextIcons;
+            prevIcons = (nextIcons.size() >= 1 ? nextIcons.subList(0, nextIcons.size()-1): null);
+            olderIcons = (nextIcons.size() >= 2 ? nextIcons.subList(0, nextIcons.size()-1): null);
+            oldestIcons = (nextIcons.size() >= 3 ? nextIcons.subList(0, nextIcons.size()-1): null);
+            nextIcons = (newerIcons != null ? newerIcons.subList(0, newerIcons.size()-1): null);
+            newerIcons = (newestIcons != null ? newestIcons.subList(0, newestIcons.size()-1): null);
+            newestIcons = null;
+
+            System.out.println(nextIcons);
+            System.out.println(icons);
+            System.out.println(prevIcons);
+
+            setGrid(fillCells, cellColor, icons, channelCount1, channelCount2, channelCount3, channelCount4, channelCount5, channelCount6, channelCount7);
+        }
+    }
+
+    public static void setBackTrackable(boolean backTrackable) {
+        GridGrabber.backTrackable = backTrackable;
+    }
+
+    public static void setTracker(int tracker) {
+        GridGrabber.tracker = tracker;
+    }
+}

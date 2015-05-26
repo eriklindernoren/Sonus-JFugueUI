@@ -1,0 +1,36 @@
+package Projekt.Frame;
+
+class PianoPopup extends InstrumentPopup {
+
+    private static final String piano1 = " I[PIANO] ";
+    private static final String piano2 = " I[ACOUSTIC_GRAND] ";
+    private static final String piano3 = " I[BRIGHT_ACOUSTIC] ";
+    private static final String piano4 = " I[ELECTRIC_PIANO] ";
+    private static final String piano5 = " I[ELECTRIC_PIANO_1] ";
+
+    public PianoPopup(MainFrame main, SoundGrabber popupSoundGrabber){
+        this.setInstrumentID("Piano");
+        this.setPopupSoundGrabber(popupSoundGrabber);
+        this.setMainFrame(main);
+
+        String []pianoLabels = new String[5];
+        pianoLabels[0] = "Ordinary Piano";
+        pianoLabels[1] = "Acoustic grand";
+        pianoLabels[2] = "Bright Acoustic";
+        pianoLabels[3] = "Electric Piano 1";
+        pianoLabels[4] = "Electric Piano 2";
+
+        String[] pianoList = new String[5];
+        pianoList[0] = piano1;
+        pianoList[1] = piano2;
+        pianoList[2] = piano3;
+        pianoList[3] = piano4;
+        pianoList[4] = piano5;
+
+        this.setInstrumentLabels(pianoLabels);
+        this.setInstrumentList(pianoList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

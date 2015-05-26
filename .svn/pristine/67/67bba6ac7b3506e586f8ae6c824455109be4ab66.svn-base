@@ -1,0 +1,89 @@
+package Projekt.Frame;
+
+import org.jfugue.Player;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class PlayPanel extends JPanel
+{
+    private JButton play, stop;
+    private GridBagLayout playLayout;
+    private GridBagConstraints layoutConstraints;
+    private Color buttonBackground = Color.WHITE;
+    private SoundPlay player;
+    private int LINE_LENGTH = 500;
+    private int BUTTON_SIZE_X = 70;
+    private int BUTTON_SIZE_Y = 20;
+
+
+    public PlayPanel()
+    {
+        player = new SoundPlay();
+        setPanelLayout();
+        makeLine();
+        makeButtons();
+
+    }
+
+    private void setPanelLayout(){
+        playLayout = new GridBagLayout();
+    }
+
+    private void makeLine(){
+        layoutConstraints = new GridBagConstraints();
+
+        JSeparator separatorLine = new JSeparator();
+        separatorLine.setBackground(Color.LIGHT_GRAY);
+        setLayout(playLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.ipadx = LINE_LENGTH;
+        this.add(separatorLine, layoutConstraints);
+
+    }
+
+    private void makeButtons(){
+
+        play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        setLayout(playLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        this.add(play, layoutConstraints);
+
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.playEpicSax();
+            }
+        });
+
+        stop = new JButton("STOP");
+        stop.setBackground(buttonBackground);
+        setLayout(playLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        this.add(stop, layoutConstraints);
+
+        stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.stopSound();
+            }
+        });
+
+}
+
+}

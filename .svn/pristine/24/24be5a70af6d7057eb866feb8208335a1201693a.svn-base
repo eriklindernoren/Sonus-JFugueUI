@@ -1,0 +1,35 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class InstrumentPanel
+{
+
+    private JButton button;
+
+    public InstrumentPanel() {
+
+        JPanel ipanel = new JPanel();
+
+        ipanel.setBackground(Color.RED);
+        //ipanel.setPreferredSize(new Dimension(200, 200));
+        //ipanel.setLayout(null);
+
+        button = new JButton("ipanel");
+        button.setBounds(20, 20, 200, 40);
+        button.setVisible(true);
+        ipanel.add(button);
+        ipanel.setVisible(true);
+
+    }
+
+
+}

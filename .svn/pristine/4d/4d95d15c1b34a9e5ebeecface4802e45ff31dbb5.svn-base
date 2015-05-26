@@ -1,0 +1,1802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="2de158c6-8cb2-49a5-94c3-dec8bbb205c6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Projekt/Frame/Grid.java" afterPath="$PROJECT_DIR$/src/Projekt/Frame/Grid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound.iws" afterPath="$PROJECT_DIR$/Sound.iws" />
+    </list>
+    <ignored path="Sound.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Sound" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MainFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="36" selection-start="3864" selection-end="3864" vertical-scroll-proportion="-2.7692308" vertical-offset="2088" max-vertical-offset="3030">
+              <folding>
+                <element signature="e#1324#1490#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1542#1543#0" expanded="true" />
+                <element signature="e#1570#1571#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DataListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InstrumentPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="39" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="412" max-vertical-offset="2190">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SongPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="34" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="2040">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoreControl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Test/CoreControl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="4" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1140">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1378#2015#0" expanded="true" />
+                <element signature="e#2004#2005#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="35" selection-start="790" selection-end="790" vertical-scroll-proportion="0.5940803" vertical-offset="154" max-vertical-offset="780">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DirectoryPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="27" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="2640">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sound.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="28" selection-start="1400" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="975">
+              <folding>
+                <element signature="e#0#1624#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="24" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2055">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2179#2340#0" expanded="true" />
+                <element signature="e#2329#2330#0" expanded="true" />
+                <element signature="e#2722#2878#0" expanded="true" />
+                <element signature="e#2867#2868#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InstrumentPopup.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="32" selection-start="301" selection-end="301" vertical-scroll-proportion="-5.769231" vertical-offset="45" max-vertical-offset="10695">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/Projekt/Main.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Sound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Sound/FrereJacques.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Sound/Sound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/AddToSound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/PlaySound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Sound/Main.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Main.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/SoundPlay.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Sound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/DataListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Test/hui.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Test/CoreControl.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Grid.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1362" />
+    <option name="height" value="746" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Programmering/Projekt/trunk/src/Projekt/jfugue-4.0.3.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="ce" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Projekt.Frame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="svn" revision="1841">$PROJECT_DIR$/src/Projekt/Frame/DataListener.java</PATH>
+            <PATH vcs="svn" revision="1841">$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java</PATH>
+            <PATH vcs="svn" revision="1841">$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java</PATH>
+            <PATH vcs="svn" revision="1841">$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+            <PATH vcs="svn" revision="1841">$PROJECT_DIR$/src/Projekt/Frame/Guitar-icon.ico</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Frame.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Sound.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="FrereJacques" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Sound.FrereJacques" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GridTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Test.GridTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CoreControl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Test.CoreControl" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Application.FrereJacques" />
+      <item index="3" class="java.lang.String" itemvalue="Application.GridTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.CoreControl" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.CoreControl" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.GridTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.FrereJacques" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="StatisticProjectComponent">
+    <option name="excludeCompilerOutput" value="true" />
+    <option name="excludeIdea9ArtifactDirectory" value="true" />
+    <option name="excludeTargetDirectories" value="true" />
+    <option name="activateWhenOpenProject" value="true" />
+    <option name="excludedDirectories">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="fileTypes" value="class;svn-base;svn-work;Extra;gif;png;jpg;jpeg;bmp;tga;tiff;ear;war;zip;jar;iml;iws;ipr;bz2;gz;" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2de158c6-8cb2-49a5-94c3-dec8bbb205c6" name="Default" comment="" />
+      <created>1395774850589</created>
+      <updated>1395774850589</updated>
+    </task>
+    <task id="LOCAL-00001">
+      <created>1395776820113</created>
+      <updated>1395776820113</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1395777307112</created>
+      <updated>1395777307112</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1395777766112</created>
+      <updated>1395777766112</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1395779326112</created>
+      <updated>1395779326112</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1395781822113</created>
+      <updated>1395781822113</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1395782388111</created>
+      <updated>1395782388111</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1395844858121</created>
+      <updated>1395844858121</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1395849704125</created>
+      <updated>1395849704125</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1395850501113</created>
+      <updated>1395850501113</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1395852474112</created>
+      <updated>1395852474112</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1395854880113</created>
+      <updated>1395854880113</updated>
+    </task>
+    <task id="LOCAL-00012">
+      <created>1395925168121</created>
+      <updated>1395925168121</updated>
+    </task>
+    <task id="LOCAL-00013" summary="&#10;">
+      <created>1395927891112</created>
+      <updated>1395927891112</updated>
+    </task>
+    <task id="LOCAL-00014" summary="&#10;">
+      <created>1395928857113</created>
+      <updated>1395928857113</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&#10;">
+      <created>1395930964113</created>
+      <updated>1395930964113</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&#10;">
+      <created>1395931785118</created>
+      <updated>1395931785118</updated>
+    </task>
+    <task id="LOCAL-00017" summary="&#10;">
+      <created>1395932060113</created>
+      <updated>1395932060113</updated>
+    </task>
+    <task id="LOCAL-00018" summary="&#10;">
+      <created>1395936711113</created>
+      <updated>1395936711113</updated>
+    </task>
+    <task id="LOCAL-00019" summary="&#10;">
+      <created>1395943740113</created>
+      <updated>1395943740113</updated>
+    </task>
+    <task id="LOCAL-00020" summary="&#10;">
+      <created>1396093394113</created>
+      <updated>1396093394113</updated>
+    </task>
+    <task id="LOCAL-00021" summary="&#10;">
+      <created>1396094436113</created>
+      <updated>1396094436113</updated>
+    </task>
+    <task id="LOCAL-00022" summary="&#10;">
+      <created>1396095849112</created>
+      <updated>1396095849112</updated>
+    </task>
+    <task id="LOCAL-00023" summary="&#10;">
+      <created>1396096123112</created>
+      <updated>1396096123112</updated>
+    </task>
+    <task id="LOCAL-00024" summary="&#10;">
+      <created>1396096714112</created>
+      <updated>1396096714112</updated>
+    </task>
+    <task id="LOCAL-00025" summary="&#10;">
+      <created>1396096849111</created>
+      <updated>1396096849111</updated>
+    </task>
+    <task id="LOCAL-00026" summary="&#10;">
+      <created>1396097938113</created>
+      <updated>1396097938113</updated>
+    </task>
+    <task id="LOCAL-00027" summary="&#10;">
+      <created>1396098475111</created>
+      <updated>1396098475111</updated>
+    </task>
+    <task id="LOCAL-00028" summary="&#10;">
+      <created>1396099498113</created>
+      <updated>1396099498113</updated>
+    </task>
+    <task id="LOCAL-00029" summary="&#10;">
+      <created>1396099736113</created>
+      <updated>1396099736113</updated>
+    </task>
+    <task id="LOCAL-00030" summary="&#10;">
+      <created>1396100278113</created>
+      <updated>1396100278113</updated>
+    </task>
+    <task id="LOCAL-00031" summary="&#10;">
+      <created>1396100588112</created>
+      <updated>1396100588112</updated>
+    </task>
+    <task id="LOCAL-00032" summary="&#10;">
+      <created>1396101711113</created>
+      <updated>1396101711113</updated>
+    </task>
+    <task id="LOCAL-00033" summary="&#10;">
+      <created>1396101965113</created>
+      <updated>1396101965113</updated>
+    </task>
+    <task id="LOCAL-00034" summary="&#10;">
+      <created>1396102147113</created>
+      <updated>1396102147113</updated>
+    </task>
+    <task id="LOCAL-00035" summary="&#10;">
+      <created>1396102225113</created>
+      <updated>1396102225113</updated>
+    </task>
+    <task id="LOCAL-00036" summary="&#10;">
+      <created>1396102457113</created>
+      <updated>1396102457113</updated>
+    </task>
+    <task id="LOCAL-00037" summary="&#10;">
+      <created>1396104705112</created>
+      <updated>1396104705112</updated>
+    </task>
+    <task id="LOCAL-00038" summary="&#10;">
+      <created>1396105546112</created>
+      <updated>1396105546113</updated>
+    </task>
+    <task id="LOCAL-00039" summary="&#10;">
+      <created>1396105629111</created>
+      <updated>1396105629111</updated>
+    </task>
+    <task id="LOCAL-00040" summary="&#10;">
+      <created>1396107263124</created>
+      <updated>1396107263124</updated>
+    </task>
+    <task id="LOCAL-00041" summary="&#10;">
+      <created>1396108121113</created>
+      <updated>1396108121113</updated>
+    </task>
+    <task id="LOCAL-00042" summary="&#10;">
+      <created>1396108576114</created>
+      <updated>1396108576114</updated>
+    </task>
+    <task id="LOCAL-00043" summary="&#10;">
+      <created>1396108875111</created>
+      <updated>1396108875111</updated>
+    </task>
+    <task id="LOCAL-00044" summary="&#10;">
+      <created>1396109451112</created>
+      <updated>1396109451112</updated>
+    </task>
+    <task id="LOCAL-00045" summary="&#10;">
+      <created>1396110047112</created>
+      <updated>1396110047112</updated>
+    </task>
+    <task id="LOCAL-00046" summary="&#10;">
+      <created>1396110630112</created>
+      <updated>1396110630112</updated>
+    </task>
+    <task id="LOCAL-00047" summary="&#10;">
+      <created>1396110953113</created>
+      <updated>1396110953113</updated>
+    </task>
+    <task id="LOCAL-00048" summary="&#10;">
+      <created>1396111197113</created>
+      <updated>1396111197113</updated>
+    </task>
+    <task id="LOCAL-00049" summary="&#10;">
+      <created>1396111578113</created>
+      <updated>1396111578113</updated>
+    </task>
+    <task id="LOCAL-00050" summary="&#10;">
+      <created>1396111784112</created>
+      <updated>1396111784113</updated>
+    </task>
+    <task id="LOCAL-00051" summary="&#10;">
+      <created>1396111955112</created>
+      <updated>1396111955113</updated>
+    </task>
+    <task id="LOCAL-00052" summary="&#10;">
+      <created>1396112212113</created>
+      <updated>1396112212113</updated>
+    </task>
+    <task id="LOCAL-00053" summary="&#10;">
+      <created>1396112773112</created>
+      <updated>1396112773112</updated>
+    </task>
+    <task id="LOCAL-00054" summary="&#10;">
+      <created>1396113773111</created>
+      <updated>1396113773112</updated>
+    </task>
+    <task id="LOCAL-00055" summary="&#10;">
+      <created>1396114700112</created>
+      <updated>1396114700113</updated>
+    </task>
+    <task id="LOCAL-00056" summary="&#10;">
+      <created>1396115124113</created>
+      <updated>1396115124113</updated>
+    </task>
+    <task id="LOCAL-00057" summary="&#10;">
+      <created>1396115372112</created>
+      <updated>1396115372113</updated>
+    </task>
+    <task id="LOCAL-00058" summary="&#10;">
+      <created>1396139664113</created>
+      <updated>1396139664113</updated>
+    </task>
+    <task id="LOCAL-00059" summary="&#10;">
+      <created>1396140697113</created>
+      <updated>1396140697113</updated>
+    </task>
+    <task id="LOCAL-00060" summary="&#10;">
+      <created>1396141357114</created>
+      <updated>1396141357114</updated>
+    </task>
+    <task id="LOCAL-00061" summary="&#10;">
+      <created>1396259952112</created>
+      <updated>1396259952113</updated>
+    </task>
+    <task id="LOCAL-00062" summary="&#10;">
+      <created>1396513965125</created>
+      <updated>1396513965126</updated>
+    </task>
+    <task id="LOCAL-00063" summary="&#10;">
+      <created>1396516151113</created>
+      <updated>1396516151113</updated>
+    </task>
+    <task id="LOCAL-00064" summary="&#10;">
+      <created>1396516472104</created>
+      <updated>1396516472105</updated>
+    </task>
+    <task id="LOCAL-00065" summary="&#10;">
+      <created>1396516559113</created>
+      <updated>1396516559114</updated>
+    </task>
+    <task id="LOCAL-00066" summary="&#10;">
+      <created>1396518156113</created>
+      <updated>1396518156113</updated>
+    </task>
+    <task id="LOCAL-00067" summary="&#10;">
+      <created>1396522027113</created>
+      <updated>1396522027114</updated>
+    </task>
+    <task id="LOCAL-00068" summary="&#10;">
+      <created>1396523370112</created>
+      <updated>1396523370113</updated>
+    </task>
+    <task id="LOCAL-00069" summary="&#10;">
+      <created>1396524533113</created>
+      <updated>1396524533114</updated>
+    </task>
+    <task id="LOCAL-00070" summary="&#10;">
+      <created>1396528338106</created>
+      <updated>1396528338107</updated>
+    </task>
+    <task id="LOCAL-00071" summary="&#10;">
+      <created>1396528448113</created>
+      <updated>1396528448114</updated>
+    </task>
+    <task id="LOCAL-00072" summary="&#10;">
+      <created>1396537051113</created>
+      <updated>1396537051113</updated>
+    </task>
+    <task id="LOCAL-00073" summary="&#10;">
+      <created>1396537633113</created>
+      <updated>1396537633114</updated>
+    </task>
+    <task id="LOCAL-00074" summary="&#10;">
+      <created>1396802058123</created>
+      <updated>1396802058123</updated>
+    </task>
+    <task id="LOCAL-00075" summary="&#10;">
+      <created>1396804616112</created>
+      <updated>1396804616113</updated>
+    </task>
+    <task id="LOCAL-00076" summary="&#10;">
+      <created>1396804685105</created>
+      <updated>1396804685105</updated>
+    </task>
+    <task id="LOCAL-00077" summary="&#10;">
+      <created>1396804971112</created>
+      <updated>1396804971113</updated>
+    </task>
+    <task id="LOCAL-00078" summary="&#10;">
+      <created>1396805099104</created>
+      <updated>1396805099105</updated>
+    </task>
+    <task id="LOCAL-00079" summary="&#10;">
+      <created>1396805144104</created>
+      <updated>1396805144104</updated>
+    </task>
+    <task id="LOCAL-00080" summary="&#10;">
+      <created>1396806450116</created>
+      <updated>1396806450116</updated>
+    </task>
+    <task id="LOCAL-00081" summary="&#10;">
+      <created>1396809464113</created>
+      <updated>1396809464113</updated>
+    </task>
+    <task id="LOCAL-00082" summary="&#10;">
+      <created>1397835390124</created>
+      <updated>1397835390125</updated>
+    </task>
+    <task id="LOCAL-00083" summary="&#10;">
+      <created>1397838701113</created>
+      <updated>1397838701114</updated>
+    </task>
+    <task id="LOCAL-00084" summary="&#10;">
+      <created>1397842269112</created>
+      <updated>1397842269113</updated>
+    </task>
+    <task id="LOCAL-00085" summary="&#10;">
+      <created>1398279073120</created>
+      <updated>1398279073121</updated>
+    </task>
+    <task id="LOCAL-00086" summary="&#10;">
+      <created>1398280117119</created>
+      <updated>1398280117119</updated>
+    </task>
+    <task id="LOCAL-00087" summary="&#10;">
+      <created>1398455269114</created>
+      <updated>1398455269115</updated>
+    </task>
+    <task id="LOCAL-00088" summary="&#10;">
+      <created>1400062483125</created>
+      <updated>1400062483125</updated>
+    </task>
+    <task id="LOCAL-00089" summary="&#10;">
+      <created>1400065604113</created>
+      <updated>1400065604113</updated>
+    </task>
+    <task id="LOCAL-00090" summary="&#10;">
+      <created>1400067496112</created>
+      <updated>1400067496113</updated>
+    </task>
+    <task id="LOCAL-00091" summary="&#10;">
+      <created>1400087041112</created>
+      <updated>1400087041112</updated>
+    </task>
+    <task id="LOCAL-00092" summary="&#10;">
+      <created>1400090999112</created>
+      <updated>1400090999112</updated>
+    </task>
+    <task id="LOCAL-00093" summary="&#10;">
+      <created>1400091302112</created>
+      <updated>1400091302112</updated>
+    </task>
+    <task id="LOCAL-00094" summary="&#10;">
+      <created>1400092034112</created>
+      <updated>1400092034112</updated>
+    </task>
+    <task id="LOCAL-00095" summary="&#10;">
+      <created>1400093432112</created>
+      <updated>1400093432113</updated>
+    </task>
+    <task id="LOCAL-00096" summary="&#10;">
+      <created>1400093637112</created>
+      <updated>1400093637112</updated>
+    </task>
+    <task id="LOCAL-00097" summary="&#10;">
+      <created>1400094555112</created>
+      <updated>1400094555112</updated>
+    </task>
+    <task id="LOCAL-00098" summary="&#10;">
+      <created>1400096487112</created>
+      <updated>1400096487112</updated>
+    </task>
+    <task id="LOCAL-00099" summary="&#10;">
+      <created>1400097613104</created>
+      <updated>1400097613104</updated>
+    </task>
+    <task id="LOCAL-00100" summary="&#10;">
+      <created>1400097731112</created>
+      <updated>1400097731112</updated>
+    </task>
+    <task id="LOCAL-00101" summary="&#10;">
+      <created>1400098393112</created>
+      <updated>1400098393112</updated>
+    </task>
+    <task id="LOCAL-00102" summary="&#10;">
+      <created>1400098473111</created>
+      <updated>1400098473111</updated>
+    </task>
+    <task id="LOCAL-00103" summary="&#10;">
+      <created>1400098765104</created>
+      <updated>1400098765104</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="22" width="1362" height="746" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16838996" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20384048" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496306" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962853" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24669604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22599705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32791728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="35" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1935">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="19" selection-start="20702" selection-end="20702" vertical-scroll-proportion="0.0" vertical-offset="9570" max-vertical-offset="10635">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="45" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2685">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="51" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
+          <folding>
+            <element signature="e#0#1624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="35" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1935">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="19" selection-start="20702" selection-end="20702" vertical-scroll-proportion="0.0" vertical-offset="9570" max-vertical-offset="10635">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="45" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="2685">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="51" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
+          <folding>
+            <element signature="e#0#1624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="35" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1935">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="19" selection-start="20702" selection-end="20702" vertical-scroll-proportion="0.0" vertical-offset="9570" max-vertical-offset="10635">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="45" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2685">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="51" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
+          <folding>
+            <element signature="e#0#1624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="35" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1935">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="638" column="19" selection-start="20702" selection-end="20702" vertical-scroll-proportion="0.0" vertical-offset="9570" max-vertical-offset="10635">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="52" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2520">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="0" selection-start="4411" selection-end="4411" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="2565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2130" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="53" selection-start="772" selection-end="772" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1185">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="75" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="1710">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="52" selection-start="3558" selection-end="3558" vertical-scroll-proportion="0.0" vertical-offset="2010" max-vertical-offset="2520">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="53" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2205" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2130" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="53" selection-start="772" selection-end="772" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1185">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="2040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="75" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="1710">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="8" selection-start="4280" selection-end="4308" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="2595" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2250">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2130" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="9" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="960">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="32" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="436" max-vertical-offset="885">
+          <folding>
+            <element signature="e#0#1624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="56" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1110">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="33" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="795" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1410">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="32" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="270" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1664" column="0" selection-start="70110" selection-end="70110" vertical-scroll-proportion="0.51325303" vertical-offset="23697" max-vertical-offset="47055" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="19" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="28" selection-start="1400" selection-end="1421" vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="975">
+          <folding>
+            <element signature="e#0#1624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DataListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Test/CoreControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1140">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1378#2015#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="24" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="2055">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2179#2340#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2722#2878#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/SongPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="34" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="2040">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="39" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="412" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="32" selection-start="301" selection-end="301" vertical-scroll-proportion="-5.769231" vertical-offset="45" max-vertical-offset="10695">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="27" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="2640">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="36" selection-start="3864" selection-end="3864" vertical-scroll-proportion="-2.7692308" vertical-offset="2088" max-vertical-offset="3030">
+          <folding>
+            <element signature="e#1324#1490#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Projekt/Frame/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="35" selection-start="790" selection-end="790" vertical-scroll-proportion="0.5940803" vertical-offset="154" max-vertical-offset="780">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Sound</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jfugue-4.0.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

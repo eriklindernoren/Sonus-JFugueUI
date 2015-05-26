@@ -1,0 +1,21 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class PlayPanel extends JPanel
+{
+    public PlayPanel()
+    {
+
+
+        this.setVisible(true);
+
+    }
+
+
+
+}

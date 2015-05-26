@@ -1,0 +1,290 @@
+package Projekt.Frame;
+
+import javafx.stage.DirectoryChooser;
+import sun.org.mozilla.javascript.internal.ErrorReporter;
+
+import java.io.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.StyledEditorKit;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.util.List;
+import java.util.Scanner;
+import java.io.IOException;
+
+final class DirectoryPanel extends JPanel
+{
+    private JList<String> saveList;
+    private DefaultListModel<String> listModel;
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+
+    private final Color borderColor = Color.LIGHT_GRAY;
+    private final Color buttonBackground = Color.WHITE;
+
+    private final static int COMPONENT_WIDTH = 100;
+    private final static int BUTTON_HEIGHT = 20;
+    private final static int LIST_HEIGHT = 200;
+
+    private File folder;
+    private String fileName;
+    private String chosenFilePath;
+
+    private MainFrame mainFrame;
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+
+
+    //Constructor
+    public DirectoryPanel()
+    {
+        initializeComponents();
+    }
+
+
+    //Methods
+    private void initializeComponents(){
+
+
+        createList();
+        createScrollPane();
+        createButtons();
+
+    }
+
+    private void createButtons(){
+        JButton save = new JButton("SAVE");
+        save.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(save, layoutConstraints);
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
+
+
+        JButton load = new JButton("LOAD");
+        load.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(load, layoutConstraints);
+
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                load();
+            }
+        });
+
+        JButton delete = new JButton("DELETE");
+        delete.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(delete, layoutConstraints);
+
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!(saveList.getSelectedIndex() == -1)){
+
+                        int selectedOption = JOptionPane.showConfirmDialog(null,
+                                "Delete '" + listModel.get(saveList.getSelectedIndex()) + "'?",
+                                "Delete?",
+                                JOptionPane.YES_NO_OPTION);
+                        if (selectedOption == JOptionPane.YES_OPTION) {
+                            delete();
+                        }
+                }
+            }
+        });
+
+    }
+
+    private void createList(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border listBorder = BorderFactory.createTitledBorder(lineBorder, "Sweet Tunes",2,3);
+        fillList();
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        //saveList.setVisibleRowCount(15);
+        saveList.setBorder(listBorder);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        fileName = listModel.get(saveList.getSelectedIndex());
+                        chosenFilePath = folder.listFiles()[saveList.getSelectedIndex()+1].getAbsolutePath();
+                        System.out.println(fileName);
+                        System.out.println(chosenFilePath);
+                    }
+                }
+        );
+
+    }
+
+    private void fillList(){
+        folder = new File("./Saves");
+        File[] listOfFiles = folder.listFiles();
+        listModel = new DefaultListModel<>();
+        for (File listOfFile : listOfFiles) {
+            if (listOfFile.isFile() && !listOfFile.getName().startsWith(".")) {
+                listModel.addElement(listOfFile.getName());
+            }
+        }
+
+    }
+
+
+    private void createScrollPane(){
+        listLayout = new GridBagLayout();
+        layoutConstraints = new GridBagConstraints();
+        this.setLayout(listLayout);
+
+        JScrollPane myScrollPane = new JScrollPane(saveList);
+        myScrollPane.setPreferredSize(new Dimension(COMPONENT_WIDTH, LIST_HEIGHT));
+        setLayout(listLayout);
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(myScrollPane, layoutConstraints);
+
+    }
+
+    private void save(){
+        try{
+            if(saveList.getSelectedIndex() == -1){
+                JFileChooser chooser = new JFileChooser();
+                chooser.setCurrentDirectory(new File("./Saves"));
+                chooser.showSaveDialog(this.getParent());
+                fileName = chooser.getSelectedFile().getName();
+                chosenFilePath = chooser.getSelectedFile().getAbsolutePath();
+                File file = chooser.getSelectedFile();
+
+            }
+
+            if(listModel.contains(fileName)){
+                fileName = listModel.get(saveList.getSelectedIndex());
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "Overwrite '" + listModel.get(saveList.getSelectedIndex()) + "'?",
+                        "Overwrite?",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    folder.listFiles()[saveList.getSelectedIndex()+1].delete();
+                    FileOutputStream fos = new FileOutputStream(chosenFilePath);
+                    ObjectOutputStream save = new ObjectOutputStream(fos);
+                    save.writeObject(soundGrabber.getSound());
+                    save.writeObject(mainFrame.getGridIcons());
+                    save.writeObject(mainFrame.getGridColors());
+                    save.writeObject(mainFrame.getGridCells());
+                    System.out.println("Saving Completed");
+                    save.close();
+                }
+                else{
+                    System.out.println("Didn't save");}
+            }
+            else{
+                FileOutputStream fos = new FileOutputStream(chosenFilePath);
+                ObjectOutputStream save = new ObjectOutputStream(fos);
+                save.writeObject(soundGrabber.getSound());
+                save.writeObject(mainFrame.getGridIcons());
+                save.writeObject(mainFrame.getGridColors());
+                save.writeObject(mainFrame.getGridCells());
+                System.out.println("Saving Completed");
+
+                listModel.addElement(fileName);
+                save.close();
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void load(){
+        if(saveList.getSelectedIndex() == -1){
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File("./Saves"));
+            //FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt");
+            //chooser.setFileFilter(filter);
+            chooser.showOpenDialog(this.getParent());
+            File chosenFile = chooser.getSelectedFile();
+            String chosenFilePath = chosenFile.getAbsolutePath();
+            System.out.println(chosenFilePath);
+        }
+
+        try{
+            FileInputStream loadFile = new FileInputStream(chosenFilePath);
+            ObjectInputStream load = new ObjectInputStream(loadFile);
+
+            Sound sound  = (Sound) load.readObject();
+            List<String> icons = (List<String>) load.readObject();
+            List<Color> colors = (List<Color>) load.readObject();
+            List<Point> cells = (List<Point>) load.readObject();
+            mainFrame.resetGrid();
+            soundGrabber.addToSound(sound);
+            mainFrame.setGridCells(cells);
+            mainFrame.setGridIcons(icons);
+            mainFrame.setGridColors(colors);
+
+
+            mainFrame.refreshGrid();
+
+
+            //Loadobject är laddat med låten.
+            //Bör kunna använda loadObject på samma sätt som vi använder sound?
+            // Slänga in någon "repaint" metod här..
+
+
+            load.close();
+            System.out.println("Loading Completed");
+
+        }
+        catch (Exception exc){
+            exc.printStackTrace();
+        }
+    }
+
+
+    private void delete(){
+        int index = saveList.getSelectedIndex();
+        folder.listFiles()[index+1].delete();
+        listModel.removeElementAt(saveList.getSelectedIndex());
+        saveList.revalidate();
+        saveList.repaint();
+        System.out.println("Delete Completed");
+        }
+
+    public void setSoundGrabber(SoundGrabber soundGrabber) {
+        this.soundGrabber = soundGrabber;
+    }
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+
+
+}

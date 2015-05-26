@@ -1,0 +1,34 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import javax.swing.JPanel;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class InstrumentPanel extends JPanel
+{
+
+
+    public InstrumentPanel()
+    {
+
+        this.setBackground(Color.GRAY);
+        this.setLocation(0, 0);
+        this.setSize(200, 400);
+        this.setVisible(true);
+
+
+    }
+
+
+
+    public void gridMaker()
+    {
+        GridLayout grid = new GridLayout(2, 0, 400, 100);
+
+    }
+
+
+}

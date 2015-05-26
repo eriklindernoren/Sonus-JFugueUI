@@ -1,0 +1,27 @@
+package Projekt.Sound;
+
+/**
+ * Created by Erik on 2014-03-25.
+ */
+
+import org.jfugue.*;
+
+public class Main {
+
+    private static final String bass = "ACOUSTIC_BASS";
+    private static final String guitar = "NYLON_STRING_GUITAR";
+    private static final String synth = "ELECTRIC_PIANO";
+    private static final String saxophone = "SOPRANO_SAX";
+    private static final String piano = "PIANO";
+
+
+    public static void main(String[] args) {
+
+        Player player = new Player();
+        Sound epicSaxGuy = new Sound();
+        epicSaxGuy.addInstrumentToMusicstring(saxophone);
+        epicSaxGuy.addSoundLoop("Bh Bq Bs Bs Bs As Bs Bh Bs Bs Bs As Bs Bh Dh Bs Ah Gs Eq Es F#q Gs E", 1);
+        player.play(epicSaxGuy.getPattern());
+
+    }
+}

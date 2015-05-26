@@ -1,0 +1,56 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.awt.List;
+import java.util.*;
+
+public class GridGrabber implements GridListener{
+    private final ArrayList<GridObserver> observers;
+    private java.util.List<Point> fillCells;
+    private java.util.List<Color> cellColor;
+    private java.util.List<String> icons;
+
+    public GridGrabber(){
+        observers = new ArrayList<GridObserver>();
+        fillCells = new ArrayList<>(25);
+        cellColor = new ArrayList<>(25);
+        icons = new ArrayList<>(25);
+    }
+    @Override
+    public void register(GridObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(GridObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(GridObserver observer: observers){
+            observer.update(fillCells, cellColor, icons);
+        }
+    }
+
+    public void setGrid(java.util.List<Point> fillCells, java.util.List<Color> cellColor, java.util.List<String> icons) {
+        this.fillCells = fillCells;
+        this.cellColor = cellColor;
+        this.icons = icons;
+        notifyObserver();
+    }
+
+    public java.util.List<Point> getFillCells() {
+        return fillCells;
+    }
+
+    public java.util.List<Color> getCellColor() {
+        return cellColor;
+    }
+
+    public java.util.List<String> getIcons() {
+        return icons;
+    }
+}

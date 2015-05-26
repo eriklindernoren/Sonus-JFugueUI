@@ -1,0 +1,162 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+/**
+ * Creates the left-most panel which contains the instruments and its corresponding popup-windows in which the sound is created
+ * and edited. The instrument buttons triggers the popup windows and the InstrumentPopupFactory takes a string which
+ * defines what type of popup window is created. When calling on the popup factory it passes the grabbers needed to
+ * make sure the rest of the application knows what is created and edited in the popup window.
+ * We decided to use the Singleton design pattern to ensure that only one instance of the InstrumentPanel is created.
+ *
+ */
+
+
+final class InstrumentPanel extends JPanel
+{
+    //SINGLETON
+    private static volatile InstrumentPanel instance = null;
+    //CONSTANTS
+    private final static int INSTRUMENT_LIST_SIZE = 8;
+    private static final int BUTTON_PADDING_X = 45;
+    private static final int BUTTON_PADDING_Y = 45;
+    //COLOR
+    private static final Color BUTTON_BACKGROUND = Color.WHITE;
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+    //GRID GRABBER
+    private RectangleGrabber rectangleGrabber;
+    // INSTRUMENT POPUP FACTORY
+    private InstrumentPopupFactory popupFactory;
+    // INSTRUMENT COLOR FOR DRUMS
+    private final static Color DRUMS_COLOR = new Color(205,198,115);
+    //MAINFRAME
+    private MainFrame mainFrame;
+
+    public static InstrumentPanel getInstance(MainFrame main) {
+        if (instance == null) {
+            synchronized (InstrumentPanel.class) {
+                if (instance == null) {
+                    instance = new InstrumentPanel(main);
+                }
+            }
+        }
+        return instance;
+    }
+
+    //Constructor
+    private InstrumentPanel(MainFrame main){
+        soundGrabber = null;
+        rectangleGrabber = null;
+        mainFrame = main;
+        popupFactory = new InstrumentPopupFactory();
+        gridMaker();
+    }
+
+
+    // Makes the grid, buttons and actions for iPanel
+    void gridMaker()
+    {
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints instrumentC = new GridBagConstraints();
+
+        final JButton[] buttonList = new JButton[INSTRUMENT_LIST_SIZE];
+        final String[] icons = new String[INSTRUMENT_LIST_SIZE];
+        icons[0] = "guitar.png";
+        icons[1] = "saxophone.png";
+        icons[2] = "drums.png";
+        icons[3] = "bass.png";
+        icons[4] = "piano.png";
+        icons[5] = "note.png";
+        icons[6] = "swag.png";
+        icons[7] = "horse.png";
+
+        final String[] instrumentID = new String[INSTRUMENT_LIST_SIZE];
+        instrumentID[0] = "Guitar";
+        instrumentID[1] = "Saxophone";
+        instrumentID[2] = "Drums";
+        instrumentID[3] = "Bass";
+        instrumentID[4] = "Piano";
+        instrumentID[5] = "Note";
+        instrumentID[6] = "Swag";
+        instrumentID[7] = "Horse";
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for(int i = 0; i < buttonList.length; i++){
+            buttonList[i] = new JButton();
+            try {
+                Image img = ImageIO.read(getClass().getResource(icons[i]));
+                buttonList[i].setIcon(new ImageIcon(img));
+            } catch (IOException ignored) {
+                System.out.println("Icon error");
+            }
+            buttonList[i].setBackground(BUTTON_BACKGROUND);
+            instrumentC.fill = GridBagConstraints.BOTH;
+            instrumentC.ipady = BUTTON_PADDING_Y;
+            instrumentC.ipadx = BUTTON_PADDING_X;
+            instrumentC.gridx = columnIndex;
+            instrumentC.gridy = rowIndex;
+            this.add(buttonList[i], instrumentC);
+
+            final int index = i;
+            buttonList[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(instrumentID[index].equals("Drums")){
+                        new DrumPopup(soundGrabber, rectangleGrabber, DRUMS_COLOR);
+                        mainFrame.clearDirectoryList();
+                    }
+                    else{
+                        popupFactory.makeInstrumentPopup(instrumentID[index], soundGrabber, rectangleGrabber);
+                        mainFrame.clearDirectoryList();
+                    }
+
+                }
+            });
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+
+
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainFrame.clearDirectoryList();
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+
+
+    }
+
+    public void setSoundGrabber(SoundGrabber soundGrabber) {
+        this.soundGrabber = soundGrabber;
+    }
+    public void setRectangleGrabber(RectangleGrabber rectangleGrabber) {
+        this.rectangleGrabber = rectangleGrabber;
+    }
+
+
+}

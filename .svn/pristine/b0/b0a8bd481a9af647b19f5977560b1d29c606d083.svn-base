@@ -1,0 +1,32 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
+
+public class Frame extends JFrame{
+    JPanel mypanel;
+    JButton mybutton;
+    JLabel mylabel;
+
+
+    public Frame(){
+        mypanel = new JPanel();
+        mybutton = new JButton();
+        mylabel = new JLabel();
+
+        mypanel.add(mybutton);
+        mypanel.add(mylabel);
+        this.add(mypanel);
+    }
+
+
+    public void windowmaker(){
+        Frame main = new Frame();
+        main.setTitle("Main window");
+        main.setSize(300, 200);
+        main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        main.setVisible(true);
+    }
+
+}

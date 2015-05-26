@@ -1,0 +1,23 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+
+
+/**
+ * Created by mattiasramstrand on 2014-03-29.
+ */
+public class InstrumentPopup extends JFrame
+{
+
+
+
+    public InstrumentPopup()
+    {
+        JFrame popupFrame = new JFrame();
+        popupFrame.setSize(500, 500);
+        popupFrame.setVisible(true);
+
+    }
+
+
+}

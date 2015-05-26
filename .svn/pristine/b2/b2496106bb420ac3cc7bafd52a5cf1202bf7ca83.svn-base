@@ -1,0 +1,191 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
+class SongPanel extends JPanel
+{
+    //PANELS
+    private JPanel displayPanel;
+    private JPanel contentPanel;
+    private final static int CONTENT_WIDTH = 700;
+    private final static int CONTENT_HEIGHT = 440;
+    //GRID
+    private Grid grid;
+    private final static int GRID_HEIGHT = 420;
+    private final static int GRID_WIDTH = 2800;
+    //SOUND COUNTER PER ROW
+    private int channel1;
+    private int channel2;
+    private int channel3;
+    private int channel4;
+    private int channel5;
+    private int channel6;
+    private int channel7;
+    private GridBagConstraints layoutConstraintsSong;
+    private GridBagLayout gridLayout;
+    private GridBagConstraints gridC;
+    //INSTRUMENT COLOR
+    private final Color guitarColor = new Color(171,130,255);
+    private final Color saxColor = new Color(0,199,140);
+    private final Color drumsColor = new Color(205,198,115);
+    private final Color bassColor = new Color(227,168,105);
+    private final Color pianoColor = new Color(238,99,99);
+    private final Color miscColor = new Color(100, 100, 180);
+    private final Color swagColor = Color.ORANGE;
+    private final Color horseColor = new Color(227, 100, 20);
+
+    //Constructor
+    public SongPanel()
+    {
+        makeDisplayPanel();
+        makeGrid();
+        makeContentPanel();
+        this.add(contentPanel, layoutConstraintsSong);
+
+    }
+
+    //Methods
+
+    //Draws rectangles representing the added sound
+    public void addRectangle(int channel, String instrument){
+        switch (instrument){
+            case "Guitar":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, guitarColor, "guitar.png");
+                break;
+            case "Sax":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, saxColor, "saxophone.png");
+                break;
+            case "Drums":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, drumsColor, "drums.png");
+                break;
+            case "Bass":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, bassColor, "bass.png");
+                break;
+            case "Piano":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, pianoColor, "piano.png");
+                break;
+            case "Misc":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, miscColor, "note.png");
+                break;
+            case "Swag":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, swagColor, "swag.png");
+                break;
+            case "Horse":
+                grid.fillCell(getSoundCountPerRow(channel), channel-1, horseColor, "horse.png");
+                break;
+
+        }
+
+    }
+    int getSoundCountPerRow(int channel){
+        switch (channel){
+            case 1:
+                channel1 += 1;
+                return channel1-1;
+            case 2:
+                channel2 +=1;
+                return channel2-1;
+            case 3:
+                channel3 +=1;
+                return channel3-1;
+            case 4:
+                channel4 +=1;
+                return channel4-1;
+            case 5:
+                channel5 +=1;
+                return channel5-1;
+            case 6:
+                channel6 +=1;
+                return channel6-1;
+            case 7:
+                channel7 +=1;
+                return channel7-1;
+        }
+        return 0;
+    }
+
+    private void makeContentPanel(){
+
+        JScrollPane scrollPane = new JScrollPane(displayPanel);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(0, 0, CONTENT_WIDTH, CONTENT_HEIGHT);
+        scrollPane.setWheelScrollingEnabled(true);
+        contentPanel = new JPanel(null);
+        contentPanel.setPreferredSize(new Dimension(CONTENT_WIDTH, CONTENT_HEIGHT));
+        contentPanel.setBackground(Color.LIGHT_GRAY);
+        contentPanel.add(scrollPane);
+    }
+
+    private void makeDisplayPanel(){
+
+        GridBagLayout displayLayout = new GridBagLayout();
+        layoutConstraintsSong = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setLayout(displayLayout);
+        layoutConstraintsSong.weightx = 1;
+        layoutConstraintsSong.gridx = 0;
+        layoutConstraintsSong.gridy = 0;
+        layoutConstraintsSong.fill = GridBagConstraints.BOTH;
+
+        gridLayout = new GridBagLayout();
+        gridC = new GridBagConstraints();
+        displayPanel.setLayout(gridLayout);
+
+    }
+
+    private void makeGrid(){
+        grid = new Grid();
+        setLayout(gridLayout);
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+        gridC.ipadx = GRID_WIDTH;
+        gridC.ipady = GRID_HEIGHT - 9;
+        gridC.fill = GridBagConstraints.BOTH;
+        displayPanel.add(grid, gridC);
+    }
+    public void resetGrid(){
+        channel1 = 0;
+        channel2 = 0;
+        channel3 = 0;
+        channel4 = 0;
+        channel5 = 0;
+        channel6 = 0;
+        channel7 = 0;
+        grid.resetGrid();
+    }
+
+    public java.util.List<Point> getGridCells() {
+        return grid.getFillCells();
+    }
+
+    public List<Color> getCellColor() {
+        return grid.getCellColor();
+    }
+
+    public List<String> getIcons() {
+        return grid.getIcons();
+    }
+
+    public void setCells(List<Point> gridCells) {
+        List<Point> gridCells1 = gridCells;
+        grid.setFillCells(gridCells1);
+    }
+
+    public void setCellColor(List<Color> cellColor) {
+        List<Color> cellColor1 = cellColor;
+        grid.setCellColor(cellColor1);
+    }
+
+    public void setIcons(List<String> icons) {
+        List<String> icons1 = icons;
+        grid.setIcons(icons1);
+    }
+    public void repaintGrid(){
+        grid.repaint();
+    }
+}

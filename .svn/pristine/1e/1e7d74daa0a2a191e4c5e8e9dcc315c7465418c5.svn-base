@@ -1,0 +1,8 @@
+package Projekt.Frame;
+
+
+public interface RectangleListener {
+    public void register(RectangleObserver o);
+    public void unregister(RectangleObserver o);
+    public void notifyObserver();
+}

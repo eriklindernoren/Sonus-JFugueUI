@@ -1,0 +1,133 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class MainFrame extends JFrame{
+
+    private InstrumentPanel iPanel;
+    private PlayPanel pPanel;
+    private DirectoryPanel dPanel;
+    private SongPanel sPanel;
+    private GridBagLayout mainLayout;
+    private GridBagConstraints layoutConstraints;
+    private JMenuBar menuBar;
+    private JMenu file;
+    private JMenuItem about, quit, load, save;
+
+    public MainFrame()
+    {
+        layoutMaker();
+        menuMaker();
+        panelMaker(getContentPane());
+        windowMaker();
+
+    }
+
+    private void layoutMaker(){
+        mainLayout = new GridBagLayout();
+    }
+
+    public void windowMaker()
+    {
+
+        setTitle("NO SCOPE");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setVisible(true);
+
+    }
+
+
+    public void menuMaker()
+    {
+
+        menuBar = new JMenuBar();
+        file = new JMenu("File");
+
+        about = new JMenuItem("About");
+        save = new JMenuItem("Save");
+        load = new JMenuItem("Load");
+        quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        setJMenuBar(menuBar);
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "ARE YOU LAME?",
+                        "Choose",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
+    }
+
+
+    public void panelMaker(Container pane)
+    {
+        pane.setLayout(mainLayout);
+        layoutConstraints = new GridBagConstraints();
+
+        iPanel = new InstrumentPanel();
+        pane.setLayout(mainLayout);
+        layoutConstraints.weightx = 1;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(iPanel, layoutConstraints);
+
+        pPanel = new PlayPanel();
+        pane.setLayout(mainLayout);
+        layoutConstraints.weightx = 1;
+        layoutConstraints.ipadx = 500;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridwidth = 5;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(pPanel, layoutConstraints);
+
+        sPanel = new SongPanel();
+        pane.setLayout(mainLayout);
+        layoutConstraints.weightx = 1;
+        layoutConstraints.ipadx = 500;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridwidth = 3;
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(sPanel, layoutConstraints);
+
+        dPanel = new DirectoryPanel();
+        pane.setLayout(mainLayout);
+        layoutConstraints.weightx = 1;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 4;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridheight = 2;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(dPanel, layoutConstraints);
+
+    }
+
+}

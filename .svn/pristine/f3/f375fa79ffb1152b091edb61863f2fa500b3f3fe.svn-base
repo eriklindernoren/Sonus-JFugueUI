@@ -1,0 +1,10 @@
+package Projekt.Frame;
+
+
+/*
+* Houses the method and arguments needed to implement the SoundObserver.
+ */
+
+interface SoundObserver {
+    public void update(Sound sound);
+}

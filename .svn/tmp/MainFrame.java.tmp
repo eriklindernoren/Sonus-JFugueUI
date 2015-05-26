@@ -1,0 +1,109 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class MainFrame extends JFrame{
+    JPanel myPanel;
+    private int PANELSIZEX = 1000;
+    private int PANELSIZEY = 500;
+    private InstrumentPanel iPanel;
+    private PlayPanel pPanel;
+    private DirectoryPanel dPanel;
+    private GridBagLayout mainLayout;
+    private GridBagConstraints layoutConstraints;
+
+
+    public MainFrame()
+    {
+        layoutMaker();
+        menuMaker();
+        panelMaker();
+        windowMaker();
+
+    }
+
+    private void layoutMaker(){
+        mainLayout = new GridBagLayout();
+        layoutConstraints = new GridBagConstraints();
+
+    }
+
+    public void windowMaker()
+    {
+<<<<<<< .mine
+        myPanel = new JPanel();
+        myPanel.setLayout(mainLayout);
+        this.add(myPanel);
+=======
+
+>>>>>>> .r840
+        this.setTitle("NO SCOPE");
+        this.setSize(PANELSIZEX, PANELSIZEY);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);
+
+
+    }
+
+
+    public void menuMaker()
+    {
+
+        final JMenuBar menuBar = new JMenuBar();
+        final JMenu file = new JMenu("File");
+
+        final JMenuItem about = new JMenuItem("About");
+        final JMenuItem save = new JMenuItem("Save");
+        final JMenuItem load = new JMenuItem("Load");
+        final JMenuItem quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        this.setJMenuBar(menuBar);
+
+
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "ARE YOU LAME?",
+                        "Choose",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
+    }
+
+
+    public void panelMaker()
+    {
+        iPanel = new InstrumentPanel();
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pPanel = new PlayPanel();
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        dPanel = new DirectoryPanel();
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+
+        this.add(iPanel);
+        this.add(pPanel);
+        this.add(dPanel);
+
+    }
+
+
+}

@@ -1,0 +1,91 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class InstrumentPanel extends JPanel
+{
+    JButton guitar, saxophone, drums, bass, btn5, btn6, btn7, btn8;
+
+    private int BUTTON_SIZE_X = 20;
+    private int BUTTON_SIZE_Y = 70;
+
+
+    public InstrumentPanel()
+    {
+
+        this.setBackground(Color.RED);
+        gridMaker();
+        this.setVisible(true);
+
+
+    }
+
+
+
+    public void gridMaker()
+    {
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        guitar = new JButton("Guitar");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = BUTTON_SIZE_Y;
+        c.ipadx = BUTTON_SIZE_X;
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(guitar, c);
+
+        saxophone = new JButton("SAX.");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 0;
+        this.add(saxophone, c);
+
+        drums = new JButton("DRUMS");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 1;
+        this.add(drums, c);
+
+        bass = new JButton("BASS");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        this.add(bass, c);
+
+        btn5 = new JButton("PIANO");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 2;
+        this.add(btn5, c);
+
+        btn6 = new JButton("YOLO");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 2;
+        this.add(btn6, c);
+
+
+        btn7 = new JButton("SWAG");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 3;
+        this.add(btn7, c);
+
+
+        btn8 = new JButton("HORSE");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 3;
+        this.add(btn8, c);
+
+    }
+
+
+}

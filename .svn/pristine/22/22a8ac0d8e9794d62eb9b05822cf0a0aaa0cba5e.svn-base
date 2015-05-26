@@ -1,0 +1,130 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import org.jfugue.*;
+
+final class PlayPanel extends JPanel
+{
+    //private JSlider volumeSlider;
+    //LAYOUT
+    private GridBagLayout mainLayout;
+    //COLORS
+    private static final Color buttonBackground = Color.WHITE;
+    private static final Color backgroundColor = new Color(210,210,210);
+    //SOUND
+    private final Player player;
+    //CONSTANTS
+    private static final int BUTTON_SIZE_X = 130;
+    private static final int BUTTON_SIZE_Y = 25;
+    //SOUND
+    private Sound sound;
+    //MAIN FRAME
+    private MainFrame mainFrame;
+
+    public PlayPanel(Sound s, MainFrame m)
+    {
+        mainFrame = m;
+        sound = s;
+        player = new Player();
+        setMainLayout();
+        playPanel();
+    }
+
+
+    public void updateSound(Sound s){
+        sound = s;
+    }
+
+
+    private void setMainLayout(){
+
+        mainLayout = new GridBagLayout();
+        this.setLayout(mainLayout);
+
+    }
+
+    private void playPanel(){
+
+        GridBagConstraints c = new GridBagConstraints();
+/*
+        //To get the right separation between components
+        JLabel separator = new JLabel("                                                   ");
+        setLayout(mainLayout);
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(separator, c);
+*/
+        JPanel midPanel = new JPanel();
+        midPanel.setBackground(backgroundColor);
+        setLayout(mainLayout);
+        c.weightx = 0;
+        c.ipady = 20;
+        c.ipadx = 20;
+        c.gridx = 1;
+        c.gridy = 0;
+
+        GridBagLayout midLayout = new GridBagLayout();
+        GridBagConstraints midLayoutConstraints = new GridBagConstraints();
+        midPanel.setLayout(midLayout);
+
+        JButton play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        setLayout(midLayout);
+        midLayoutConstraints.gridx = 0;
+        midLayoutConstraints.gridy = 0;
+        midLayoutConstraints.ipadx = BUTTON_SIZE_X;
+        midLayoutConstraints.ipady = BUTTON_SIZE_Y;
+        midPanel.add(play, midLayoutConstraints);
+
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.play(sound);
+            }
+        });
+
+        JButton clear = new JButton("CLEAR");
+        clear.setBackground(buttonBackground);
+        setLayout(midLayout);
+        midLayoutConstraints.gridx = 1;
+        midLayoutConstraints.gridy = 0;
+        midLayoutConstraints.ipadx = BUTTON_SIZE_X;
+        midLayoutConstraints.ipady = BUTTON_SIZE_Y;
+        midPanel.add(clear, midLayoutConstraints);
+
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sound = new Sound();
+                mainFrame.resetGrid();
+            }
+        });
+
+        this.add(midPanel, c);
+/*
+        //To get the right separation between components
+        JLabel separator1 = new JLabel("         ");
+        setLayout(mainLayout);
+        c.gridx = 2;
+        c.gridy = 0;
+        this.add(separator1, c);
+/*
+
+        //Volume Slider
+        volumeSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, 2);
+        volumeSlider.setPreferredSize(new Dimension(150, 20));
+        setLayout(mainLayout);
+        c.gridx = 3;
+        c.gridy = 0;
+        this.add(volumeSlider,  c);
+*/
+
+    }
+
+
+
+
+}

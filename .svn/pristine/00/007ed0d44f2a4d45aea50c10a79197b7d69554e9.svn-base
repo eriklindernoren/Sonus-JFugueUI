@@ -1,0 +1,28 @@
+
+    package Projekt;
+
+    import org.jfugue.*;
+
+    public class Sound {
+
+        private String instrument;
+        private Pattern pattern;
+        private Player player;
+
+        public Sound(String instrument, Player player, Pattern pattern) {
+            this.instrument = instrument;
+            this.player =  new Player();
+            this.pattern = new Pattern();
+        }
+
+        //pattern = "T180 I[" + instrument + "] e d# e d# e b4 d c a4 c e a4 b4 e a4 b4 c e d# e d# e b4 d c a4 c e a4 b4 e c b4 a4 b4 c d e g f e d e e d c e d c e e d# e d# e e d c a4 c e a4 b4 e a4 b4 c e d# e d# e b4 d c a4 c e a4 b4 e c b4 a4";
+        //player.play(pattern);
+        //System.exit(0);
+
+        public void addToMusicString(Pattern pattern, String string){
+            for (int i = 0; i <= string.length(); i++){
+                pattern += string[0];
+            }
+
+        }
+}

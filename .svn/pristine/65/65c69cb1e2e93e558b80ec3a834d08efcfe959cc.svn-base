@@ -1,0 +1,196 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class InstrumentPopup extends JFrame
+{
+    //LAYOUTS
+    private GridBagLayout popupLayout, iPanelLayout;
+    private GridBagConstraints popupC, instrumentC;
+    //PANELS
+    private JPanel instrumentPanel, ackordPanel, valuePanel;
+    //COLOR
+    private Color backGroundColor = Color.lightGray;
+    //CONSTANTS
+    private int LINE_LENGTH = 400;
+    private int INSTRUMENT_BUTTON_X = 40;
+    private int INSTRUMENT_BUTTON_Y = 30;
+    //INSTRUMENT PANEL BUTTONS
+    private JButton instrument1, instrument2, instrument3, instrument4, instrument5;
+    //LIST WITH BUTTONS
+    private JButton[] buttonList;
+    //INSTRUMENT LISTS
+    private String[] guitarList, saxList, drumList, bassList, pianoList;
+
+
+    public InstrumentPopup(String identifier)
+    {
+        panelMaker(getContentPane(), identifier);
+        this.setTitle(identifier);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+
+    }
+
+    public void panelMaker(Container pane, String identifier)
+    {
+        popupLayout = new GridBagLayout();
+        pane.setLayout(popupLayout);
+        popupC = new GridBagConstraints();
+
+        makeInstrumentPanel(identifier);
+        pane.add(instrumentPanel, popupC);
+
+        makeAckordPanel();
+        pane.add(ackordPanel, popupC);
+
+        makeValuePanel();
+        pane.add(valuePanel, popupC);
+
+    }
+
+    private void makeInstrumentPanel(String identifier){
+
+        instrumentPanel = new JPanel();
+        setLayout(popupLayout);
+        popupC.ipadx = 40;
+        popupC.ipady = 40;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        iPanelLayout = new GridBagLayout();
+        instrumentC = new GridBagConstraints();
+        instrumentPanel.setLayout(iPanelLayout);
+
+        addInstrumentsToLists();
+
+
+        switch(identifier){
+
+            case("Guitar"):
+                makeInstrumentButtons(guitarList);
+                System.out.println("Guitar");
+                break;
+            case("Sax"):
+                makeInstrumentButtons(saxList);
+                System.out.println("Sax");
+                break;
+            case("Drums"):
+                makeInstrumentButtons(drumList);
+                System.out.println("Drums");
+                break;
+            case("Bass"):
+                makeInstrumentButtons(bassList);
+                System.out.println("Bass");
+                break;
+            case("Piano"):
+                makeInstrumentButtons(pianoList);
+                System.out.println("Piano");
+                break;
+            /*case("Yolo"):
+                makeInstrumentButtons();
+                break;
+            case("Swag"):
+                makeInstrumentButtons();
+                break;
+            case("Horse"):
+                makeInstrumentButtons();
+                System.out.println("Horse");
+                break;
+                */
+        }
+    }
+
+    private void addInstrumentsToLists(){
+
+        guitarList = new String[5];
+        guitarList[0] = "G1";
+        guitarList[1] = "G2";
+        guitarList[2] = "G3";
+        guitarList[3] = "G4";
+        guitarList[4] = "G5";
+
+        saxList = new String[5];
+        saxList[0] = "S1";
+        saxList[1] = "S2";
+        saxList[2] = "S3";
+        saxList[3] = "S4";
+        saxList[4] = "S5";
+
+        drumList = new String[5];
+        drumList[0] = "D1";
+        drumList[1] = "D2";
+        drumList[2] = "D3";
+        drumList[3] = "D4";
+        drumList[4] = "D5";
+
+        bassList = new String[5];
+        bassList[0] = "B1";
+        bassList[1] = "B2";
+        bassList[2] = "B3";
+        bassList[3] = "B4";
+        bassList[4] = "B5";
+
+        pianoList = new String[5];
+        pianoList[0] = "1";
+        pianoList[1] = "2";
+        pianoList[2] = "3";
+        pianoList[3] = "4";
+        pianoList[4] = "5";
+
+    }
+
+    private void makeInstrumentButtons(String [] instrumentList){
+
+        instrument1 = new JButton();
+        instrument2 = new JButton();
+        instrument3 = new JButton();
+        instrument4 = new JButton();
+        instrument5 = new JButton();
+        buttonList = new JButton[5];
+        buttonList[0] = instrument1;
+        buttonList[1] = instrument2;
+        buttonList[2] = instrument3;
+        buttonList[3] = instrument4;
+        buttonList[4] = instrument5;
+
+        for(int i = 0; i < instrumentList.length; i++){
+            buttonList[i].setText(instrumentList[i]);
+            setLayout(iPanelLayout);
+            instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+            instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+            instrumentC.gridx = 0;
+            instrumentC.gridy = i;
+            instrumentC.fill = GridBagConstraints.BOTH;
+            instrumentPanel.add(buttonList[i], instrumentC);
+        }
+
+    }
+
+    private void makeAckordPanel(){
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(Color.GRAY);
+        setLayout(popupLayout);
+        popupC.ipadx = 200;
+        popupC.ipady = 20;
+        popupC.gridx = 1;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.VERTICAL;
+    }
+
+    private void makeValuePanel(){
+
+        valuePanel = new JPanel();
+        valuePanel.setBackground(Color.LIGHT_GRAY);
+        setLayout(popupLayout);
+        popupC.ipadx = 200;
+        popupC.ipady = 20;
+        popupC.gridx = 2;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.VERTICAL;
+    }
+}

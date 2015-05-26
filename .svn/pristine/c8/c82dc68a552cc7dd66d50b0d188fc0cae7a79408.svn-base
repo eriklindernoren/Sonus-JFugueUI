@@ -1,0 +1,84 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class InstrumentPanel extends JPanel
+{
+    JButton guitar;
+    JButton saxophone;
+    JButton drums;
+    JButton bass;
+
+    private int IPANELSIZEX = 200;
+    private int IPANELSIZEY = 500;
+    private int BUTTONSIZEX = 90;
+    private int BUTTONSIZEY = 60;
+
+
+    public InstrumentPanel()
+    {
+
+        this.setBackground(Color.GRAY);
+        this.setLocation(0, 0);
+        this.setSize(IPANELSIZEX, IPANELSIZEY);
+        gridMaker();
+        this.setVisible(true);
+
+
+    }
+
+
+
+    public void gridMaker()
+    {
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        //c.gridwidth = 2;
+        //c.gridheight = 8;
+
+
+        guitar = new JButton("Guitar");
+        //c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.FIRST_LINE_START;
+        guitar.setSize(BUTTONSIZEX, BUTTONSIZEY);
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(guitar, c);
+
+
+        saxophone = new JButton("Saxophone");
+        saxophone.setSize(BUTTONSIZEX, BUTTONSIZEX);
+        //c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridx = 1;
+        c.gridy = 0;
+        this.add(saxophone, c);
+
+        drums = new JButton("Drums");
+        //c.fill = GridBagConstraints.HORIZONTAL;
+        drums.setSize(BUTTONSIZEX, BUTTONSIZEY);
+        c.gridx = 0;
+        c.gridy = 1;
+        this.add(drums, c);
+
+        bass = new JButton("");
+        bass.setSize(BUTTONSIZEX, BUTTONSIZEY);
+        //c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        this.add(bass, c);
+
+
+        //GridLayout grid = new GridLayout(8, 2, 50, 100);
+
+
+    }
+
+
+}

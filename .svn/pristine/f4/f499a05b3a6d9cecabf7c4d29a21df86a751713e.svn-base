@@ -1,0 +1,42 @@
+package Projekt.Frame;
+
+import org.jfugue.Player;
+
+
+class BassPopup extends InstrumentPopup {
+
+    private static final String bass1 = " I[ACOUSTIC_BASS] ";
+    private static final String bass2 = " I[ELECTRIC_BASS_FINGER] ";
+    private static final String bass3 = " I[FRETLESS_BASS] ";
+    private static final String bass4 = " I[SLAP_BASS_1] ";
+    private static final String bass5 = " I[SYNTH_BASS_1] ";
+
+    public BassPopup(MainFrame main){
+        this.setInstrumentID("Bass");
+        this.setMainFrame(main);
+        player = new Player();
+        popupSound = new Sound();
+
+        String []bassLabels = new String[5];
+        bassLabels[0] = "Acoustic bass";
+        bassLabels[1] = "Electric bass";
+        bassLabels[2] = "Fretless bass";
+        bassLabels[3] = "Slap bass";
+        bassLabels[4] = "Synth bass";
+
+        String[] bassList = new String[5];
+        bassList[0] = bass1;
+        bassList[1] = bass2;
+        bassList[2] = bass3;
+        bassList[3] = bass4;
+        bassList[4] = bass5;
+
+        this.setInstrumentLabels(bassLabels);
+        this.setInstrumentList(bassList);
+
+        panelMaker(getContentPane());
+
+        createWindow();
+    }
+}
+

@@ -1,0 +1,50 @@
+package Projekt.Frame;
+
+import java.awt.*;
+
+/*
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Guitar.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ *
+ */
+
+class GuitarPopup extends InstrumentPopup{
+
+    private static final String guitar1 = " I[GUITAR] ";
+    private static final String guitar2 = " I[NYLON_STRING_GUITAR] ";
+    private static final String guitar3 = " I[STEEL_STRING_GUITAR] ";
+    private static final String guitar4 = " I[ELECTRIC_JAZZ_GUITAR] ";
+    private static final String guitar5 = " I[DISTORTION_GUITAR] ";
+    private final Color guitarColor = new Color(171,130,255);
+
+
+    public GuitarPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Guitar");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(guitarColor);
+
+        String[] guitarLabels = new String[5];
+        guitarLabels[0] = "Ordinary guitar";
+        guitarLabels[1] = "Nylon string guitar";
+        guitarLabels[2] = "Steel string guitar";
+        guitarLabels[3] = "Electric jazz guitar";
+        guitarLabels[4] = "Distortion guitar";
+
+        String[] guitarList = new String[5];
+        guitarList[0] = guitar1;
+        guitarList[1] = guitar2;
+        guitarList[2] = guitar3;
+        guitarList[3] = guitar4;
+        guitarList[4] = guitar5;
+
+        this.setInstrumentLabels(guitarLabels);
+        this.setInstrumentList(guitarList);
+
+        panelMaker(getContentPane());
+        createWindow();
+
+    }
+}

@@ -1,0 +1,42 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class SongPanel extends JPanel
+{
+    private JPanel displayPanel;
+    private GridBagLayout songLayout;
+    private GridBagConstraints layoutConstraints;
+    private int DISPLAY_PANEL_WIDTH = 500;
+    private int DISPLAY_PANEL_HEIGHT = 400;
+    private Color displayBackground = Color.LIGHT_GRAY;
+
+    public SongPanel()
+    {
+        setPanelLayout();
+        makeDisplayPanel();
+        this.setVisible(true);
+
+    }
+
+    private void setPanelLayout(){
+        songLayout = new GridBagLayout();
+    }
+
+    private void makeDisplayPanel(){
+        layoutConstraints = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setBackground(displayBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipady = DISPLAY_PANEL_HEIGHT;
+        this.add(displayPanel, layoutConstraints);
+    }
+}

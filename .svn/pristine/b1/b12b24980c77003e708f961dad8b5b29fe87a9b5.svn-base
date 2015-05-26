@@ -1,0 +1,37 @@
+package Projekt.Frame;
+
+class SwagPopup extends InstrumentPopup {
+
+    private static final String swag1 = " I[BREATH_NOISE] ";
+    private static final String swag2 = " I[BAGPIPE] ";
+    private static final String swag3 = " I[ATMOSPHERE] ";
+    private static final String swag4 = " I[CHOIR] ";
+    private static final String swag5 = " I[HARMONICA] ";
+
+    public SwagPopup(MainFrame main, SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Swag");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setMainFrame(main);
+
+        String []swagLabels = new String[5];
+        swagLabels[0] = "Breath noise";
+        swagLabels[1] = "Bagpipe";
+        swagLabels[2] = "Atmosphere";
+        swagLabels[3] = "Choir";
+        swagLabels[4] = "Harmonica";
+
+        String[] swagList = new String[5];
+        swagList[0] = swag1;
+        swagList[1] = swag2;
+        swagList[2] = swag3;
+        swagList[3] = swag4;
+        swagList[4] = swag5;
+
+        this.setInstrumentLabels(swagLabels);
+        this.setInstrumentList(swagList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

@@ -1,0 +1,564 @@
+package Projekt.Frame;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.*;
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiUnavailableException;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileFilter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * This panel is created in the MainFrame class and is located in the part far to the right of the application.
+ * It handles the saving, loading, deleting and exporting of the sound and notify the rest
+ * of the program when changes need to be made.
+ * The soundGrabber and gridGrabber is passed here from the MainFrame so that it can change the sound and look when the user loads a
+ * previously saved Projekt. When exporting a sound a wav-file is created in the applications "wav-files"-folder.
+ * It uses the Singleton design pattern to ensure that only one instance of this panel is created.
+ */
+
+
+final class DirectoryPanel extends JPanel
+{
+    //SINGLETON
+    private static final DirectoryPanel INSTANCE = new DirectoryPanel();
+    //SAVE LIST INFORMATION
+    private JList<String> saveList;
+    private DefaultListModel<String> listModel;
+    private Border lineBorder;
+    private Border listBorder;
+    //LAYOUT MANAGING
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+    //COLORS
+    private static final Color BUTTON_BACKGROUND = Color.WHITE;
+    private static final Color ACTIVE_BUTTON_COLOR = Color.GRAY;
+    private static final Color INACTIVE_BUTTON_COLOR = Color.BLACK;
+    //CONSTANTS
+    private static final int LIST_SIZE = 25;
+    private final static int COMPONENT_WIDTH = 100;
+    private final static int BUTTON_HEIGHT = 20;
+    private final static int LIST_HEIGHT = 255;
+    //FILE INFORMATION
+    private File folder;
+    private String fileName;
+    private String chosenFilePath;
+    /**
+     * Since we wanted to have a list from which the user could load sound from and save sound to we felt the need
+     * to have a distinct folder from which we could get the filenames from and add them to the list.
+     * That's the reason we hardcoded the path of that directory. When installing the application on any Mac computer
+     * the path of the save directory will always be the same so that's why we hardcoded the path of it.
+     */
+    private static final String SAVE_FOLDER = "/Applications/NoScope.app/Contents/Saves";
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+    //GRID GRABBER
+    private GridGrabber gridGrabber;
+    //JBUTTONS
+    private JButton delete;
+
+    public static DirectoryPanel getInstance() {
+        return INSTANCE;
+    }
+
+    //Constructor
+    private DirectoryPanel()
+    {
+	fileName = null;
+	chosenFilePath = null;
+	gridGrabber = null;
+	soundGrabber = null;
+    initializeComponents();
+    }
+
+
+    //Methods
+    private void initializeComponents(){
+
+        createList();
+        createScrollPane();
+        createButtons();
+
+    }
+
+    private void createButtons(){
+
+        final JButton[] buttons = new JButton[4];
+        final JButton save = new JButton("SAVE");
+        final JButton load = new JButton("LOAD");
+        delete = new JButton("DELETE");
+        final JButton export = new JButton("EXPORT");
+
+        buttons[0] = save;
+        buttons[1] = load;
+        buttons[2] = delete;
+        buttons[3] = export;
+
+        for (int i = 0; i<buttons.length; i++){
+            buttons[i].setBackground(BUTTON_BACKGROUND);
+            buttons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(listLayout);
+            layoutConstraints.gridx = 0;
+            layoutConstraints.gridy = 1 + i;
+            layoutConstraints.ipadx = COMPONENT_WIDTH;
+            layoutConstraints.ipady = BUTTON_HEIGHT;
+            layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+            add(buttons[i], layoutConstraints);
+
+            final int index = i;
+            buttons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    buttons[index].setForeground(ACTIVE_BUTTON_COLOR);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    buttons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+
+        }
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                load();
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(saveList.getSelectedIndex() != -1){
+
+                    int selectedOption = JOptionPane.showConfirmDialog(null,
+                            "Delete '" + listModel.get(saveList.getSelectedIndex()) + "' (" + chosenFilePath + ")?",
+                            "Delete?",
+                            JOptionPane.YES_NO_OPTION);
+                    if (selectedOption == JOptionPane.YES_OPTION) {
+                        delete();
+                    }
+                }
+            }
+        });
+        export.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                export();}
+
+    });
+    }
+
+    private void createList(){
+
+        lineBorder = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2);
+        listBorder = BorderFactory.createTitledBorder(lineBorder, "Sweet Tunes",2,3);
+
+        fillList();
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setBorder(listBorder);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        saveList.setForeground(Color.BLACK);
+                        fileName = listModel.get(saveList.getSelectedIndex());
+                        File[] fileList = folder.listFiles();
+                        assert fileList != null;
+                        for(int i = 0; i<fileList.length; i++){
+                            if(fileList[i].getName().equals(fileName)){
+                                chosenFilePath = fileList[i].getAbsolutePath();
+                            }
+                        }
+                        System.out.println(fileName);
+                        System.out.println(chosenFilePath);
+                    }
+                }
+        );
+        /**
+        * Makes it possible to unselect the saveList when the user clicks any part of the panel other than the
+        * list and the buttons.
+         */
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try{clearListSelection();}
+                catch (IndexOutOfBoundsException ex){
+                    System.out.println("clearListSelection(); gives " + ex.toString());
+                    System.out.println("Everything works though..");
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+
+    }
+
+    /**
+    * Checks if the list is currently selected and clears that selection.
+     */
+    public void clearListSelection(){
+        for (int i = 0; i < listModel.getSize(); i++) {
+            if (saveList.isSelectedIndex(i)) {
+                saveList.setForeground(Color.WHITE);
+                saveList.clearSelection();
+            }
+        }
+    }
+
+    /**
+    * Searches through the save folder and adds those file names to the saveList when the application is started.
+     */
+    private void fillList(){
+        folder = new File(SAVE_FOLDER);
+        File[] listOfFiles = folder.listFiles();
+        listModel = new DefaultListModel<>();
+        assert listOfFiles != null;
+        for (File file: listOfFiles) {
+            if (file.isFile() && !file.getName().startsWith(".")) {
+                listModel.addElement(file.getName());
+            }
+        }
+
+
+    }
+
+
+    private void createScrollPane(){
+        listLayout = new GridBagLayout();
+        layoutConstraints = new GridBagConstraints();
+        this.setLayout(listLayout);
+
+        JScrollPane myScrollPane = new JScrollPane(saveList);
+        myScrollPane.setPreferredSize(new Dimension(COMPONENT_WIDTH, LIST_HEIGHT));
+        setLayout(listLayout);
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(myScrollPane, layoutConstraints);
+
+    }
+
+    /**
+    * If the list is unselected it launches the JFileChooser and makes it possible for the user to
+    * choose where to save and what he or she would like to call the Projekt.
+     */
+    private String ifSaveListUnselected(){
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(SAVE_FOLDER));
+        int result = chooser.showSaveDialog(this.getParent());
+        if(result == JFileChooser.APPROVE_OPTION){
+            fileName = chooser.getSelectedFile().getName();
+            chosenFilePath = chooser.getSelectedFile().getAbsolutePath();
+            chooser.getSelectedFile();
+            return "saved";
+        }
+        else if(result == JFileChooser.CANCEL_OPTION){
+            return "cancelled";
+        }
+        return "";
+    }
+
+    public void save(){
+        try{
+            if(saveList.getSelectedIndex() == -1){
+                if(ifSaveListUnselected().equals("cancelled")){
+                    System.out.println("Save was cancelled");
+                    /**
+                     * To jump out of the method.
+                     */
+                    return;
+                }
+            }
+
+            /**
+            * If the file name is already saved in the saveList the user gets the option to overwrite that file.
+             */
+
+            if(listModel.contains(fileName)){
+                fileName = listModel.get(saveList.getSelectedIndex());
+                File[] fileList = folder.listFiles();
+                assert  fileList != null;
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "Overwrite '" + listModel.get(saveList.getSelectedIndex()) + "'?",
+                        "Overwrite?",
+                        JOptionPane.YES_NO_OPTION);
+                /**
+                * Here it saves all the information needed to load the saved Projekt later.
+                 */
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    if(!fileList[saveList.getSelectedIndex()].delete()){
+                        System.out.println("Deletion failed");}
+                    FileOutputStream fos = new FileOutputStream(chosenFilePath);
+		    try (ObjectOutputStream save = new ObjectOutputStream(fos)) {
+			save.writeObject(soundGrabber.getSound());
+			save.writeObject(gridGrabber.getIcons());
+			save.writeObject(gridGrabber.getCellColor());
+			save.writeObject(gridGrabber.getFillCells());
+			save.writeObject(gridGrabber.getChannelCount1());
+			save.writeObject(gridGrabber.getChannelCount2());
+			save.writeObject(gridGrabber.getChannelCount3());
+			save.writeObject(gridGrabber.getChannelCount4());
+			save.writeObject(gridGrabber.getChannelCount5());
+			save.writeObject(gridGrabber.getChannelCount6());
+			save.writeObject(gridGrabber.getChannelCount7());
+			System.out.println("Saving Completed");
+			save.close();
+		    }
+                }
+                else{
+                    System.out.println("Didn't save");}
+            }
+            /**
+             * If there is no matching file name in the saveList it adds the new file name and
+             * saves all the needed information.
+             */
+            else{
+                FileOutputStream fos = new FileOutputStream(chosenFilePath);
+		try (ObjectOutputStream save = new ObjectOutputStream(fos)) {
+		    save.writeObject(soundGrabber.getSound());
+		    save.writeObject(gridGrabber.getIcons());
+		    save.writeObject(gridGrabber.getCellColor());
+		    save.writeObject(gridGrabber.getFillCells());
+		    save.writeObject(gridGrabber.getChannelCount1());
+		    save.writeObject(gridGrabber.getChannelCount2());
+		    save.writeObject(gridGrabber.getChannelCount3());
+		    save.writeObject(gridGrabber.getChannelCount4());
+		    save.writeObject(gridGrabber.getChannelCount5());
+		    save.writeObject(gridGrabber.getChannelCount6());
+		    save.writeObject(gridGrabber.getChannelCount7());
+		    System.out.println("Saving Completed");
+
+		    listModel.addElement(fileName);
+		    save.close();
+		}
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void load(){
+           /*
+            * If the list is unselected it launches the JFileChooser and makes it possible for the user to
+            * choose where to load from.
+             */
+        if(saveList.getSelectedIndex() == -1){
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File(SAVE_FOLDER));
+            int result = chooser.showOpenDialog(this.getParent());
+            if(result == JFileChooser.APPROVE_OPTION){
+                File chosenFile = chooser.getSelectedFile();
+                chosenFilePath = chosenFile.getAbsolutePath();
+            }
+            else if(result == JFileChooser.CANCEL_OPTION){
+                System.out.println("Load was cancelled");
+                return;
+            }
+
+        }
+
+        try{
+            /**
+            * Here it loads all of the saved information and uses the grabbers to notify the other classes
+            * of the changes. It resets the grid and sound and loads the new information. Since we have already
+             * decided in the save method in what order we want to save each datatype, we know in what order
+             * we should load them, and what datatype that variable should be of.
+             */
+            FileInputStream loadFile = new FileInputStream(chosenFilePath);
+	    try (ObjectInputStream load = new ObjectInputStream(loadFile)) {
+
+
+            Sound sound = (Sound) load.readObject();
+            @SuppressWarnings("unchecked")
+            List<String> icons = (List<String>) load.readObject();
+            @SuppressWarnings("unchecked")
+            List<Color> colors = (List<Color>) load.readObject();
+            @SuppressWarnings("unchecked")
+            List<Point> cells = (List<Point>) load.readObject();
+            int channel1 = (Integer) load.readObject();
+            int channel2 = (Integer) load.readObject();
+            int channel3 = (Integer) load.readObject();
+            int channel4 = (Integer) load.readObject();
+            int channel5 = (Integer) load.readObject();
+            int channel6 = (Integer) load.readObject();
+            int channel7 = (Integer) load.readObject();
+
+            soundGrabber.setSound(new Sound());
+            soundGrabber.setSoundWithTempo(new Sound());
+            gridGrabber
+                .setGrid(new ArrayList<Point>(LIST_SIZE), new ArrayList<Color>(LIST_SIZE), new ArrayList<String>(LIST_SIZE), 0, 0, 0, 0, 0,
+                        0, 0);
+            soundGrabber.addToSound(sound);
+            gridGrabber.setBackTrackable(false);
+            soundGrabber.setBackTrackable(false);
+            gridGrabber.setGrid(cells, colors, icons, channel1, channel2, channel3, channel4, channel5, channel6, channel7);
+
+
+            load.close();
+	    } catch (IOException e) {
+            e.printStackTrace();
+        }
+        } catch (ClassNotFoundException | FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Loading Completed");
+
+    }
+
+
+    /**
+    * The delete method is called when the delete button is activated and it searches for what index in the
+    * saveList is selected and then removes that object and its corresponding file in the save folder.
+    * Here we get a "ArrayIndexOutOfBoundsException" that we have not found any way around. The application deletes all
+    * of the right files and objects so its not like it doesn't find what its supposed to look for.
+    */
+    private void delete(){
+
+        String object = saveList.getSelectedValue();
+        int index = saveList.getSelectedIndex();
+        File[] fileList = folder.listFiles();
+        assert fileList != null;
+        for (File aFileList : fileList) {
+            if (aFileList.getName().equals(listModel.elementAt(index))) {
+                System.out.println(aFileList.getName());
+                System.out.println(listModel.elementAt(index));
+                if(!aFileList.delete()){System.out.println("Deletion failed");}
+            }
+        }
+        try{listModel.removeElement(object);}
+        catch(IndexOutOfBoundsException ex){
+
+            System.out.println("'listModel.removeElement(object);' " + ex.toString());
+            System.out.println("Everything works though..");
+
+        }
+
+        System.out.println("Delete Completed");
+
+    }
+
+
+    /**
+    * When the user activates the export button it opens up a JFileChooser where the user can specify where to
+    * save the file. If the user chooses a already existing file this method checks to see if the extension of that
+    * existing file already is ".wav", and if that's the case it just saves over that file and doesn't add any extension to it.
+    * If the user chooses to create a new file it adds the ".wav" extension to it so that it's possible to open it in
+    * most media players.  We are using a Midi2WavRenderer class which we found online and converted that class
+    * to a .jar-file which we then added to the project as a library to be able to change the file from Midi-format
+    * to Wave-format.
+     */
+    public void export() {
+        JFileChooser chooser = new JFileChooser();
+        /**
+         * Sets the default directory of the exported file to the user-folder.
+         */
+        chooser.setCurrentDirectory(new File(""));
+
+        /**
+         * Checks if the file to be overwritten already has the extension .wav.
+         */
+        chooser.setFileFilter(new FileFilter() {
+            @Override
+            public boolean accept(File file) {
+                int index = file.getName().lastIndexOf(".");
+                String extension = file.getName().substring(index+1);
+                return extension.equals("wav");
+            }
+            @Override
+            public String getDescription() {
+                return "Wave-format";
+            }
+        });
+        int result = chooser.showSaveDialog(this.getParent());
+        if(result == JFileChooser.APPROVE_OPTION){
+            /**
+             * If the file already has the .wav extension it just saves the filename in the chosen folder.
+             */
+            if(chooser.accept(chooser.getSelectedFile())){
+                int index = chooser.getSelectedFile().getName().lastIndexOf(".");
+                fileName = chooser.getSelectedFile().getName().substring(0, index);
+                chosenFilePath = chooser.getSelectedFile().getAbsolutePath();
+            }
+            /**
+             * If it doesn't have the .wav extension it adds that to the end of the filename.
+             */
+            else{
+                fileName = chooser.getSelectedFile().getName();
+                chosenFilePath = chooser.getSelectedFile().getAbsolutePath() + ".wav";
+            }
+
+            File file = new File(chosenFilePath);
+            /**
+             * Using the Midi2WavRenderer it then converts the Midi-file created by JFugue to a Wav-file so that it's
+             * playable in most media players.
+             */
+            try {
+                try {
+                    new Midi2WavRenderer().createWavFile(soundGrabber.getSoundWithTempo(), file);
+                } catch (MidiUnavailableException | InvalidClassException | InvalidMidiDataException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+        }
+        }
+        else if(result == JFileChooser.CANCEL_OPTION){
+            System.out.println("Export was cancelled");
+        }
+
+    }
+    /**
+    * These are passed the soundGrabber and gridGrabber from the MainFrame when this panels is created so that
+    * it can notify all the other listening classes when projects are loaded.
+    */
+
+    public void setGridGrabber(GridGrabber gridGrabber) {
+        this.gridGrabber = gridGrabber;
+    }
+    public void setSoundGrabber(SoundGrabber soundGrabber) {
+        this.soundGrabber = soundGrabber;
+    }
+
+}

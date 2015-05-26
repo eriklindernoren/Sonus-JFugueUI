@@ -1,0 +1,20 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class DirectoryPanel extends JPanel
+{
+
+    public DirectoryPanel()
+    {
+        this.setBackground(Color.GRAY);
+        this.setLocation(700, 0);
+        this.setSize(100, 400);
+        this.setVisible(true);
+    }
+
+}

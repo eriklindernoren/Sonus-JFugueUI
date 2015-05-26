@@ -1,0 +1,19 @@
+package Projekt.Sound;
+
+/**
+ * Created by Erik on 2014-03-25.
+ */
+
+import org.jfugue.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Player player = new Player();
+        Sound sound1 = new Sound();
+        sound1.addInstrumentToMusicstring("ACOUSTIC_BASS");
+        sound1.addMusicToMusicstring("a b c d");
+        player.play(sound1.getPattern());
+    }
+}

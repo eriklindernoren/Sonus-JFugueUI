@@ -1,0 +1,920 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Arrays;
+
+import org.jfugue.*;
+
+import static javax.swing.SwingConstants.CENTER;
+import static javax.swing.SwingConstants.HORIZONTAL;
+
+/*
+ * The InstrumentPopup class decides what the look of all the instruments popups is like. Its the instrument-class's
+ * job to pass its instruments to this class and then this class handles the rest. We thought this would be the better
+ * solution so that you wouldn't need to search through this class every time you wanted to change something for a
+ * instrument. When the user has created a tune which he or she wants to add to the song the InstrumentPopup class
+ * sets the rectangleGrabber and the soundGrabber which updates the look and sound of the main window.
+ */
+
+
+ abstract class InstrumentPopup extends JFrame
+{
+
+    //ID
+    private String instrumentID = null;
+    //LAYOUTS
+    private GridBagLayout upperPanelLayout = null, lowerPanelLayout = null, popupLayout = null, iPanelLayout = null;
+    private GridBagLayout midPanelLayout = null, aPanelLayout = null, durationPanelLayout = null;
+    private GridBagLayout rightLowerPanelLayout = null, octavePanelLayout = null, rightPanelLayout = null;
+    private GridBagLayout rightUpperPanelLayout = null;
+    private GridBagConstraints upperC = null, lowerC = null, popupC = null, midC = null, instrumentC = null;
+    private GridBagConstraints ackordC = null, durationC = null, rightLowerC = null;
+    private GridBagConstraints octaveC = null, rightC = null, rightUpperC = null;
+    //PANELS
+    private JPanel instrumentPanel = null, midPanel = null, ackordPanel = null;
+    private JPanel durationPanel = null, rightLowerPanel = null, upperPanel = null;
+    private JPanel rightPanel = null, lowerPanel = null, octavePanel = null, rightUpperPanel = null;
+    //COLOR
+    private static final Color BACKGROUND_COLOR = new Color(240, 240, 240);
+    private static final Color BUTTON_BACKGROUND = Color.WHITE;
+    private static final Color BORDER_COLOR = Color.WHITE;
+    private Color instrumentColor = null;
+    private static final Color ACTIVE_BUTTON_COLOR = Color.GRAY;
+    private static final Color INACTIVE_BUTTON_COLOR = Color.BLACK;
+    //CONSTANTS
+    private final static int INSTRUMENT_BUTTON_X = 40;
+    private final static int INSTRUMENT_BUTTON_Y = 68;
+    private final static int TEXT_FIELD_SIZE = 50;
+    private final static int ACKORD_LIST_SIZE = 10;
+    private final static int ACKORD_BUTTON_X = 18;
+    private final static int ACKORD_BUTTON_Y = 10;
+    private final static int DURATION_SIZE = 6;
+    private final static int DURATION_BUTTON_X = 0;
+    private final static int DURATION_BUTTON_Y = 20;
+    private final static int REP_MAX = 10;
+    private final static int REP_LOW = 1;
+    private final static int REP_INIT = 1;
+    private final static int VOL_MAX = 16000;
+    private final static int VOL_LOW = 0;
+    private final static int VOL_INIT = 12000;
+    private final static int CHANNEL_LOW = 1;
+    private final static int CHANNEL_MAX = 6;
+    private final static int CHANNEL_INIT = 1;
+    private final static int SLIDER_X = 20;
+    private final static int SLIDER_Y = 20;
+    private static final int RIGHT_C_PAD_X = 0;
+    private static final int RIGHT_C_PAD_Y = 86;
+    private final static int RIGHT_BUTTON_X = 100;
+    private final static int RIGHT_BUTTON_Y = 30;
+    private final static int LOWER_C_PAD_X = 20;
+    private final static int LOWER_C_PAD_Y = 20;
+    private final static int UPPER_C_PAD_X = 0;
+    private final static int UPPER_C_PAD_Y = 14;
+    private JButton preview = null, add = null, clear = null;
+    //SLIDERS
+    private JSlider repeat = null, volume = null, channel = null;
+    //CHANNEL
+    private int channelValue;
+    //VOLUME
+    private int volumeValue;
+    //REPEAT
+    private int repeatedTimes;
+    //LIST WITH BUTTONS
+    private JButton[] instrumentButtons = null;
+    private JButton[] ackordButtons = null;
+    private JButton[] durationButtons = null;
+    private JButton[] octaveButtons = null;
+    //LOWER TEXT AREA
+    private JTextField textField = null;
+    //PLAYER
+    private Player player = null;
+    private Sound popupSound = null;
+    private Sound testSound = null;
+    //ACTIVE VALUES
+    private String activeInstrument = null;
+    // INSTRUMENTS
+    private String[] instrumentLabels = null;
+    private String[] instrumentList = null;
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber = null;
+    //RECTANGLE GRABBER
+    private RectangleGrabber rectangleGrabber = null;
+
+
+    void panelMaker(Container pane)
+    {
+        //Sets the mayor layout of the popup window.
+        popupLayout = new GridBagLayout();
+        pane.setLayout(popupLayout);
+        popupC = new GridBagConstraints();
+
+        /*
+        * The upper panel houses the instrument panel, the mid panel and the right panel. Who in their turn houses
+        * separate panels with buttons.
+        */
+        makeUpperPanel();
+
+        makeInstrumentPanel();
+        upperPanel.add(instrumentPanel, upperC);
+
+        makeMidPanel();
+        makeAckordPanel();
+        midPanel.add(ackordPanel, midC);
+        makeOctavePanel();
+        midPanel.add(octavePanel, midC);
+        makeDurationPanel();
+        midPanel.add(durationPanel, midC);
+        upperPanel.add(midPanel, upperC);
+
+        makeRightPanel();
+        makeRightUpperPanel();
+        rightPanel.add(rightUpperPanel, rightC);
+        makeRightLowerPanel();
+        rightPanel.add(rightLowerPanel, rightC);
+        upperPanel.add(rightPanel, upperC);
+
+        pane.add(upperPanel, popupC);
+
+        makeLowerPanel();
+        pane.add(lowerPanel, popupC);
+
+
+        addActionListenersToButtons("ackords");
+        addActionListenersToButtons("duration");
+        addActionListenersToButtons("rightButtons");
+        addActionListenersToButtons("instruments");
+        addActionListenersToButtons("octave");
+
+        /*
+        * The default instrument in JFugue is the piano. "instrumentButtons[0].doClick();" ensures that
+        * when you for example operate the guitar popup, it always set the first guitar instrument as the default
+        * instrument when opening the popup, and not the piano.
+        */
+        instrumentButtons[0].doClick();
+
+
+    }
+
+    private void makeUpperPanel(){
+        upperPanel = new JPanel();
+        upperPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        /*
+        * Sets the layout for instrumentPanel, midPanel and the rightPanel, which the upper panel houses.
+         */
+        upperPanelLayout = new GridBagLayout();
+        upperC = new GridBagConstraints();
+        upperPanel.setLayout(upperPanelLayout);
+    }
+
+    private void makeInstrumentPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border instrumentBorder = BorderFactory.createTitledBorder(lineBorder, "Instruments",2,3);
+
+
+        instrumentPanel = new JPanel();
+        instrumentPanel.setBorder(instrumentBorder);
+        instrumentPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = UPPER_C_PAD_X;
+        upperC.ipady = UPPER_C_PAD_Y;
+        upperC.gridx = 0;
+        upperC.gridy = 0;
+
+        iPanelLayout = new GridBagLayout();
+        instrumentC = new GridBagConstraints();
+        instrumentPanel.setLayout(iPanelLayout);
+
+        makeInstrumentButtons();
+
+
+    }
+
+    /*
+    * The instrumentPopup class gets passed the desired instruments and their labels from its subclasses when it
+    * is created, and those instruments and labels gets set in this method.
+     */
+    private void makeInstrumentButtons(){
+
+        JButton instrument1 = new JButton();
+        JButton instrument2 = new JButton();
+        JButton instrument3 = new JButton();
+        JButton instrument4 = new JButton();
+        JButton instrument5 = new JButton();
+        instrumentButtons = new JButton[5];
+        instrumentButtons[0] = instrument1;
+        instrumentButtons[1] = instrument2;
+        instrumentButtons[2] = instrument3;
+        instrumentButtons[3] = instrument4;
+        instrumentButtons[4] = instrument5;
+
+        for(int i = 0; i < instrumentLabels.length; i++){
+            instrumentButtons[i].setText(instrumentLabels[i]);
+            instrumentButtons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(iPanelLayout);
+            instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+            instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+            instrumentC.gridx = 0;
+            instrumentC.gridy = i;
+            instrumentC.fill = GridBagConstraints.BOTH;
+            instrumentPanel.add(instrumentButtons[i], instrumentC);
+            final int index = i;
+
+            /*
+            * We wanted the user to get a stronger feeling of that the button that the mouse is over is in focus, so
+            * this adds that the button labels changes color when you move the mouse over it. Every instrument type
+            * has its own color in the application so we made it so that the instrument buttons labels would
+            * change into that instrument types special color.
+             */
+            instrumentButtons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    instrumentButtons[index].setForeground(instrumentColor);
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    instrumentButtons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+        }
+
+    }
+
+    private void makeMidPanel(){
+        midPanel = new JPanel();
+        midPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = 0;
+        upperC.ipady = 0;
+        upperC.gridx = 1;
+        upperC.gridy = 0;
+        upperC.fill = GridBagConstraints.BOTH;
+
+        /*
+        * The midPanel has three separate panels in it and this creates the layout for those panels.
+         */
+        midPanelLayout = new GridBagLayout();
+        midC = new GridBagConstraints();
+        midPanel.setLayout(midPanelLayout);
+    }
+
+    private void makeAckordPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border ackordBorder = BorderFactory.createTitledBorder(lineBorder, "Ackords",2,3);
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(BACKGROUND_COLOR);
+        ackordPanel.setBorder(ackordBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 0;
+        midC.ipady = 0;
+        midC.gridx = 0;
+        midC.gridy = 0;
+        midC.fill = GridBagConstraints.BOTH;
+
+        aPanelLayout = new GridBagLayout();
+        ackordC = new GridBagConstraints();
+        ackordPanel.setLayout(aPanelLayout);
+
+        makeAckButtons();
+    }
+
+    private void makeAckButtons(){
+
+        String[] ackords = new String[ACKORD_LIST_SIZE];
+        ackords[0] = "A";
+        ackords[1] = "B";
+        ackords[2] = "C";
+        ackords[3] = "D";
+        ackords[4] = "E";
+        ackords[5] = "F";
+        ackords[6] = "G";
+        ackords[7] = "Maj";
+        ackords[8] = "Min";
+        ackords[9] = "#";
+
+        ackordButtons = new JButton[ACKORD_LIST_SIZE];
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<ackordButtons.length; i++){
+	    ackordButtons[i] = new JButton();
+            ackordButtons[i].setText(ackords[i]);
+            ackordButtons[i].setBackground(BUTTON_BACKGROUND);
+            ackordButtons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(aPanelLayout);
+            ackordC.gridx = columnIndex;
+            ackordC.gridy = rowIndex;
+            ackordC.ipadx = ACKORD_BUTTON_X;
+            ackordC.ipady = ACKORD_BUTTON_Y;
+            ackordC.fill = GridBagConstraints.BOTH;
+            ackordPanel.add(ackordButtons[i], ackordC);
+
+            final int index = i;
+
+            /*
+            * We wanted the user to get aAckord stronger feeling of that the button that the mouse is over is in focus, so
+            * this adds that the button labels changes color when you move the mouse over it.
+             */
+            ackordButtons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    ackordButtons[index].setForeground(ACTIVE_BUTTON_COLOR);
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    ackordButtons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+
+    }
+
+    private void makeOctavePanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border octaveBorder = BorderFactory.createTitledBorder(lineBorder,"Octave",2,3);
+
+        octavePanel = new JPanel();
+        octavePanel.setBackground(BACKGROUND_COLOR);
+        octavePanel.setBorder(octaveBorder);
+        setLayout(midPanelLayout);
+        midC.gridx=0;
+        midC.gridy=1;
+        midC.ipadx=0;
+        midC.ipady=0;
+        midC.fill = GridBagConstraints.HORIZONTAL;
+
+        octavePanelLayout = new GridBagLayout();
+        octaveC = new GridBagConstraints();
+        octavePanel.setLayout(octavePanelLayout);
+
+        makeOctaveButtons();
+
+    }
+
+    private void makeOctaveButtons(){
+        octaveButtons = new JButton[9];
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for(int i=0; i<octaveButtons.length; i++){
+            octaveButtons[i] = new JButton();
+            octaveButtons[i].setText(String.valueOf(i + 1));
+            octaveButtons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(octavePanelLayout);
+            octaveC.ipady=5;
+            octaveC.gridy = rowIndex;
+            octaveC.gridx = columnIndex;
+            octavePanel.add(octaveButtons[i], octaveC);
+
+            columnIndex = (columnIndex <=1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+
+            /*
+            * We wanted the user to get a stronger feeling of that the button that the mouse is over is in focus, so
+            * this adds that the button labels changes color when you move the mouse over it.
+             */
+            final int index = i;
+            octaveButtons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    octaveButtons[index].setForeground(ACTIVE_BUTTON_COLOR);
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    octaveButtons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+        }
+    }
+
+    private void makeDurationPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border durationBorder = BorderFactory.createTitledBorder(lineBorder, "Duration",2,3);
+
+        durationPanel = new JPanel();
+        durationPanel.setBackground(BACKGROUND_COLOR);
+        durationPanel.setBorder(durationBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 0;
+        midC.ipady = 0;
+        midC.gridx = 0;
+        midC.gridy = 2;
+        midC.fill = GridBagConstraints.BOTH;
+
+        durationPanelLayout = new GridBagLayout();
+        durationC = new GridBagConstraints();
+        durationPanel.setLayout(durationPanelLayout);
+
+        makeDurationButtons();
+    }
+
+    private void makeDurationButtons(){
+
+        String[] duration = new String[DURATION_SIZE];
+        duration[0] = "Whole";
+        duration[1] = "Half";
+        duration[2] = "Quarter";
+        duration[3] = " Eighth  ";
+        duration[4] = "Sixteenth";
+        duration[5] = "Silent";
+
+        durationButtons = new JButton[DURATION_SIZE];
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<durationButtons.length; i++){
+	    durationButtons[i] = new JButton();
+            durationButtons[i].setText(duration[i]);
+            durationButtons[i].setBackground(BUTTON_BACKGROUND);
+            durationButtons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(durationPanelLayout);
+            durationC.gridx = columnIndex;
+            durationC.gridy = rowIndex;
+            durationC.ipadx = DURATION_BUTTON_X;
+            durationC.ipady = DURATION_BUTTON_Y;
+            durationC.fill = GridBagConstraints.BOTH;
+            durationPanel.add(durationButtons[i], durationC);
+
+
+            /*
+            * We wanted the user to get a stronger feeling of that the button that the mouse is over is in focus, so
+            * this adds that the button labels changes color when you move the mouse over it.
+            */
+            final int index = i;
+            durationButtons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    durationButtons[index].setForeground(ACTIVE_BUTTON_COLOR);
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    durationButtons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+    }
+
+
+    private void makeRightPanel(){
+        rightPanel = new JPanel();
+        rightPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = 0;
+        upperC.ipady = 0;
+        upperC.gridx = 2;
+        upperC.gridy = 0;
+        upperC.fill = GridBagConstraints.VERTICAL;
+
+
+        rightPanelLayout = new GridBagLayout();
+        rightC = new GridBagConstraints();
+        rightPanel.setLayout(rightPanelLayout);
+
+    }
+
+    private void makeRightUpperPanel(){
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border rightBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        rightUpperPanel = new JPanel();
+        rightUpperPanel.setBackground(BACKGROUND_COLOR);
+        rightUpperPanel.setBorder(rightBorder);
+        setLayout(rightPanelLayout);
+        rightC.ipadx = 0;
+        rightC.ipady = 0;
+        rightC.gridx = 0;
+        rightC.gridy = 0;
+        rightC.fill = GridBagConstraints.HORIZONTAL;
+
+        rightUpperPanelLayout = new GridBagLayout();
+        rightUpperC = new GridBagConstraints();
+        rightUpperPanel.setLayout(rightUpperPanelLayout);
+
+        makeRightSliders();
+    }
+
+
+    private void makeRightLowerPanel(){
+
+
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border rightBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        rightLowerPanel = new JPanel();
+        rightLowerPanel.setBackground(BACKGROUND_COLOR);
+        rightLowerPanel.setBorder(rightBorder);
+        setLayout(rightPanelLayout);
+        rightC.ipadx = RIGHT_C_PAD_X;
+        rightC.ipady = RIGHT_C_PAD_Y;
+        rightC.gridx = 0;
+        rightC.gridy = 1;
+        rightC.fill = GridBagConstraints.HORIZONTAL;
+
+        rightLowerPanelLayout = new GridBagLayout();
+        rightLowerC = new GridBagConstraints();
+        rightLowerPanel.setLayout(rightLowerPanelLayout);
+
+
+        makeRightButtons();
+    }
+
+
+    private void makeRightSliders(){
+
+        String[] sliders = new String[3];
+        sliders[0] = "Repeat";
+        sliders[1] = "Volume";
+        sliders[2] = "Channel";
+
+
+        JLabel repeatLabel = new JLabel(sliders[0], CENTER);
+        repeat = new JSlider(HORIZONTAL, REP_LOW, REP_MAX, REP_INIT);
+        repeat.setMinorTickSpacing(REP_LOW);
+        repeat.setSnapToTicks(true);
+        repeat.setPaintTicks(true);
+
+        JLabel volumeLabel = new JLabel(sliders[1], CENTER);
+        volume = new JSlider(HORIZONTAL, VOL_LOW, VOL_MAX, VOL_INIT);
+        volume.setMajorTickSpacing(VOL_MAX);
+        volume.setMinorTickSpacing(VOL_LOW);
+
+
+        JLabel channelLabel = new JLabel(sliders[2], CENTER);
+        channel = new JSlider(HORIZONTAL, CHANNEL_LOW, CHANNEL_MAX, CHANNEL_INIT);
+        channel.setMajorTickSpacing(CHANNEL_MAX);
+        channel.setMinorTickSpacing(CHANNEL_LOW);
+        channel.setPaintTicks(true);
+        channel.setSnapToTicks(true);
+
+        JLabel[] sliderLabels = new JLabel[3];
+        sliderLabels[0] = repeatLabel;
+        sliderLabels[1] = volumeLabel;
+        sliderLabels[2] = channelLabel;
+
+        JSlider[] rightSliders = new JSlider[3];
+        rightSliders[0] = repeat;
+        rightSliders[1] = volume;
+        rightSliders[2] = channel;
+
+        int y = 0;
+        for (int i = 0; i< rightSliders.length; i++){
+            sliderLabels[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+            setLayout(rightUpperPanelLayout);
+            rightUpperC.gridx = 0;
+            rightUpperC.gridy = y;
+            rightUpperC.fill = GridBagConstraints.BOTH;
+            rightUpperPanel.add(sliderLabels[i], rightUpperC);
+            y+=1;
+
+            rightSliders[i].setBackground(BUTTON_BACKGROUND);
+            setLayout(rightUpperPanelLayout);
+            rightUpperC.gridx = 0;
+            rightUpperC.gridy = y;
+            rightUpperC.ipadx = SLIDER_X;
+            rightUpperC.ipady = SLIDER_Y;
+            rightUpperC.fill = GridBagConstraints.BOTH;
+            rightUpperPanel.add(rightSliders[i], rightUpperC);
+            y+=1;
+
+        }
+
+
+    }
+
+    private void makeRightButtons(){
+
+        player = new Player();
+        popupSound = new Sound();
+
+        String[] buttons = new String[3];
+        buttons[0] = "Preview";
+        buttons[1] = "Add";
+        buttons[2] = "Clear";
+
+        preview = new JButton();
+        add = new JButton();
+        clear = new JButton();
+
+        final JButton[] rightButtons = new JButton[3];
+        rightButtons[0] = preview;
+        rightButtons[1] = add;
+        rightButtons[2] = clear;
+
+        for (int i = 0; i< rightButtons.length; i++){
+            rightButtons[i].setText(buttons[i]);
+            rightButtons[i].setBackground(BUTTON_BACKGROUND);
+            rightButtons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(rightLowerPanelLayout);
+            rightLowerC.gridx = 0;
+            rightLowerC.gridy = i;
+            rightLowerC.ipadx = RIGHT_BUTTON_X;
+            rightLowerC.ipady = RIGHT_BUTTON_Y;
+            rightLowerC.fill = GridBagConstraints.BOTH;
+            rightLowerPanel.add(rightButtons[i], rightLowerC);
+
+            /*
+            * We wanted the user to get a stronger feeling of that the button that the mouse is over is in focus, so
+            * this adds that the button labels changes color when you move the mouse over it.
+             */
+            final int index = i;
+            rightButtons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    rightButtons[index].setForeground(ACTIVE_BUTTON_COLOR);
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    rightButtons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+        }
+        /*
+        * The add button will change into the selected instrument types special color when in focus.
+         */
+        add.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                add.setForeground(instrumentColor);
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                add.setForeground(INACTIVE_BUTTON_COLOR);
+            }
+        });
+    }
+
+    private void makeLowerPanel(){
+        Border lineBorder = BorderFactory.createLineBorder(BORDER_COLOR, 2);
+        Border lowerBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        lowerPanel = new JPanel();
+        lowerPanel.setBackground(BACKGROUND_COLOR);
+        lowerPanel.setBorder(lowerBorder);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 1;
+
+        lowerPanelLayout = new GridBagLayout();
+        lowerC = new GridBagConstraints();
+        lowerPanel.setLayout(lowerPanelLayout);
+
+        makeLowerTextArea();
+    }
+
+    private void makeLowerTextArea(){
+
+
+        textField = new JTextField(TEXT_FIELD_SIZE);
+        textField.setEditable(false);
+        setLayout(lowerPanelLayout);
+        lowerC.gridx = 0;
+        lowerC.gridy = 0;
+        lowerC.ipadx = LOWER_C_PAD_X;
+        lowerC.ipady = LOWER_C_PAD_Y;
+        lowerC.fill = GridBagConstraints.HORIZONTAL;
+        lowerPanel.add(textField, lowerC);
+    }
+
+    void addActionListenersToButtons(String identifier){
+
+        /*
+        * The functionality of these three button types is the same for all types of
+        * instrument and doesn't change so we decided to set that functionality here.
+        */
+
+        final String[] ackordStrings = new String[ackordButtons.length];
+        ackordStrings[0] = " A";
+        ackordStrings[1] = " B";
+        ackordStrings[2] = " C";
+        ackordStrings[3] = " D";
+        ackordStrings[4] = " E";
+        ackordStrings[5] = " F";
+        ackordStrings[6] = " G";
+        ackordStrings[7] = "maj ";
+        ackordStrings[8] = "min ";
+        ackordStrings[9] = "#";
+
+        final String[] durationStrings = new String[durationButtons.length];
+        durationStrings[0] = "w";
+        durationStrings[1] = "h";
+        durationStrings[2] = "q";
+        durationStrings[3] = "i";
+        durationStrings[4] = "s";
+        durationStrings[5] = " R ";
+
+        String[] octaveStrings = new String[octaveButtons.length];
+        for(int i=0;i<octaveStrings.length;i++){
+            octaveStrings[i] = String.valueOf(i+1);
+        }
+
+        switch(identifier){
+            case "instruments":
+                setListeners(instrumentButtons, instrumentList);
+                break;
+            case "ackords":
+                setListeners(ackordButtons, ackordStrings);
+                break;
+            case "duration":
+                setListeners(durationButtons, durationStrings);
+                break;
+            case "octave":
+                setListeners(octaveButtons, octaveStrings);
+                break;
+            case "rightButtons":
+                preview.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        player.play(popupSound);
+                    }
+                });
+                clear.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        popupSound = new Sound();
+                        textField.setText("");
+                        instrumentButtons[0].doClick();
+                    }
+                });
+                add.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        volumeValue = volume.getValue();
+                        repeatedTimes = repeat.getValue();
+                        channelValue = channel.getValue();
+
+                        Sound tempSound = new Sound();
+                        tempSound.addSoundLoop(popupSound.getMusicString(), repeatedTimes);
+
+                        popupSound = tempSound;
+                        popupSound.insertVolume(volumeValue);
+                        popupSound.insertChannel(channelValue);
+
+                        /*
+                        * The setting of the grabbers let its listener know that the sound and the look of the
+                        * application needs to change.
+                         */
+                        soundGrabber.addToSound(popupSound);
+                        rectangleGrabber.setChannelAndInstrument(channelValue, instrumentID);
+                        dispose();
+                    }
+                });
+                break;
+        }
+    }
+
+
+    void createWindow(){
+        this.setTitle(instrumentID);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+    }
+
+    private void setListeners(JButton[] buttonList, String[] musicString){
+        for(int i = 0; i<buttonList.length;i++){
+            final String sound = musicString[i];
+            final JButton button = buttonList[i];
+            final JButton[] list = buttonList;
+            final int index = i;
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    /*
+                    * The setting of the activeInstrument is important to make sure that the testSound plays its
+                    * ackords with the particular instrument that has previously been selected.
+                     */
+                    if (Arrays.equals(list, instrumentButtons)) {
+                        activeInstrument = instrumentList[index];
+                    }
+
+                    /*
+                    * If any of the ackordButtons has been activated we wanted the user to be able to hear what
+                    * that ackord with the selected instrument sounds like. So this solves that.
+                     */
+                    if (Arrays.equals(list, ackordButtons)){
+                        testSound = new Sound();
+                        testSound.insertVolume(volume.getValue());
+                        testSound.add(sound);
+                        testSound.insertInstrumentToMusicString(activeInstrument);
+                        player.play(testSound);
+                    }
+
+                    /*
+                    * The reason we create tempSound is because if we would just use the popupSound.add() method it
+                    * automatically adds a space between the previously added sound and the new sound, and that prohibits
+                    * the use of the , maj, min, sharp, duration and octave functionality that JFugue has.
+                     */
+                    Sound tempSound = new Sound();
+                    tempSound.add(popupSound.getMusicString() + sound);
+                    popupSound = tempSound;
+
+                    textField.setText(textField.getText() + sound);
+
+                }
+            });
+        }
+
+    }
+
+    /*
+    * These set-methods is what changes the look and functionality of the popup dependent on what type of
+    * instrument popup you want to create.
+    */
+    void setInstrumentColor(Color instrumentColor) {
+        this.instrumentColor = instrumentColor;
+    }
+    void setRectangleGrabber(RectangleGrabber rectangleGrabber) {
+        this.rectangleGrabber = rectangleGrabber;
+    }
+    void setSoundGrabber(SoundGrabber soundGrabber) {
+        this.soundGrabber = soundGrabber;
+    }
+    void setInstrumentList(String[] instrumentList) {
+        this.instrumentList = instrumentList;
+    }
+    void setInstrumentLabels(String[] instrumentLabels) {
+        this.instrumentLabels = instrumentLabels;
+    }
+    void setInstrumentID(String instrumentID) {
+        this.instrumentID = instrumentID;
+    }
+
+}

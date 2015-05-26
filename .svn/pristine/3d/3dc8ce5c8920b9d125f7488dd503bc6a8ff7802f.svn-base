@@ -1,0 +1,81 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class DirectoryPanel extends JPanel
+{
+    private JList saveList;
+    private DefaultListModel<String> listModel;
+    private JScrollPane myScrollPane;
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+
+    private int NUMBER_OF_ROWS = 2;
+    private int NUMBER_OF_COLUMNS = 2;
+    private Color BACKGROUND_COLOR = Color.gray;
+
+    public DirectoryPanel()
+    {
+        this.setBackground(BACKGROUND_COLOR);
+
+        setPanelLayout();
+        initializeComponents();
+
+        this.add(myScrollPane);
+        this.add(saveList);
+        this.setVisible(true);
+
+    }
+
+    private void setPanelLayout () {
+        listLayout = new GridBagLayout();
+        setLayout(listLayout);
+
+    }
+
+    private void initializeComponents(){
+
+        addElementsToList();
+        createList();
+        createScrollPane();
+
+    }
+
+    private void createList(){
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setLayout(listLayout);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        System.out.println("Lista");
+                    }
+                }
+        );
+
+    }
+
+    private void createScrollPane(){
+        myScrollPane = new JScrollPane(saveList);
+    }
+
+    private void addElementsToList(){
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Row1");
+        listModel.addElement("Row2");
+        listModel.addElement("Row3");
+        listModel.addElement("Row4");
+        listModel.addElement("Row5");
+        listModel.addElement("Row6");
+        listModel.addElement("Row7");
+        listModel.addElement("Älg");
+    }
+
+}

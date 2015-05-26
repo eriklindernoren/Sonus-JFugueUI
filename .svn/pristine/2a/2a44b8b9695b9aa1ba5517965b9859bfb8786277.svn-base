@@ -1,0 +1,86 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class DirectoryPanel extends JPanel
+{
+    private JList saveList;
+    private DefaultListModel<String> listModel;
+    private JScrollPane myScrollPane;
+    private GridLayout myLayout;
+
+    private int NUMBER_OF_ROWS = 2;
+    private int NUMBER_OF_COLUMNS = 2;
+    private Color BACKGROUND_COLOR = Color.gray;
+    private int PANEL_LOCATION_X = 700;
+    private int PANEL_LOCATION_Y = 0;
+    private int PANEL_WIDTH = 100;
+    private int PANEL_HEIGHT = 400;
+
+    public DirectoryPanel()
+    {
+        this.setBackground(BACKGROUND_COLOR);
+        this.setLocation(PANEL_LOCATION_X, PANEL_LOCATION_Y);
+
+        setPanelLayout();
+        initializeComponents();
+
+        this.add(myScrollPane);
+        this.add(saveList);
+        this.setVisible(true);
+
+    }
+
+    private void setPanelLayout () {
+        myLayout = new GridLayout(NUMBER_OF_ROWS, NUMBER_OF_COLUMNS, 5, 5);
+        setLayout(myLayout);
+        setSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+    }
+
+    private void initializeComponents(){
+
+        addElementsToList();
+        createList();
+        createScrollPane();
+
+    }
+
+    private void createList(){
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setLayout(myLayout);
+        saveList.setLocation(0,0);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        System.out.println("Lista");
+                    }
+                }
+        );
+
+    }
+
+    private void createScrollPane(){
+        myScrollPane = new JScrollPane(saveList);
+    }
+
+    private void addElementsToList(){
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Row1");
+        listModel.addElement("Row2");
+        listModel.addElement("Row3");
+        listModel.addElement("Row4");
+        listModel.addElement("Row5");
+        listModel.addElement("Row6");
+        listModel.addElement("Row7");
+        listModel.addElement("Älg");
+    }
+
+}

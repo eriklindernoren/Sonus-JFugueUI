@@ -1,0 +1,50 @@
+package Projekt.Frame;
+
+import java.awt.*;
+
+/*
+ *
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Misc.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ *
+ */
+
+class MiscPopup extends InstrumentPopup {
+
+    private static final String misc1 = " I[GOBLINS] ";
+    private static final String misc2 = " I[GUNSHOT] ";
+    private static final String misc3 = " I[SEASHORE] ";
+    private static final String misc4 = " I[RAIN] ";
+    private static final String misc5 = " I[HELICOPTER] ";
+    private final Color miscColor = new Color(100, 100, 180);
+
+    public MiscPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Misc");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(miscColor);
+
+        String [] miscLabels = new String[5];
+        miscLabels[0] = "Goblins";
+        miscLabels[1] = "Gunshot";
+        miscLabels[2] = "Seashore";
+        miscLabels[3] = "Rain";
+        miscLabels[4] = "Helicopter";
+
+
+        String[] miscList = new String[5];
+        miscList[0] = misc1;
+        miscList[1] = misc2;
+        miscList[2] = misc3;
+        miscList[3] = misc4;
+        miscList[4] = misc5;
+
+        this.setInstrumentLabels(miscLabels);
+        this.setInstrumentList(miscList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

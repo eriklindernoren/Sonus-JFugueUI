@@ -1,0 +1,186 @@
+package Projekt.Frame;
+
+import org.jfugue.*;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.util.ArrayList;
+
+/**
+ * Created by Erik on 2014-05-18.
+ */
+public class drumPopup extends JFrame {
+    //MAINFRAME
+    MainFrame mainFrame;
+    //PANELS
+    JPanel drumPanel, rightPanel;
+    //SOUND
+    Player player;
+    Sound sound;
+    //LAYOUT
+    GridBagLayout popupLayout;
+    GridBagConstraints popupC;
+    GridBagLayout drumLayout;
+    GridBagConstraints drumC;
+    GridBagLayout rightLayout;
+    GridBagConstraints rightC;
+    //COLOR
+    private final Color backGroundColor = new Color(240, 240, 240);
+    private final Color borderColor = Color.WHITE;
+    //DRUMLIST
+    String[] drumList;
+    String[] labels;
+    //BUTTON LIST
+    JButton[] drumButtons;
+    //DRUM BUTTONS
+    private final static int DRUM_BUTTON_X = 40;
+    private final static int DRUM_BUTTON_Y = 40;
+    //DRUMS
+    private String drum1=" [ACOUSTIC_BASE_DRUM]q";
+    private String drum2=" [BASS_DRUM]q";
+    private String drum3=" [ACOUSTIC_SNARE]q";
+    private String drum4=" [HAND_CLAP]q";
+    private String drum5=" [ELECTRIC_SNARE]q";
+
+    private String drum6=" [LOW_FLOOR_TOM]q";
+    private String drum7=" [CLOSED_HI_HAT]q";
+    private String drum8=" [HIGH_FLOOR_TOM]q";
+    private String drum9=" [LOW_BONGO]q";
+    private String drum10=" [HI_BONGO]q";
+
+    private String drum11=" [TAMBOURINE]q";
+    private String drum12=" [MARACAS]q";
+    private String drum13=" [CABASA]q";
+    private String drum14=" [RIDE_CYMBAL_1]q";
+    private String drum15=" [VIBRASLAP]q";
+
+    private String drum16=" [OPEN_HI_CONGA]q";
+    private String drum17=" [SHORT_WHISTLE]q";
+    private String drum18=" [LONG_WHISTLE]q";
+    private String drum19=" [OPEN_TRIANGLE]q";
+    private String drum20=" [HIGH_TIMBALE]q";
+
+    public drumPopup(MainFrame m){
+        mainFrame = m;
+        player = new Player();
+        sound = new Sound();
+        panelMaker(getContentPane());
+    }
+
+    private void panelMaker(Container pane){
+        popupLayout = new GridBagLayout();
+        popupC = new GridBagConstraints();
+        pane.setLayout(popupLayout);
+
+        makeDrumPanel();
+        pane.add(drumPanel, popupC);
+
+        this.setTitle("Drums");
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+    }
+
+    private void makeDrumPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border drumBorder = BorderFactory.createTitledBorder(lineBorder, "Percussion",2,3);
+
+        drumPanel = new JPanel();
+        drumPanel.setBorder(drumBorder);
+        drumPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        drumLayout = new GridBagLayout();
+        drumC = new GridBagConstraints();
+        drumPanel.setLayout(drumLayout);
+
+        makeDrumButtons();
+    }
+
+    private void makeDrumButtons(){
+        addDrumsToList();
+        addLabelsToList();
+
+        drumButtons = new JButton[20];
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<drumList.length; i++){
+            drumButtons[i] = new JButton();
+            drumButtons[i].setText(labels[i]);
+            setLayout(drumLayout);
+            drumC.gridx = columnIndex;
+            drumC.gridy = rowIndex;
+            drumC.ipadx = DRUM_BUTTON_X;
+            drumC.ipady = DRUM_BUTTON_Y;
+            drumC.fill = GridBagConstraints.BOTH;
+            drumPanel.add(drumButtons[i], drumC);
+
+            rowIndex = (rowIndex < 4  ? rowIndex+1: 0);
+            if(rowIndex==0){columnIndex+=1;}
+        }
+
+    }
+
+    private void addDrumsToList(){
+        drumList = new String[20];
+        drumList[0] = drum1;
+        drumList[1] = drum2;
+        drumList[2] = drum3;
+        drumList[3] = drum4;
+        drumList[4] = drum5;
+
+        drumList[5] = drum6;
+        drumList[6] = drum7;
+        drumList[7] = drum8;
+        drumList[8] = drum9;
+        drumList[9] = drum10;
+
+        drumList[10] = drum11;
+        drumList[11] = drum12;
+        drumList[12] = drum13;
+        drumList[13] = drum14;
+        drumList[14] = drum15;
+
+        drumList[15] = drum16;
+        drumList[16] = drum17;
+        drumList[17] = drum18;
+        drumList[18] = drum19;
+        drumList[19] = drum20;
+
+    }
+
+    private void addLabelsToList(){
+        labels = new String[20];
+        labels[0] = "Acoustic base";
+        labels[1] = "Bass drum";
+        labels[2] = "Acoustic snare";
+        labels[3] = "Hand clap";
+        labels[4] = "Electric snare";
+
+        labels[5] = "Low floor tom";
+        labels[6] = "Closed hi hat";
+        labels[7] = "High floor tom";
+        labels[8] = "Low bongo";
+        labels[9] = "Hi bongo";
+
+        labels[10] = "Tambourine";
+        labels[11] = "Maracas";
+        labels[12] = "Cabasa";
+        labels[13] = "Ride cymbal";
+        labels[14] = "Vibraslap";
+
+        labels[15] = "Open hi conga";
+        labels[16] = "Short whistle";
+        labels[17] = "Long whistle";
+        labels[18] = "Open triangle";
+        labels[19] = "High timbale";
+    }
+
+}

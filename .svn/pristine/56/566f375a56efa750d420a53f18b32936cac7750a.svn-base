@@ -1,0 +1,6 @@
+package Projekt.Frame;
+
+
+public interface RectangleObserver {
+    public void update(int channel, String instrument);
+}

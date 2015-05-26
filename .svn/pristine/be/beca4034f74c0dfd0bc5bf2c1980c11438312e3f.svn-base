@@ -1,0 +1,49 @@
+package Projekt.Frame;
+
+import java.awt.*;
+
+/*
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Bass.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ *
+ */
+
+class BassPopup extends InstrumentPopup {
+    private static final String bass1 = " I[ACOUSTIC_BASS] ";
+    private static final String bass2 = " I[ELECTRIC_BASS_FINGER] ";
+    private static final String bass3 = " I[FRETLESS_BASS] ";
+    private static final String bass4 = " I[SLAP_BASS_1] ";
+    private static final String bass5 = " I[SYNTH_BASS_1] ";
+    private final Color bassColor = new Color(227,168,105);
+
+
+    public BassPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Bass");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(bassColor);
+
+        String []bassLabels = new String[5];
+        bassLabels[0] = "Acoustic bass";
+        bassLabels[1] = "Electric bass";
+        bassLabels[2] = "Fretless bass";
+        bassLabels[3] = "Slap bass";
+        bassLabels[4] = "Synth bass";
+
+        String[] bassList = new String[5];
+        bassList[0] = bass1;
+        bassList[1] = bass2;
+        bassList[2] = bass3;
+        bassList[3] = bass4;
+        bassList[4] = bass5;
+
+        this.setInstrumentLabels(bassLabels);
+        this.setInstrumentList(bassList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}
+

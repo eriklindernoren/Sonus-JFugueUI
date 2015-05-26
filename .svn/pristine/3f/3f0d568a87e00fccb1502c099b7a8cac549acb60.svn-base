@@ -1,0 +1,64 @@
+package Projekt.Frame;
+
+import java.util.ArrayList;
+
+/*
+ * This class updates the main sound for the application after a new sound is added in a popup window. It also
+ * keeps information about a separate sound type in which the tempo selected in the PlayPanels is taken into account.
+ * The soundWithTempo is the sound that the user has the option to export to enable the user to make wav-files with varying
+ * tempos.
+ */
+
+class SoundGrabber implements SoundListener {
+
+    private final ArrayList<SoundObserver> observers;
+    private Sound sound;
+    private Sound soundWithTempo;
+
+    public SoundGrabber(){
+        observers = new ArrayList<SoundObserver>();
+        sound = new Sound();
+        soundWithTempo = new Sound();
+    }
+
+    @Override
+    public void register(SoundObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(SoundObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        System.out.println("Observer " + (observerIndex+1) +  " deleted");
+
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(SoundObserver observer: observers){
+            observer.update(sound);
+        }
+    }
+
+    public void setSound(Sound newSound){
+        this.sound = newSound;
+        notifyObserver();
+    }
+
+    public void setSoundWithTempo(Sound newSound){
+        this.soundWithTempo = newSound;
+    }
+
+    public Sound getSoundWithTempo(){
+        return soundWithTempo;
+    }
+
+    public void addToSound(Sound s){
+        this.sound.add(s);
+        notifyObserver();
+    }
+    public Sound getSound(){
+        return sound;
+    }
+}

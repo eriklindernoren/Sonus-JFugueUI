@@ -1,0 +1,22 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class SongPanel extends JPanel
+{
+
+    public SongPanel()
+    {
+
+
+        this.setVisible(true);
+
+
+
+    }
+
+}

@@ -1,0 +1,13 @@
+package Projekt.Frame;
+
+/*
+* The SoundListener class keeps track and adds the classes which needs to know about changes made to the
+* sound.
+*
+ */
+
+interface SoundListener {
+    public void register(SoundObserver o);
+    public void unregister(SoundObserver o);
+    public void notifyObserver();
+}

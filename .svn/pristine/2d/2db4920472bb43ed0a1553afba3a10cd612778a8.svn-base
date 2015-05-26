@@ -1,0 +1,99 @@
+package Projekt.Frame;
+
+import sun.jvm.hotspot.code.ConstantOopReadValue;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+/**
+ * Created by mattiasramstrand on 2014-03-29.
+ */
+public class InstrumentPopup extends JFrame
+{
+    private GridBagLayout popupLayout;
+    private GridBagConstraints c;
+    private JPanel ackordPanel;
+    private Color backGroundColor = Color.WHITE;
+
+
+    public InstrumentPopup(String identifier)
+    {
+        layoutMaker();
+        panelMaker(getContentPane());
+        this.setTitle(identifier);
+        this.setSize(500, 500);
+        this.setResizable(false);
+        this.setVisible(true);
+
+
+        switch(identifier){
+
+            case("Guitar"):
+                System.out.println("Guitar");
+                break;
+            case("Sax"):
+                System.out.println("Sax");
+                break;
+            case("Drums"):
+                System.out.println("Drums");
+                break;
+            case("Bass"):
+                System.out.println("Bass");
+                break;
+            case("Piano"):
+                System.out.println("Piano");
+                break;
+            case("Yolo"):
+                System.out.println("Yolo");
+                break;
+            case("Swag"):
+                System.out.println("Swag");
+                break;
+            case("Horse"):
+                System.out.println("Horse");
+                break;
+            default:
+                System.out.println("End");
+                break;
+
+
+        }
+
+    }
+
+
+
+
+    public void layoutMaker()
+    {
+        popupLayout = new GridBagLayout();
+
+    }
+
+
+    public void panelMaker(Container pane)
+    {
+        pane.setLayout(popupLayout);
+        c = new GridBagConstraints();
+
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(Color.BLACK);
+        ackordPanel.setLayout(popupLayout);
+
+
+        c.weightx = 0.0;
+        c.ipadx = 20;
+        c.ipady = 40;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.fill = GridBagConstraints.BOTH;
+        pane.add(ackordPanel, c);
+
+
+    }
+
+
+
+}

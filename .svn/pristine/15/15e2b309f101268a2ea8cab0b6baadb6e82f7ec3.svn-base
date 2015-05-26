@@ -1,0 +1,28 @@
+package Projekt.Frame;
+
+import Projekt.Sound.*;
+import org.jfugue.*;
+
+public class SoundPlay extends Player{
+
+    private Sound pattern;
+
+    public SoundPlay(Sound s){
+        pattern = s;
+    }
+
+    public void playSound(){
+        this.play(pattern.getSound());
+    }
+
+    public void stopSound(){
+        this.stop();
+    }
+
+    public void addToPattern(Pattern p){
+        pattern.add(p);
+    }
+
+
+
+}

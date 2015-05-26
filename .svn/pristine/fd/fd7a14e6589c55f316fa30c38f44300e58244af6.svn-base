@@ -1,0 +1,50 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class DirectoryPanel extends JPanel
+{
+
+
+    public DirectoryPanel()
+    {
+        this.setBackground(Color.GRAY);
+        this.setLocation(700, 0);
+        this.setSize(100, 400);
+
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        listModel.addElement("Row1");
+        listModel.addElement("Row2");
+        listModel.addElement("Row3");
+        listModel.addElement("Row4");
+        listModel.addElement("Row5");
+        listModel.addElement("Row6");
+        listModel.addElement("Row7");
+        listModel.addElement("Älg");
+
+
+        JList saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.add(new JScrollPane(saveList));
+
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        System.out.println("Lista");
+                    }
+                }
+        );
+
+        this.add(saveList);
+        this.setVisible(true);
+
+    }
+
+}

@@ -1,0 +1,49 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+
+/*
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Horse.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ *
+ */
+
+class HorsePopup extends InstrumentPopup {
+
+    private static final String HORSE_1 = " I[VOICE] ";
+    private static final String HORSE_2 = " I[WARM] ";
+    private static final String HORSE_3 = " I[NEW_AGE] ";
+    private static final String HORSE_4 = " I[MUSIC_BOX] ";
+    private static final String HORSE_5 = " I[HONKEY_TONK] ";
+
+    public HorsePopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Horse");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        Color horseColor = new Color(227, 100, 20);
+        this.setInstrumentColor(horseColor);
+
+        String []horseLabels = new String[5];
+        horseLabels[0] = "Voice";
+        horseLabels[1] = "Warm";
+        horseLabels[2] = "New age";
+        horseLabels[3] = "Music box";
+        horseLabels[4] = "Honkey tonk";
+
+        String[] horseList = new String[5];
+        horseList[0] = HORSE_1;
+        horseList[1] = HORSE_2;
+        horseList[2] = HORSE_3;
+        horseList[3] = HORSE_4;
+        horseList[4] = HORSE_5;
+
+        this.setInstrumentLabels(horseLabels);
+        this.setInstrumentList(horseList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

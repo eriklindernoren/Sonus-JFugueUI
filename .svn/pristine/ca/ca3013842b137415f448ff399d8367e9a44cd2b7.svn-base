@@ -1,0 +1,60 @@
+/*
+Handles the creation and modifying of music strings.
+ */
+    package Projekt.Frame;
+
+    import org.jfugue.Pattern;
+
+    public class Sound extends Pattern{
+
+/*
+        public void addSoundLoop(String sound, int times){
+            for(int i = 1; i <= times; i++){
+                this.add(sound);
+            }
+
+        }
+*/
+        public void addMusicToMusicString(int channel, String sound){
+            this.add(" V" + channel + " " + sound);
+        }
+
+        public void insertInstrumentToMusicString(int channel, String instrument){
+            this.insert("V" + channel + " " + instrument);
+        }
+/*
+        public void addDrumToMusicString(String drum){
+            String drumChannel = "V09";
+            this.add(drumChannel + " " + drum);
+        }
+
+        public void addBeatToMusicString(String beat, int times){
+            String drumChannel = "V09";
+            this.add(drumChannel + " ");
+            for(int i = 1; i <= times; i++){
+                this.add(beat);
+            }
+        }
+
+        public void setStartTime(int startTime){
+            startTime *= 1000; //converting milliseconds to seconds
+            this.add("@" + startTime);
+        }
+*/
+
+        public void insertVolume(int channel, int volumeLevel){
+            this.insert(" V" + channel + " x[volume]=" + volumeLevel);
+        }
+
+        public void insertChannel(int channel){
+            this.insert(" V" + channel + " ");
+        }
+
+/*
+        public Sound getSound(){
+            return this;
+        }
+
+
+        */
+}

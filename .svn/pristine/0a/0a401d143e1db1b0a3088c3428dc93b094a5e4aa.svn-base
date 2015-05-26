@@ -1,0 +1,39 @@
+package Projekt.Frame;
+
+import org.jfugue.Player;
+
+/*
+* Makes it possible to start and later stop the music using a separate thread.
+*/
+public class PlayerThread implements Runnable {
+    private Sound sound;
+    private Player player = new Player();
+    private PlayPanel playPanel;
+
+    public PlayerThread(PlayPanel p){
+        playPanel = p;
+    }
+
+    public void setSound(Sound sound)
+    {
+        this.sound = sound;
+    }
+    @Override
+    public void run()
+    {
+        try{
+            player.play(sound);
+            playPanel.finishedPlaying(); // When the player has stopped playing it notifies the PlayPanel so that it can can
+                                        //change the soundControl button from "STOP" to "PLAY".
+        }
+        catch (Exception exception)
+        {
+            System.out.println(exception);
+        }
+    }
+
+    public void stopPlayer(){
+        player.stop();
+    }
+
+}

@@ -1,0 +1,55 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
+
+final class Grid extends JPanel {
+
+    private final List<Point> fillCells;
+    private final List<Color> cellColor;
+    private int colorListIndex;
+    private final int CELL_WIDTH = 140;
+    private final int CELL_HEIGHT = 60;
+    private final int GRID_WIDTH = 2800;
+    private final int GRID_HEIGHT = 420;
+    public Grid() {
+        fillCells = new ArrayList<>(25);
+        cellColor = new ArrayList<>(25);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        colorListIndex = 0;
+        for (Point fillCell : fillCells) {
+            int cellX = (fillCell.x * CELL_WIDTH);
+            int cellY = (fillCell.y * CELL_HEIGHT);
+            g.setColor(cellColor.get(colorListIndex));
+            g.fillRect(cellX, cellY, CELL_WIDTH, CELL_HEIGHT);
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(cellX + 3, cellY + 3, CELL_WIDTH - 6, CELL_HEIGHT - 6);
+            g.setColor(cellColor.get(colorListIndex));
+            g.fillRect(cellX + 4, cellY + 4, CELL_WIDTH - 8, CELL_HEIGHT - 8);
+            colorListIndex += 1;
+        }
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawRect(0, 0, GRID_WIDTH, GRID_HEIGHT);
+
+        for (int i = 0; i <= GRID_WIDTH; i += CELL_WIDTH) {
+            g.drawLine(i, 0, i, GRID_HEIGHT);
+        }
+
+        for (int i = 0; i <= GRID_HEIGHT; i += CELL_HEIGHT) {
+            g.drawLine(0, i, GRID_WIDTH, i);
+        }
+    }
+
+    public void fillCell(int x, int y, Color c){
+        fillCells.add(new Point(x, y));
+        cellColor.add(c);
+        repaint();
+    }
+}

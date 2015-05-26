@@ -1,0 +1,50 @@
+package Projekt.Frame;
+
+import java.awt.*;
+
+/**
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Piano.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ */
+
+class PianoPopup extends InstrumentPopup {
+
+    private final static Color PIANO_COLOR = new Color(238, 99, 99);
+
+    private static final int INSTRUMENT_SIZE = 5;
+
+    private static final String PIANO_1 = " I[PIANO] ";
+    private static final String PIANO_2 = " I[BRIGHT_ACOUSTIC] ";
+    private static final String PIANO_3 = " I[ELECTRIC_PIANO] ";
+    private static final String PIANO_4 = " I[CLAVINET] ";
+    private static final String PIANO_5 = " I[CHURCH_ORGAN] ";
+
+    PianoPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Piano");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(PIANO_COLOR);
+
+        String []pianoLabels = new String[INSTRUMENT_SIZE];
+        pianoLabels[0] = "Acoustic Grand";
+        pianoLabels[1] = "Bright Acoustic";
+        pianoLabels[2] = "Electric Piano";
+        pianoLabels[3] = "Clavinet";
+        pianoLabels[4] = "Church Organ";
+
+        String[] pianoList = new String[INSTRUMENT_SIZE];
+        pianoList[0] = PIANO_1;
+        pianoList[1] = PIANO_2;
+        pianoList[2] = PIANO_3;
+        pianoList[3] = PIANO_4;
+        pianoList[4] = PIANO_5;
+
+        this.setInstrumentLabels(pianoLabels);
+        this.setInstrumentList(pianoList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

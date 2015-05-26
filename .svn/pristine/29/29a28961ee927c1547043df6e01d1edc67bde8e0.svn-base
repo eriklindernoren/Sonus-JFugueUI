@@ -1,0 +1,158 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
+/*
+ * This class handles the information needed to load and save the grid. The fillCells field stores the position in which
+ * to draw the rectangles, the cellColors stores the color of the rectangle and the icons field stores the name of the
+ * icon for that rectangle. It also needs to keep track of how many rectangles has been drawn out in the grids channels
+ * to enable the user to add to those channels when a project is loaded.
+ */
+
+
+public class GridGrabber implements GridListener{
+    private final ArrayList<GridObserver> observers;
+    private java.util.List<Point> fillCells;
+    private java.util.List<Color> cellColor;
+    private java.util.List<String> icons;
+    private int channelCount1;
+    private int channelCount2;
+    private int channelCount3;
+    private int channelCount4;
+    private int channelCount5;
+    private int channelCount6;
+    private int channelCount7;
+
+    public GridGrabber(){
+        observers = new ArrayList<GridObserver>();
+        fillCells = new ArrayList<>(25);
+        cellColor = new ArrayList<>(25);
+        icons = new ArrayList<>(25);
+        channelCount1=0;
+        channelCount2=0;
+        channelCount3=0;
+        channelCount4=0;
+        channelCount5=0;
+        channelCount6=0;
+        channelCount7=0;
+    }
+    @Override
+    public void register(GridObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(GridObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(GridObserver observer: observers){
+            observer.update(fillCells, cellColor, icons, channelCount1, channelCount2, channelCount3,
+                    channelCount4, channelCount5, channelCount6, channelCount7);
+        }
+    }
+
+    public void setGrid(java.util.List<Point> fillCells, java.util.List<Color> cellColor, java.util.List<String> icons,
+                        int channel1, int channel2, int channel3, int channel4, int channel5, int channel6, int channel7) {
+        this.fillCells = fillCells;
+        this.cellColor = cellColor;
+        this.icons = icons;
+        this.channelCount1 = channel1;
+        this.channelCount2 = channel2;
+        this.channelCount3 = channel3;
+        this.channelCount4 = channel4;
+        this.channelCount5 = channel5;
+        this.channelCount6 = channel6;
+        this.channelCount7 = channel7;
+        notifyObserver();
+    }
+
+    public java.util.List<Point> getFillCells() {
+        return fillCells;
+    }
+
+    public java.util.List<Color> getCellColor() {
+        return cellColor;
+    }
+
+    public java.util.List<String> getIcons() {
+        return icons;
+    }
+
+    public int getChannelCount1() {
+        return channelCount1;
+    }
+
+
+    public int getChannelCount2() {
+        return channelCount2;
+    }
+
+    public int getChannelCount3() {
+        return channelCount3;
+    }
+
+
+    public int getChannelCount4() {
+        return channelCount4;
+    }
+
+    public int getChannelCount5() {
+        return channelCount5;
+    }
+
+    public int getChannelCount6() {
+        return channelCount6;
+    }
+
+
+    public int getChannelCount7() {
+        return channelCount7;
+    }
+
+    public void setChannelCount1(int channelCount1) {
+        this.channelCount1 = channelCount1;
+    }
+
+    public void setChannelCount2(int channelCount2) {
+        this.channelCount2 = channelCount2;
+    }
+
+    public void setChannelCount3(int channelCount3) {
+        this.channelCount3 = channelCount3;
+    }
+
+    public void setChannelCount4(int channelCount4) {
+        this.channelCount4 = channelCount4;
+    }
+
+    public void setChannelCount5(int channelCount5) {
+        this.channelCount5 = channelCount5;
+    }
+
+    public void setChannelCount6(int channelCount6) {
+        this.channelCount6 = channelCount6;
+    }
+
+    public void setChannelCount7(int channelCount7) {
+        this.channelCount7 = channelCount7;
+    }
+
+    public void setFillCells(List<Point> fillCells) {
+        this.fillCells = fillCells;
+    }
+
+    public void setCellColor(List<Color> cellColor) {
+        this.cellColor = cellColor;
+    }
+
+    public void setIcons(List<String> icons) {
+        this.icons = icons;
+    }
+}

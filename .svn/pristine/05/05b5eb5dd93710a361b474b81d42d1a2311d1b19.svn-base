@@ -1,0 +1,377 @@
+package Projekt.Frame;
+
+import org.jfugue.*;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+class DrumPopup extends JFrame {
+    //PANELS
+    private JPanel upperPanel, lowerPanel, drumPanel, rightPanel;
+    //SOUND
+    private final Player player;
+    private Sound popupSound;
+    private Sound testSound;
+    private GridBagConstraints upperC;
+    private GridBagLayout lowerPanelLayout;
+    private GridBagConstraints lowerC;
+    private GridBagLayout popupLayout;
+    private GridBagConstraints popupC;
+    private GridBagLayout drumLayout;
+    private GridBagConstraints drumC;
+    private GridBagLayout rightLayout;
+    private GridBagConstraints rightC;
+    //COLOR
+    private final Color backGroundColor = new Color(240, 240, 240);
+    private final Color borderColor = Color.WHITE;
+    //DRUMLIST
+    private String[] drumList;
+    private String[] labels;
+    //BUTTON LIST
+    private JButton[] drumButtons;
+    //DRUM BUTTONS
+    private final static int DRUM_BUTTON_X = 40;
+    private final static int DRUM_BUTTON_Y = 40;
+    //RIGHT BUTTONS
+    private JButton preview, add, clear, combine;
+    private final static int RIGHT_BUTTON_X = 45;
+    private final static int RIGHT_BUTTON_Y = 45;
+    //RIGHT SLIDERS
+    private JSlider volume;
+    private int volumeValue;
+    private final static int VOL_LOW=0;
+    private final static int VOL_MAX=16000;
+    private final static int VOL_INIT=8000;
+    private final static int SLIDER_X = 20;
+    private final static int SLIDER_Y = 20;
+    //BOTTOM TEXT FIELD
+    private JTextField textField;
+
+
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+    //RECTANGLE GRABBER
+    private RectangleGrabber rectangleGrabber;
+
+    public DrumPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.rectangleGrabber = rectangleGrabber;
+        this.soundGrabber = soundGrabber;
+        player = new Player();
+        popupSound = new Sound();
+        panelMaker(getContentPane());
+    }
+
+    private void panelMaker(Container pane){
+        popupLayout = new GridBagLayout();
+        popupC = new GridBagConstraints();
+        pane.setLayout(popupLayout);
+
+        makeUpperPanel();
+
+        makeDrumPanel();
+        upperPanel.add(drumPanel, upperC);
+
+        makeRightPanel();
+        upperPanel.add(rightPanel, upperC);
+
+        pane.add(upperPanel, popupC);
+
+        makeLowerPanel();
+        pane.add(lowerPanel, popupC);
+
+        this.setTitle("Percussion");
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+    }
+
+    private void makeUpperPanel(){
+        upperPanel = new JPanel();
+        upperPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        GridBagLayout upperPanelLayout = new GridBagLayout();
+        upperC = new GridBagConstraints();
+        upperPanel.setLayout(upperPanelLayout);
+    }
+
+    private void makeDrumPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border drumBorder = BorderFactory.createTitledBorder(lineBorder, "Percussion",2,3);
+
+        drumPanel = new JPanel();
+        drumPanel.setBorder(drumBorder);
+        drumPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        drumLayout = new GridBagLayout();
+        drumC = new GridBagConstraints();
+        drumPanel.setLayout(drumLayout);
+
+        makeDrumButtons();
+        addActionListenersToButtons("drums");
+    }
+
+    private void makeDrumButtons(){
+        addDrumsToList();
+        addLabelsToList();
+
+        drumButtons = new JButton[10];
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<drumList.length; i++){
+            drumButtons[i] = new JButton();
+            drumButtons[i].setText(labels[i]);
+            setLayout(drumLayout);
+            drumC.gridx = columnIndex;
+            drumC.gridy = rowIndex;
+            drumC.ipadx = DRUM_BUTTON_X;
+            drumC.ipady = DRUM_BUTTON_Y;
+            drumC.fill = GridBagConstraints.BOTH;
+            drumPanel.add(drumButtons[i], drumC);
+
+            rowIndex = (rowIndex < 4  ? rowIndex+1: 0);
+            if(rowIndex==0){columnIndex+=1;}
+        }
+
+    }
+
+    private void addDrumsToList(){
+        drumList = new String[10];
+        String drum1 = "[SPLASH_CYMBAL]q";
+        drumList[0] = drum1;
+        String drum2 = "[BASS_DRUM]q";
+        drumList[1] = drum2;
+        String drum3="[ACOUSTIC_SNARE]q";
+        drumList[2] = drum3;
+        String drum4="[HAND_CLAP]q";
+        drumList[3] = drum4;
+        String drum5="[ELECTRIC_SNARE]q";
+        drumList[4] = drum5;
+        String drum6="[LOW_FLOOR_TOM]q";
+        drumList[5] = drum6;
+        String drum7="[CLOSED_HI_HAT]q";
+        drumList[6] = drum7;
+        String drum8="[HIGH_FLOOR_TOM]q";
+        drumList[7] = drum8;
+        String drum9="[LOW_BONGO]q";
+        drumList[8] = drum9;
+        String drum10="[LONG_GUIRO]q";
+        drumList[9] = drum10;
+
+    }
+
+    private void addLabelsToList(){
+        labels = new String[20];
+        labels[0] = "Splash cymbal";
+        labels[1] = "Bass drum";
+        labels[2] = "Acoustic snare";
+        labels[3] = "Hand clap";
+        labels[4] = "Electric snare";
+
+        labels[5] = "Low floor tom";
+        labels[6] = "Closed hi hat";
+        labels[7] = "High floor tom";
+        labels[8] = "Bongo";
+        labels[9] = "Long guiro";
+
+    }
+
+    private void makeRightPanel(){
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border rightBorder = BorderFactory.createTitledBorder(lineBorder, "",2,3);
+
+        rightPanel = new JPanel();
+        rightPanel.setBorder(rightBorder);
+        rightPanel.setBackground(backGroundColor);
+        popupC.ipadx=0;
+        popupC.ipady=0;
+        popupC.gridx=1;
+        popupC.gridy=0;
+
+        rightLayout= new GridBagLayout();
+        rightC = new GridBagConstraints();
+        rightPanel.setLayout(rightLayout);
+
+        makeRightSlider();
+        makeRightButtons();
+
+    }
+    private void makeRightSlider(){
+
+
+        String volumeText = "Volume";
+        JLabel volumeLabel = new JLabel(volumeText, JLabel.CENTER);
+        volume = new JSlider(JSlider.HORIZONTAL, VOL_LOW, VOL_MAX, VOL_INIT);
+        volume.setMajorTickSpacing(VOL_MAX);
+        volume.setMinorTickSpacing(VOL_LOW);
+
+        volumeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        setLayout(rightLayout);
+        rightC.gridx = 0;
+        rightC.gridy = 0;
+        rightC.fill = GridBagConstraints.BOTH;
+        rightPanel.add(volumeLabel, rightC);
+
+        volume.setPaintTrack(true);
+        setLayout(rightLayout);
+        rightC.gridx = 0;
+        rightC.gridy = 1;
+        rightC.ipadx = SLIDER_X;
+        rightC.ipady = SLIDER_Y;
+        rightC.fill = GridBagConstraints.BOTH;
+        rightPanel.add(volume, rightC);
+
+
+    }
+
+    private void makeRightButtons(){
+        String[] buttons = new String[4];
+        buttons[0] = "Combine";
+        buttons[1] = "Preview";
+        buttons[2] = "Add";
+        buttons[3] = "Clear";
+
+        combine = new JButton();
+        preview = new JButton();
+        add = new JButton();
+        clear = new JButton();
+
+        JButton[] rightButtons = new JButton[4];
+        rightButtons[0] = combine;
+        rightButtons[1] = preview;
+        rightButtons[2] = add;
+        rightButtons[3] = clear;
+
+        for (int i = 0; i< rightButtons.length; i++){
+            rightButtons[i].setText(buttons[i]);
+            setLayout(rightLayout);
+            rightC.gridx = 0;
+            rightC.gridy = 2 + i;
+            rightC.ipadx = RIGHT_BUTTON_X;
+            rightC.ipady = RIGHT_BUTTON_Y;
+            rightC.fill = GridBagConstraints.BOTH;
+            rightPanel.add(rightButtons[i], rightC);
+        }
+        addActionListenersToButtons("rightButtons");
+    }
+
+    private void makeLowerPanel(){
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border lowerBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        lowerPanel = new JPanel();
+        lowerPanel.setBackground(backGroundColor);
+        lowerPanel.setBorder(lowerBorder);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 1;
+
+        lowerPanelLayout = new GridBagLayout();
+        lowerC = new GridBagConstraints();
+        lowerPanel.setLayout(lowerPanelLayout);
+
+        makeLowerTextArea();
+    }
+
+    private void makeLowerTextArea(){
+        textField = new JTextField(45);
+        textField.setEditable(false);
+        setLayout(lowerPanelLayout);
+        lowerC.gridx = 0;
+        lowerC.gridy = 0;
+        lowerC.ipadx = 20;
+        lowerC.ipady = 20;
+        lowerC.fill = GridBagConstraints.HORIZONTAL;
+        lowerPanel.add(textField, lowerC);
+    }
+
+
+    private void addActionListenersToButtons(String identifier){
+
+        switch(identifier){
+            case "drums":
+                setListeners(drumButtons, drumList);
+                break;
+            case "rightButtons":
+                combine.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String musicString = popupSound.getMusicString() + "+";
+                        popupSound = new Sound();
+                        popupSound.add(musicString);
+                        textField.setText(textField.getText() + " + ");
+                    }
+                });
+                preview.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        popupSound.insertChannel(9);
+                        player.play(popupSound);
+                    }
+                });
+                clear.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        popupSound = new Sound();
+                        textField.setText("");
+                        drumButtons[0].doClick();
+                    }
+                });
+                add.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        volumeValue = volume.getValue();
+                        popupSound.insertVolume(volumeValue);
+                        popupSound.insertChannel(9);
+                        soundGrabber.addToSound(popupSound);
+                        rectangleGrabber.setChannelAndInstrument(7, "Drums");
+                        dispose();
+                    }
+                });
+                break;
+
+        }
+
+    }
+    private void setListeners(JButton[] buttonList, String[] musicString){
+        for(int i = 0; i<buttonList.length;i++){
+            final String sound = musicString[i];
+            final JButton button = buttonList[i];
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    testSound = new Sound();
+                    testSound.addBeatToMusicString(sound);
+                    player.play(testSound);
+                    if(popupSound.getMusicString().endsWith("+")){
+                        String musicString = popupSound.getMusicString() + sound;
+                        popupSound = new Sound();
+                        popupSound.add(musicString);
+                    }
+                    else{popupSound.add(sound);}
+                    textField.setText(textField.getText() + " " + sound);
+                }
+            });
+        }
+
+    }
+
+}

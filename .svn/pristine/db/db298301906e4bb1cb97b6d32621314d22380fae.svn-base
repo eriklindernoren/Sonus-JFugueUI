@@ -1,0 +1,164 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+
+
+public class InstrumentPanel extends JPanel
+{
+    //BUTTONS
+    private JButton guitar, saxophone, drums, bass, piano, misc, swag, horse;
+    //CONSTANTS
+    private int BUTTON_SIZE_X = 20;
+    private int BUTTON_SIZE_Y = 70;
+    //COLOR
+    private Color buttonBackground = Color.WHITE;
+
+
+    //Constructor
+    public InstrumentPanel(){
+        gridMaker();
+    }
+
+
+    // Makes the grid, buttons and actions for iPanel
+    public void gridMaker()
+    {
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        //ImageIcon guitarIcon = new ImageIcon("/Users/Erik/Sound/src/Projekt/Frame/Guitar-icon.ico");
+        guitar = new JButton("Guitar");
+        guitar.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = BUTTON_SIZE_Y;
+        c.ipadx = BUTTON_SIZE_X;
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(guitar, c);
+
+        guitar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+               InstrumentPopup guitarPopup = new InstrumentPopup("Guitar");
+            }
+        });
+
+        saxophone = new JButton("SAX.");
+        saxophone.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 0;
+        this.add(saxophone, c);
+
+        saxophone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup saxPopup = new InstrumentPopup("Sax");
+            }
+        });
+
+        drums = new JButton("DRUMS");
+        drums.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 1;
+        this.add(drums, c);
+
+        drums.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup drumsPopup = new InstrumentPopup("Drums");
+            }
+        });
+
+        bass = new JButton("BASS");
+        bass.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        this.add(bass, c);
+
+        bass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup bassPopup = new InstrumentPopup("Bass");
+            }
+        });
+
+
+
+        piano = new JButton("PIANO");
+        piano.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 2;
+        this.add(piano, c);
+
+        piano.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup pianoPopup = new InstrumentPopup("Piano");
+            }
+        });
+
+
+
+        misc = new JButton("MISC");
+        misc.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 2;
+        this.add(misc, c);
+
+        misc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup miscPopup = new InstrumentPopup("Misc");
+            }
+        });
+
+
+
+        swag = new JButton("SWAG");
+        swag.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 3;
+        this.add(swag, c);
+
+        swag.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup swagPopup = new InstrumentPopup("Swag");
+            }
+        });
+
+
+
+        horse = new JButton("HORSE");
+        horse.setBackground(buttonBackground);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 3;
+        this.add(horse, c);
+
+        horse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InstrumentPopup iPopup = new InstrumentPopup("Horse");
+            }
+        });
+
+    }
+
+}

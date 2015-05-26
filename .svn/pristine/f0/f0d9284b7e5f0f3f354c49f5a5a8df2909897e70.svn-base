@@ -1,0 +1,203 @@
+package Projekt.Frame;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
+
+/**
+ * This panel is created in the DisplayPanel and handles the creation of the grid located in the center of the application.
+ * When a new object is created it sends the added information to the gridGrabber so that the information is accessable
+ * when the user decides to save the Projekt. The GridObserver is implemented so that it knows when the user loads
+ * a saved Projekt and can draw the saved object in the grid.
+ */
+
+
+
+final class Grid extends JPanel implements GridObserver{
+
+    private List<Point> fillCells;
+    private List<Color> cellColor;
+    private List<String> icons;
+    private final static int LIST_SIZE = 25;
+    private static final Color BORDER_COLOR = Color.WHITE;
+
+    private static final int CELL_WIDTH = 140;
+    private static final int CELL_HEIGHT = 52;
+
+    private static final int NUMB_OF_COLUMNS = 20;
+    private static final int NUMB_OF_ROWS = 8;
+
+    private static final int GRID_WIDTH = NUMB_OF_COLUMNS * CELL_WIDTH;
+    private static final int GRID_HEIGHT = NUMB_OF_ROWS * CELL_HEIGHT;
+
+    private static final int RECT_CORNER_DIFF = 14;
+    private static final int CORNER_RECT_X = CELL_WIDTH - RECT_CORNER_DIFF;
+    private static final int CORNER_RECT_Y = CELL_HEIGHT - RECT_CORNER_DIFF;
+
+    private static final int OVAL_CORNER_DIFF = 12;
+    private static final int CORNER_OVAL_Y = CELL_HEIGHT - OVAL_CORNER_DIFF;
+    private static final int CORNER_OVAL_X = CELL_WIDTH - OVAL_CORNER_DIFF;
+
+    private static final int WIDE_INNER_RECT_X = CELL_WIDTH - 12;
+    private static final int WIDE_INNER_RECT_Y = CELL_HEIGHT - 12;
+
+
+    private static final int TALL_INNER_RECT_X_DIFF = 15;
+    private static final int TALL_INNER_RECT_X = CELL_WIDTH - 30;
+    private static final int TALL_INNER_RECT_Y = CELL_HEIGHT - 6;
+
+    private static final int ICON_SIZE_X = 45;
+    private static final int ICON_SIZE_Y = 45;
+    //GRID GRABBER
+    private GridGrabber gridGrabber;
+    //MAINFRAME
+    private MainFrame mainFrame;
+
+    Grid() {
+        mainFrame = null;
+        gridGrabber = null;
+        fillCells = new ArrayList<>(LIST_SIZE);
+        cellColor = new ArrayList<>(LIST_SIZE);
+        icons = new ArrayList<>(LIST_SIZE);
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try{mainFrame.clearDirectoryList();}
+                catch (IndexOutOfBoundsException ex){
+                    System.out.println("clearListSelection(); gives " + ex.toString());
+                    System.out.println("Everything works though..");
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        int colorListIndex = 0;
+        int iconListIndex = 0;
+        for (Point fillCell : fillCells) {
+            int cellX = (fillCell.x * CELL_WIDTH);
+            int cellY = (fillCell.y * CELL_HEIGHT);
+
+            g.setColor(cellColor.get(colorListIndex));
+
+            g.fillRect(cellX + 1, cellY + 7, CELL_WIDTH - 2, CORNER_RECT_Y);
+            g.fillRect(cellX + 7, cellY + 1, CORNER_RECT_X, CELL_HEIGHT - 2);
+
+            g.fillOval(cellX + 1, cellY + 1, 10, 10);
+            g.fillOval(cellX + CORNER_OVAL_X, cellY + 1, 10, 10);
+            g.fillOval(cellX + 1, cellY + CORNER_OVAL_Y, 10, 10);
+            g.fillOval(cellX + CORNER_OVAL_X, cellY + CORNER_OVAL_Y, 10, 10);
+
+
+            //For the border
+            g.setColor(BORDER_COLOR);
+            g.fillRect(cellX + 5, cellY + 5, CELL_WIDTH - 10, CELL_HEIGHT - 10);
+
+            g.setColor(cellColor.get(colorListIndex));
+            g.fillRect(cellX+6, cellY+6, WIDE_INNER_RECT_X, WIDE_INNER_RECT_Y);
+            g.fillRect(cellX+TALL_INNER_RECT_X_DIFF, cellY+3, TALL_INNER_RECT_X, TALL_INNER_RECT_Y);
+
+
+            try {
+                Image img = ImageIO.read(getClass().getResource(icons.get(iconListIndex)));
+                g.drawImage(img, cellX + CELL_WIDTH/2 - img.getWidth(null)/2,
+                            cellY + 3 + CELL_HEIGHT/2 - img.getHeight(null)/2,
+                            ICON_SIZE_X,ICON_SIZE_Y,null);
+            } catch (IOException ignored) {
+                System.out.println("Icon Error");
+            }
+
+            iconListIndex += 1;
+            colorListIndex += 1;
+        }
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawRect(0, 0, GRID_WIDTH, GRID_HEIGHT);
+
+        for (int i = 0; i <= GRID_WIDTH; i += CELL_WIDTH) {
+            g.drawLine(i, 0, i, GRID_HEIGHT);
+        }
+
+        for (int i = 0; i <= GRID_HEIGHT; i += CELL_HEIGHT) {
+            g.drawLine(0, i, GRID_WIDTH, i);
+        }
+    }
+
+    public void fillCell(int channel, Color color, String icon, int times){
+        gridGrabber.setNumbOfElementsLastAdded(times);
+        Point startPoint = new Point(getSoundCountPerRow(channel, times), channel - 1);
+        for(int i = 0; i < times; i++){
+            fillCells.add(new Point(startPoint.x + i, startPoint.y));
+            cellColor.add(color);
+            icons.add(icon);
+        }
+        gridGrabber.setFillCells(fillCells);
+        gridGrabber.setCellColor(cellColor);
+        gridGrabber.setIcons(icons);
+        repaint();
+    }
+
+    @Override
+    public void update(List<Point> fillCells, List<Color> cellColor, List<String> icons) {
+        this.fillCells = fillCells;
+        this.cellColor = cellColor;
+        this.icons = icons;
+        repaint();
+    }
+
+    public void registerGridListener(GridListener gridListener) {
+        gridListener.register(this);
+    }
+
+    int getSoundCountPerRow(int channel, int times){
+        switch (channel){
+            case 1:
+                gridGrabber.setChannelCount1(gridGrabber.getChannelCount1()+times);
+                return gridGrabber.getChannelCount1()-times;
+            case 2:
+                gridGrabber.setChannelCount2(gridGrabber.getChannelCount2()+times);
+                return gridGrabber.getChannelCount2()-times;
+            case 3:
+                gridGrabber.setChannelCount3(gridGrabber.getChannelCount3()+times);
+                return gridGrabber.getChannelCount3()-times;
+            case 4:
+                gridGrabber.setChannelCount4(gridGrabber.getChannelCount4()+times);
+                return gridGrabber.getChannelCount4()-times;
+            case 5:
+                gridGrabber.setChannelCount5(gridGrabber.getChannelCount5()+times);
+                return gridGrabber.getChannelCount5()-times;
+            case 6:
+                gridGrabber.setChannelCount6(gridGrabber.getChannelCount6()+times);
+                return gridGrabber.getChannelCount6()-times;
+            case 7:
+                gridGrabber.setChannelCount7(gridGrabber.getChannelCount7()+times);
+                return gridGrabber.getChannelCount7()-times;
+        }
+        return 0;
+    }
+
+    public void setGridGrabber(GridGrabber gridGrabber) {
+        this.gridGrabber = gridGrabber;
+    }
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+}

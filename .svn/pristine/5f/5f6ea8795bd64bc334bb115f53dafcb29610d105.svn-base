@@ -1,0 +1,16 @@
+package Projekt.Frame;
+
+import org.jfugue.*;
+
+public class Main {
+
+
+    public static void main(String[] args)
+    {
+        MainFrame frame = new MainFrame();
+        Sound sound = new Sound();
+        SoundPlay song = new SoundPlay(sound);
+
+    }
+
+}

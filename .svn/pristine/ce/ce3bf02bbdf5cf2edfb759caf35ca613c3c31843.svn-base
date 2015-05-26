@@ -1,0 +1,58 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+
+
+/**
+ * Created by mattiasramstrand on 2014-03-29.
+ */
+public class InstrumentPopup extends JFrame
+{
+
+
+    public InstrumentPopup(String identifier)
+    {
+
+        this.setTitle(identifier);
+        this.setSize(500, 500);
+        this.setResizable(false);
+        this.setVisible(true);
+
+
+        switch(identifier){
+
+            case("Guitar"):
+                System.out.println("Guitar");
+                break;
+            case("Sax"):
+                System.out.println("Sax");
+                break;
+            case("Drums"):
+                System.out.println("Drums");
+                break;
+            case("Bass"):
+                System.out.println("Bass");
+                break;
+            case("Piano"):
+                System.out.println("Piano");
+                break;
+            case("Yolo"):
+                System.out.println("Yolo");
+                break;
+            case("Swag"):
+                System.out.println("Swag");
+                break;
+            case("Horse"):
+                System.out.println("Horse");
+                break;
+            default:
+                System.out.println("End");
+                break;
+
+
+        }
+
+    }
+
+
+}

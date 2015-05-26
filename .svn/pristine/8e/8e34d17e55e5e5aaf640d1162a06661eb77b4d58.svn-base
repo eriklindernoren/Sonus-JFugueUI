@@ -1,0 +1,128 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+
+
+public class DirectoryPanel extends JPanel
+{
+    private JList saveList;
+    private DefaultListModel<String> listModel;
+    private JScrollPane myScrollPane;
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+    private Color borderColor = Color.LIGHT_GRAY;
+    private Color buttonBackground = Color.WHITE;
+    private JButton save, load, delete;
+
+    private int COMPONENT_WIDTH = 100;
+    private int BOTTON_HEIGHT = 20;
+    private int LIST_HEIGHT = 80;
+
+    public DirectoryPanel()
+    {
+
+        setPanelLayout();
+        initializeComponents();
+
+        this.setVisible(true);
+
+    }
+
+    private void setPanelLayout () {
+        listLayout = new GridBagLayout();
+
+    }
+
+    private void initializeComponents(){
+
+        addElementsToList();
+        createList();
+        createScrollPane();
+        createButtons();
+
+    }
+
+    private void createButtons(){
+        save = new JButton("SAVE");
+        save.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BOTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(save, layoutConstraints);
+
+        load = new JButton("LOAD");
+        load.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BOTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(load, layoutConstraints);
+
+        delete = new JButton("DELETE");
+        delete.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BOTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(delete, layoutConstraints);
+    }
+
+    private void createList(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border listBorder = BorderFactory.createTitledBorder(lineBorder, "Sweet Tunes",2,3);
+
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setBorder(listBorder);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        System.out.println("Norrland");
+                    }
+                }
+        );
+
+    }
+
+    private void createScrollPane(){
+        layoutConstraints = new GridBagConstraints();
+
+
+        myScrollPane = new JScrollPane(saveList);
+        setLayout(listLayout);
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = LIST_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(myScrollPane, layoutConstraints);
+
+    }
+
+    private void addElementsToList(){
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Row1");
+        listModel.addElement("Row2");
+        listModel.addElement("Row3");
+        listModel.addElement("Row4");
+        listModel.addElement("Row5");
+        listModel.addElement("Row6");
+        listModel.addElement("Row7");
+        listModel.addElement("Älg");
+    }
+
+}

@@ -1,0 +1,2466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="CUSTOM_SCOPE_NAME" value="Current File" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Sound:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="2de158c6-8cb2-49a5-94c3-dec8bbb205c6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/libraries/Midi2WavRenderer.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/bass_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/drums_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/grid" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/guitar_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/libraries" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc2_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc3_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/misc_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/piano_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/popups" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/rectangle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/saxophone_focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/sound" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/Misc2Popup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/Misc3Popup.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/BassPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/DirectoryPanel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/DisplayPanel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/DrumPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/Grid.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridGrabber.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridObserver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/GuitarPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/HorsePopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPanel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPopupFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/MainClass.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/MainFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/MiscPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/PianoPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/PlayPanel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/PlayerThread.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleGrabber.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleObserver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/SaxPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/Sound.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundGrabber.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundObserver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/SwagPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/drumPopup.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/bass.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/clear.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/clear_focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/drums.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/guitar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/horse.icns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/horse.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/jfugue-4.0.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/misc.icns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/next_focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/note.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/piano.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/play.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/play_focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/prev.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/prev_focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/saxophone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/stop.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/stop_focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/swag.icns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/projekt/frame/swag.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Saves/swagTanic" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Saves/testSave" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Saves/testSound" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Saves/test" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/BassPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/BassPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/DirectoryPanel.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/DisplayPanel.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/DisplayPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/DrumPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/DrumPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/Grid.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/Grid.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridGrabber.java" afterPath="$PROJECT_DIR$/src/projekt/frame/grid/GridGrabber.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridListener.java" afterPath="$PROJECT_DIR$/src/projekt/frame/grid/GridListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/GridObserver.java" afterPath="$PROJECT_DIR$/src/projekt/frame/grid/GridObserver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/GuitarPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/GuitarPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPanel.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/InstrumentPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/InstrumentPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/InstrumentPopupFactory.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/InstrumentPopupFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/MainFrame.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/MainFrame.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/MiscPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/MiscPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/PianoPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/PianoPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/PlayPanel.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/PlayerThread.java" afterPath="$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayerThread.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleGrabber.java" afterPath="$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleGrabber.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleListener.java" afterPath="$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/RectangleObserver.java" afterPath="$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleObserver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/SaxPopup.java" afterPath="$PROJECT_DIR$/src/projekt/frame/popups/SaxPopup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundGrabber.java" afterPath="$PROJECT_DIR$/src/projekt/frame/sound/SoundGrabber.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundListener.java" afterPath="$PROJECT_DIR$/src/projekt/frame/sound/SoundListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/SoundObserver.java" afterPath="$PROJECT_DIR$/src/projekt/frame/sound/SoundObserver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icons/misc kopia 3.png" afterPath="$PROJECT_DIR$/src/icons/misc kopia 3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/projekt/frame/note.png" afterPath="$PROJECT_DIR$/src/projekt/frame/note.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/projekt/frame/MainClass.java" afterPath="$PROJECT_DIR$/src/projekt/frame/MainClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound.ipr" afterPath="$PROJECT_DIR$/Sound.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound.iws" afterPath="$PROJECT_DIR$/Sound.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/projekt/frame/Sound.java" afterPath="$PROJECT_DIR$/src/projekt/frame/Sound.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame" afterPath="$PROJECT_DIR$/src/projekt/frame" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt" afterPath="$PROJECT_DIR$/src/projekt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/bass.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/bass.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/clear.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/clear.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/clear_focus.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/clear_focus.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/drums.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/drums.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/guitar.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/guitar.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/jfugue-4.0.3.jar" afterPath="$PROJECT_DIR$/src/projekt/frame/libraries/jfugue-4.0.3.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/next.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/next.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/next_focus.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/next_focus.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/piano.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/piano.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/play.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/play.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/play_focus.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/play_focus.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/prev.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/prev.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/prev_focus.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/prev_focus.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/saxophone.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/saxophone.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/stop.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/stop.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/projekt/frame/stop_focus.png" afterPath="$PROJECT_DIR$/src/projekt/frame/icons/stop_focus.png" />
+    </list>
+    <ignored path="Sound.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Sound" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MainFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="0" selection-start="4777" selection-end="4777" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="613" column="47" selection-start="22004" selection-end="22004" vertical-scroll-proportion="0.0" vertical-offset="9195" max-vertical-offset="9855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrumPopup.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/DrumPopup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="11" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="7890">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="133" column="0" selection-start="5037" selection-end="5037" vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="3360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DisplayPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="90" column="22" selection-start="3732" selection-end="3732" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="2580">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InstrumentPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/InstrumentPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="13" selection-start="4772" selection-end="4772" vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DirectoryPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundGrabber.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundGrabber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="11" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2310">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainClass.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/MainClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="5" selection-start="220" selection-end="220" vertical-scroll-proportion="0.47368422" vertical-offset="0" max-vertical-offset="465">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridGrabber.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projekt/frame/grid/GridGrabber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="165" column="5" selection-start="4565" selection-end="4565" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="9105">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Misc3Popup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/SaxPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Sound.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/PlayerThread.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopupFactory.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/DisplayPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/SoundGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/GridListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/SoundListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/RectangleListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/Grid.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/InstrumentPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/DrumPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/InstrumentPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/DirectoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/GuitarPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/RectangleGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/PlayPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/GridGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/soundObserverPattern/SoundListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/rectangleObserverPattern/RectangleListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/rectangleObserverPattern/RectangleObserver.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/gridObserverPattern/GridListener.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/gridObserverPattern/GridObserver.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/BassPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/GuitarPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/InstrumentPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/soundObserverPattern/SoundObserver.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/rectangleObserverPattern/RectangleGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/SaxPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/PianoPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/MiscPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/Misc3Popup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/Misc2Popup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/PlayerThread.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/Grid.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/DirectoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/gridObserverPattern/GridGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/InstrumentPopupFactory.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/popups/DrumPopup.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/soundObserverPattern/SoundGrabber.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/InstrumentPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/DisplayPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/Frame/mainWindow/PlayPanel.java" />
+        <option value="$PROJECT_DIR$/src/Projekt/frame/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/projekt/frame/mainWindow/DirectoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/projekt/frame/MainClass.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1362" />
+    <option name="height" value="742" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sound" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="/Applications" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="&#10;T&#10;g&#10;ce" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.completion" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Projekt.Frame.mainWindow" />
+      <recent name="Projekt.Frame.popups" />
+      <recent name="Projekt.Frame" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/mainWindow" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/rectangleObserverPattern" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/soundObserverPattern" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/gridObserverPattern" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/popups" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Projekt.Frame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/libraries" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Frame/icons" />
+      <recent name="$PROJECT_DIR$/src/Projekt" />
+      <recent name="$PROJECT_DIR$/src/Projekt/Sound" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainClass">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Project.Frame.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Sound.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CoreControl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Test.CoreControl" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projekt.Test.Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projekt.frame.MainClass" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Sound" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Application.CoreControl" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="4" class="java.lang.String" itemvalue="Application.MainClass" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.MainClass" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Test" />
+        <item index="3" class="java.lang.String" itemvalue="Application.CoreControl" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <changelist date="1402149610975">
+      <option name="PATH" value="$USER_HOME$/Library/Preferences/IdeaIC13/shelf/_.patch" />
+      <option name="DESCRIPTION" value=" " />
+      <binary>
+        <option name="BEFORE_PATH" value="src/Projekt/Frame/swag.icns" />
+        <option name="AFTER_PATH" />
+        <option name="SHELVED_PATH" />
+      </binary>
+      <binary>
+        <option name="BEFORE_PATH" value="src/Projekt/Frame/swag.png" />
+        <option name="AFTER_PATH" />
+        <option name="SHELVED_PATH" />
+      </binary>
+      <binary>
+        <option name="BEFORE_PATH" value="src/Projekt/Frame/misc.icns" />
+        <option name="AFTER_PATH" />
+        <option name="SHELVED_PATH" />
+      </binary>
+      <binary>
+        <option name="BEFORE_PATH" value="src/Projekt/Frame/horse.icns" />
+        <option name="AFTER_PATH" />
+        <option name="SHELVED_PATH" />
+      </binary>
+    </changelist>
+  </component>
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="StatisticProjectComponent">
+    <option name="excludeCompilerOutput" value="true" />
+    <option name="excludeIdea9ArtifactDirectory" value="true" />
+    <option name="excludeTargetDirectories" value="true" />
+    <option name="activateWhenOpenProject" value="true" />
+    <option name="excludedDirectories">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="fileTypes" value="class;svn-base;svn-work;Extra;gif;png;jpg;jpeg;bmp;tga;tiff;ear;war;zip;jar;iml;iws;ipr;bz2;gz;" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/grid" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/icons" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/libraries" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/mainwindow" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/popups" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/rectangle" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/src/projekt/frame/sound" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2de158c6-8cb2-49a5-94c3-dec8bbb205c6" name="Default" comment="" />
+      <created>1395774850589</created>
+      <updated>1395774850589</updated>
+    </task>
+    <task id="LOCAL-00001">
+      <created>1395776820113</created>
+      <updated>1395776820113</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1395777307112</created>
+      <updated>1395777307112</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1395777766112</created>
+      <updated>1395777766112</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1395779326112</created>
+      <updated>1395779326112</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1395781822113</created>
+      <updated>1395781822113</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1395782388111</created>
+      <updated>1395782388111</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1395844858121</created>
+      <updated>1395844858121</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1395849704125</created>
+      <updated>1395849704125</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1395850501113</created>
+      <updated>1395850501113</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1395852474112</created>
+      <updated>1395852474112</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1395854880113</created>
+      <updated>1395854880113</updated>
+    </task>
+    <task id="LOCAL-00012">
+      <created>1395925168121</created>
+      <updated>1395925168121</updated>
+    </task>
+    <task id="LOCAL-00013" summary="&#10;">
+      <created>1395927891112</created>
+      <updated>1395927891112</updated>
+    </task>
+    <task id="LOCAL-00014" summary="&#10;">
+      <created>1395928857113</created>
+      <updated>1395928857113</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&#10;">
+      <created>1395930964113</created>
+      <updated>1395930964113</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&#10;">
+      <created>1395931785118</created>
+      <updated>1395931785118</updated>
+    </task>
+    <task id="LOCAL-00017" summary="&#10;">
+      <created>1395932060113</created>
+      <updated>1395932060113</updated>
+    </task>
+    <task id="LOCAL-00018" summary="&#10;">
+      <created>1395936711113</created>
+      <updated>1395936711113</updated>
+    </task>
+    <task id="LOCAL-00019" summary="&#10;">
+      <created>1395943740113</created>
+      <updated>1395943740113</updated>
+    </task>
+    <task id="LOCAL-00020" summary="&#10;">
+      <created>1396093394113</created>
+      <updated>1396093394113</updated>
+    </task>
+    <task id="LOCAL-00021" summary="&#10;">
+      <created>1396094436113</created>
+      <updated>1396094436113</updated>
+    </task>
+    <task id="LOCAL-00022" summary="&#10;">
+      <created>1396095849112</created>
+      <updated>1396095849112</updated>
+    </task>
+    <task id="LOCAL-00023" summary="&#10;">
+      <created>1396096123112</created>
+      <updated>1396096123112</updated>
+    </task>
+    <task id="LOCAL-00024" summary="&#10;">
+      <created>1396096714112</created>
+      <updated>1396096714112</updated>
+    </task>
+    <task id="LOCAL-00025" summary="&#10;">
+      <created>1396096849111</created>
+      <updated>1396096849111</updated>
+    </task>
+    <task id="LOCAL-00026" summary="&#10;">
+      <created>1396097938113</created>
+      <updated>1396097938113</updated>
+    </task>
+    <task id="LOCAL-00027" summary="&#10;">
+      <created>1396098475111</created>
+      <updated>1396098475111</updated>
+    </task>
+    <task id="LOCAL-00028" summary="&#10;">
+      <created>1396099498113</created>
+      <updated>1396099498113</updated>
+    </task>
+    <task id="LOCAL-00029" summary="&#10;">
+      <created>1396099736113</created>
+      <updated>1396099736113</updated>
+    </task>
+    <task id="LOCAL-00030" summary="&#10;">
+      <created>1396100278113</created>
+      <updated>1396100278113</updated>
+    </task>
+    <task id="LOCAL-00031" summary="&#10;">
+      <created>1396100588112</created>
+      <updated>1396100588112</updated>
+    </task>
+    <task id="LOCAL-00032" summary="&#10;">
+      <created>1396101711113</created>
+      <updated>1396101711113</updated>
+    </task>
+    <task id="LOCAL-00033" summary="&#10;">
+      <created>1396101965113</created>
+      <updated>1396101965113</updated>
+    </task>
+    <task id="LOCAL-00034" summary="&#10;">
+      <created>1396102147113</created>
+      <updated>1396102147113</updated>
+    </task>
+    <task id="LOCAL-00035" summary="&#10;">
+      <created>1396102225113</created>
+      <updated>1396102225113</updated>
+    </task>
+    <task id="LOCAL-00036" summary="&#10;">
+      <created>1396102457113</created>
+      <updated>1396102457113</updated>
+    </task>
+    <task id="LOCAL-00037" summary="&#10;">
+      <created>1396104705112</created>
+      <updated>1396104705112</updated>
+    </task>
+    <task id="LOCAL-00038" summary="&#10;">
+      <created>1396105546112</created>
+      <updated>1396105546113</updated>
+    </task>
+    <task id="LOCAL-00039" summary="&#10;">
+      <created>1396105629111</created>
+      <updated>1396105629111</updated>
+    </task>
+    <task id="LOCAL-00040" summary="&#10;">
+      <created>1396107263124</created>
+      <updated>1396107263124</updated>
+    </task>
+    <task id="LOCAL-00041" summary="&#10;">
+      <created>1396108121113</created>
+      <updated>1396108121113</updated>
+    </task>
+    <task id="LOCAL-00042" summary="&#10;">
+      <created>1396108576114</created>
+      <updated>1396108576114</updated>
+    </task>
+    <task id="LOCAL-00043" summary="&#10;">
+      <created>1396108875111</created>
+      <updated>1396108875111</updated>
+    </task>
+    <task id="LOCAL-00044" summary="&#10;">
+      <created>1396109451112</created>
+      <updated>1396109451112</updated>
+    </task>
+    <task id="LOCAL-00045" summary="&#10;">
+      <created>1396110047112</created>
+      <updated>1396110047112</updated>
+    </task>
+    <task id="LOCAL-00046" summary="&#10;">
+      <created>1396110630112</created>
+      <updated>1396110630112</updated>
+    </task>
+    <task id="LOCAL-00047" summary="&#10;">
+      <created>1396110953113</created>
+      <updated>1396110953113</updated>
+    </task>
+    <task id="LOCAL-00048" summary="&#10;">
+      <created>1396111197113</created>
+      <updated>1396111197113</updated>
+    </task>
+    <task id="LOCAL-00049" summary="&#10;">
+      <created>1396111578113</created>
+      <updated>1396111578113</updated>
+    </task>
+    <task id="LOCAL-00050" summary="&#10;">
+      <created>1396111784112</created>
+      <updated>1396111784113</updated>
+    </task>
+    <task id="LOCAL-00051" summary="&#10;">
+      <created>1396111955112</created>
+      <updated>1396111955113</updated>
+    </task>
+    <task id="LOCAL-00052" summary="&#10;">
+      <created>1396112212113</created>
+      <updated>1396112212113</updated>
+    </task>
+    <task id="LOCAL-00053" summary="&#10;">
+      <created>1396112773112</created>
+      <updated>1396112773112</updated>
+    </task>
+    <task id="LOCAL-00054" summary="&#10;">
+      <created>1396113773111</created>
+      <updated>1396113773112</updated>
+    </task>
+    <task id="LOCAL-00055" summary="&#10;">
+      <created>1396114700112</created>
+      <updated>1396114700113</updated>
+    </task>
+    <task id="LOCAL-00056" summary="&#10;">
+      <created>1396115124113</created>
+      <updated>1396115124113</updated>
+    </task>
+    <task id="LOCAL-00057" summary="&#10;">
+      <created>1396115372112</created>
+      <updated>1396115372113</updated>
+    </task>
+    <task id="LOCAL-00058" summary="&#10;">
+      <created>1396139664113</created>
+      <updated>1396139664113</updated>
+    </task>
+    <task id="LOCAL-00059" summary="&#10;">
+      <created>1396140697113</created>
+      <updated>1396140697113</updated>
+    </task>
+    <task id="LOCAL-00060" summary="&#10;">
+      <created>1396141357114</created>
+      <updated>1396141357114</updated>
+    </task>
+    <task id="LOCAL-00061" summary="&#10;">
+      <created>1396259952112</created>
+      <updated>1396259952113</updated>
+    </task>
+    <task id="LOCAL-00062" summary="&#10;">
+      <created>1396513965125</created>
+      <updated>1396513965126</updated>
+    </task>
+    <task id="LOCAL-00063" summary="&#10;">
+      <created>1396516151113</created>
+      <updated>1396516151113</updated>
+    </task>
+    <task id="LOCAL-00064" summary="&#10;">
+      <created>1396516472104</created>
+      <updated>1396516472105</updated>
+    </task>
+    <task id="LOCAL-00065" summary="&#10;">
+      <created>1396516559113</created>
+      <updated>1396516559114</updated>
+    </task>
+    <task id="LOCAL-00066" summary="&#10;">
+      <created>1396518156113</created>
+      <updated>1396518156113</updated>
+    </task>
+    <task id="LOCAL-00067" summary="&#10;">
+      <created>1396522027113</created>
+      <updated>1396522027114</updated>
+    </task>
+    <task id="LOCAL-00068" summary="&#10;">
+      <created>1396523370112</created>
+      <updated>1396523370113</updated>
+    </task>
+    <task id="LOCAL-00069" summary="&#10;">
+      <created>1396524533113</created>
+      <updated>1396524533114</updated>
+    </task>
+    <task id="LOCAL-00070" summary="&#10;">
+      <created>1396528338106</created>
+      <updated>1396528338107</updated>
+    </task>
+    <task id="LOCAL-00071" summary="&#10;">
+      <created>1396528448113</created>
+      <updated>1396528448114</updated>
+    </task>
+    <task id="LOCAL-00072" summary="&#10;">
+      <created>1396537051113</created>
+      <updated>1396537051113</updated>
+    </task>
+    <task id="LOCAL-00073" summary="&#10;">
+      <created>1396537633113</created>
+      <updated>1396537633114</updated>
+    </task>
+    <task id="LOCAL-00074" summary="&#10;">
+      <created>1396802058123</created>
+      <updated>1396802058123</updated>
+    </task>
+    <task id="LOCAL-00075" summary="&#10;">
+      <created>1396804616112</created>
+      <updated>1396804616113</updated>
+    </task>
+    <task id="LOCAL-00076" summary="&#10;">
+      <created>1396804685105</created>
+      <updated>1396804685105</updated>
+    </task>
+    <task id="LOCAL-00077" summary="&#10;">
+      <created>1396804971112</created>
+      <updated>1396804971113</updated>
+    </task>
+    <task id="LOCAL-00078" summary="&#10;">
+      <created>1396805099104</created>
+      <updated>1396805099105</updated>
+    </task>
+    <task id="LOCAL-00079" summary="&#10;">
+      <created>1396805144104</created>
+      <updated>1396805144104</updated>
+    </task>
+    <task id="LOCAL-00080" summary="&#10;">
+      <created>1396806450116</created>
+      <updated>1396806450116</updated>
+    </task>
+    <task id="LOCAL-00081" summary="&#10;">
+      <created>1396809464113</created>
+      <updated>1396809464113</updated>
+    </task>
+    <task id="LOCAL-00082" summary="&#10;">
+      <created>1397835390124</created>
+      <updated>1397835390125</updated>
+    </task>
+    <task id="LOCAL-00083" summary="&#10;">
+      <created>1397838701113</created>
+      <updated>1397838701114</updated>
+    </task>
+    <task id="LOCAL-00084" summary="&#10;">
+      <created>1397842269112</created>
+      <updated>1397842269113</updated>
+    </task>
+    <task id="LOCAL-00085" summary="&#10;">
+      <created>1398279073120</created>
+      <updated>1398279073121</updated>
+    </task>
+    <task id="LOCAL-00086" summary="&#10;">
+      <created>1398280117119</created>
+      <updated>1398280117119</updated>
+    </task>
+    <task id="LOCAL-00087" summary="&#10;">
+      <created>1398455269114</created>
+      <updated>1398455269115</updated>
+    </task>
+    <task id="LOCAL-00088" summary="&#10;">
+      <created>1400062483125</created>
+      <updated>1400062483125</updated>
+    </task>
+    <task id="LOCAL-00089" summary="&#10;">
+      <created>1400065604113</created>
+      <updated>1400065604113</updated>
+    </task>
+    <task id="LOCAL-00090" summary="&#10;">
+      <created>1400067496112</created>
+      <updated>1400067496113</updated>
+    </task>
+    <task id="LOCAL-00091" summary="&#10;">
+      <created>1400087041112</created>
+      <updated>1400087041112</updated>
+    </task>
+    <task id="LOCAL-00092" summary="&#10;">
+      <created>1400090999112</created>
+      <updated>1400090999112</updated>
+    </task>
+    <task id="LOCAL-00093" summary="&#10;">
+      <created>1400091302112</created>
+      <updated>1400091302112</updated>
+    </task>
+    <task id="LOCAL-00094" summary="&#10;">
+      <created>1400092034112</created>
+      <updated>1400092034112</updated>
+    </task>
+    <task id="LOCAL-00095" summary="&#10;">
+      <created>1400093432112</created>
+      <updated>1400093432113</updated>
+    </task>
+    <task id="LOCAL-00096" summary="&#10;">
+      <created>1400093637112</created>
+      <updated>1400093637112</updated>
+    </task>
+    <task id="LOCAL-00097" summary="&#10;">
+      <created>1400094555112</created>
+      <updated>1400094555112</updated>
+    </task>
+    <task id="LOCAL-00098" summary="&#10;">
+      <created>1400096487112</created>
+      <updated>1400096487112</updated>
+    </task>
+    <task id="LOCAL-00099" summary="&#10;">
+      <created>1400097613104</created>
+      <updated>1400097613104</updated>
+    </task>
+    <task id="LOCAL-00100" summary="&#10;">
+      <created>1400097731112</created>
+      <updated>1400097731112</updated>
+    </task>
+    <task id="LOCAL-00101" summary="&#10;">
+      <created>1400098393112</created>
+      <updated>1400098393112</updated>
+    </task>
+    <task id="LOCAL-00102" summary="&#10;">
+      <created>1400098473111</created>
+      <updated>1400098473111</updated>
+    </task>
+    <task id="LOCAL-00103" summary="&#10;">
+      <created>1400098765104</created>
+      <updated>1400098765104</updated>
+    </task>
+    <task id="LOCAL-00104" summary="&#10;">
+      <created>1400099304112</created>
+      <updated>1400099304112</updated>
+    </task>
+    <task id="LOCAL-00105" summary="&#10;">
+      <created>1400100905114</created>
+      <updated>1400100905114</updated>
+    </task>
+    <task id="LOCAL-00106" summary="&#10;">
+      <created>1400101367113</created>
+      <updated>1400101367113</updated>
+    </task>
+    <task id="LOCAL-00107" summary="&#10;">
+      <created>1400101488105</created>
+      <updated>1400101488105</updated>
+    </task>
+    <task id="LOCAL-00108" summary="&#10;">
+      <created>1400102007113</created>
+      <updated>1400102007113</updated>
+    </task>
+    <task id="LOCAL-00109" summary="&#10;">
+      <created>1400102050112</created>
+      <updated>1400102050112</updated>
+    </task>
+    <task id="LOCAL-00110" summary="&#10;">
+      <created>1400102539115</created>
+      <updated>1400102539115</updated>
+    </task>
+    <task id="LOCAL-00111" summary="&#10;">
+      <created>1400104073113</created>
+      <updated>1400104073113</updated>
+    </task>
+    <task id="LOCAL-00112" summary="&#10;">
+      <created>1400104217113</created>
+      <updated>1400104217113</updated>
+    </task>
+    <task id="LOCAL-00113" summary="&#10;">
+      <created>1400105323112</created>
+      <updated>1400105323112</updated>
+    </task>
+    <task id="LOCAL-00114" summary="&#10;">
+      <created>1400105827113</created>
+      <updated>1400105827113</updated>
+    </task>
+    <task id="LOCAL-00115" summary="&#10;">
+      <created>1400106615112</created>
+      <updated>1400106615112</updated>
+    </task>
+    <task id="LOCAL-00116" summary="&#10;">
+      <created>1400106816113</created>
+      <updated>1400106816113</updated>
+    </task>
+    <task id="LOCAL-00117" summary="&#10;">
+      <created>1400108338113</created>
+      <updated>1400108338113</updated>
+    </task>
+    <task id="LOCAL-00118" summary="&#10;">
+      <created>1400109170119</created>
+      <updated>1400109170120</updated>
+    </task>
+    <task id="LOCAL-00119" summary="&#10;">
+      <created>1400109636113</created>
+      <updated>1400109636114</updated>
+    </task>
+    <task id="LOCAL-00120" summary="&#10;">
+      <created>1400146993129</created>
+      <updated>1400146993130</updated>
+    </task>
+    <task id="LOCAL-00121" summary="&#10;">
+      <created>1400147946113</created>
+      <updated>1400147946114</updated>
+    </task>
+    <task id="LOCAL-00122" summary="&#10;">
+      <created>1400149249112</created>
+      <updated>1400149249113</updated>
+    </task>
+    <task id="LOCAL-00123" summary="&#10;">
+      <created>1400149955114</created>
+      <updated>1400149955114</updated>
+    </task>
+    <task id="LOCAL-00124" summary="&#10;">
+      <created>1400228629114</created>
+      <updated>1400228629114</updated>
+    </task>
+    <task id="LOCAL-00125" summary="&#10;">
+      <created>1400232020113</created>
+      <updated>1400232020114</updated>
+    </task>
+    <task id="LOCAL-00126" summary="&#10;">
+      <created>1400232312112</created>
+      <updated>1400232312113</updated>
+    </task>
+    <task id="LOCAL-00127" summary="&#10;">
+      <created>1400233396114</created>
+      <updated>1400233396114</updated>
+    </task>
+    <task id="LOCAL-00128" summary="&#10;">
+      <created>1400237354114</created>
+      <updated>1400237354115</updated>
+    </task>
+    <task id="LOCAL-00129" summary="&#10;">
+      <created>1400237413113</created>
+      <updated>1400237413114</updated>
+    </task>
+    <task id="LOCAL-00130" summary="&#10;">
+      <created>1400237433113</created>
+      <updated>1400237433114</updated>
+    </task>
+    <task id="LOCAL-00131" summary="&#10;">
+      <created>1400239292111</created>
+      <updated>1400239292111</updated>
+    </task>
+    <task id="LOCAL-00132" summary="&#10;">
+      <created>1400243722113</created>
+      <updated>1400243722113</updated>
+    </task>
+    <task id="LOCAL-00133" summary="&#10;">
+      <created>1400246171105</created>
+      <updated>1400246171105</updated>
+    </task>
+    <task id="LOCAL-00134" summary="&#10;">
+      <created>1400248529113</created>
+      <updated>1400248529114</updated>
+    </task>
+    <task id="LOCAL-00135" summary="&#10;">
+      <created>1400314897112</created>
+      <updated>1400314897112</updated>
+    </task>
+    <task id="LOCAL-00136" summary="&#10;">
+      <created>1400351485112</created>
+      <updated>1400351485113</updated>
+    </task>
+    <task id="LOCAL-00137" summary="&#10;">
+      <created>1400353618112</created>
+      <updated>1400353618112</updated>
+    </task>
+    <task id="LOCAL-00138" summary="&#10;">
+      <created>1400354207112</created>
+      <updated>1400354207113</updated>
+    </task>
+    <task id="LOCAL-00139" summary="&#10;">
+      <created>1400355655113</created>
+      <updated>1400355655114</updated>
+    </task>
+    <task id="LOCAL-00140" summary="&#10;">
+      <created>1400360177105</created>
+      <updated>1400360177105</updated>
+    </task>
+    <task id="LOCAL-00141" summary="&#10;">
+      <created>1400360682110</created>
+      <updated>1400360682110</updated>
+    </task>
+    <task id="LOCAL-00142" summary="&#10;">
+      <created>1400367742113</created>
+      <updated>1400367742114</updated>
+    </task>
+    <task id="LOCAL-00143" summary="&#10;">
+      <created>1400368967114</created>
+      <updated>1400368967114</updated>
+    </task>
+    <task id="LOCAL-00144" summary="&#10;">
+      <created>1400405679113</created>
+      <updated>1400405679114</updated>
+    </task>
+    <task id="LOCAL-00145" summary="&#10;">
+      <created>1400406313113</created>
+      <updated>1400406313113</updated>
+    </task>
+    <task id="LOCAL-00146" summary="&#10;">
+      <created>1400408325113</created>
+      <updated>1400408325114</updated>
+    </task>
+    <task id="LOCAL-00147" summary="&#10;">
+      <created>1400412746112</created>
+      <updated>1400412746113</updated>
+    </task>
+    <task id="LOCAL-00148" summary="&#10;">
+      <created>1400413687112</created>
+      <updated>1400413687113</updated>
+    </task>
+    <task id="LOCAL-00149" summary="&#10;">
+      <created>1400420040104</created>
+      <updated>1400420040105</updated>
+    </task>
+    <task id="LOCAL-00150" summary="&#10;">
+      <created>1400496411104</created>
+      <updated>1400496411104</updated>
+    </task>
+    <task id="LOCAL-00151" summary="&#10;">
+      <created>1400499006104</created>
+      <updated>1400499006104</updated>
+    </task>
+    <task id="LOCAL-00152" summary="&#10;">
+      <created>1400503172112</created>
+      <updated>1400503172112</updated>
+    </task>
+    <task id="LOCAL-00153" summary="&#10;">
+      <created>1400504155114</created>
+      <updated>1400504155114</updated>
+    </task>
+    <task id="LOCAL-00154" summary="&#10;">
+      <created>1400601139104</created>
+      <updated>1400601139104</updated>
+    </task>
+    <task id="LOCAL-00155" summary="&#10;">
+      <created>1400605376113</created>
+      <updated>1400605376113</updated>
+    </task>
+    <task id="LOCAL-00156" summary="&#10;">
+      <created>1400605987113</created>
+      <updated>1400605987113</updated>
+    </task>
+    <task id="LOCAL-00157" summary="&#10;">
+      <created>1400606793112</created>
+      <updated>1400606793112</updated>
+    </task>
+    <task id="LOCAL-00158" summary="&#10;">
+      <created>1400607460112</created>
+      <updated>1400607460112</updated>
+    </task>
+    <task id="LOCAL-00159" summary="&#10;">
+      <created>1400617570113</created>
+      <updated>1400617570113</updated>
+    </task>
+    <task id="LOCAL-00160" summary="&#10;">
+      <created>1400618719114</created>
+      <updated>1400618719114</updated>
+    </task>
+    <task id="LOCAL-00161" summary="&#10;">
+      <created>1400619470112</created>
+      <updated>1400619470112</updated>
+    </task>
+    <task id="LOCAL-00162" summary="&#10;">
+      <created>1400622622113</created>
+      <updated>1400622622113</updated>
+    </task>
+    <task id="LOCAL-00163" summary="&#10;">
+      <created>1400624980126</created>
+      <updated>1400624980126</updated>
+    </task>
+    <task id="LOCAL-00164" summary="&#10;">
+      <created>1400628491123</created>
+      <updated>1400628491124</updated>
+    </task>
+    <task id="LOCAL-00165" summary="&#10;">
+      <created>1400629649113</created>
+      <updated>1400629649114</updated>
+    </task>
+    <task id="LOCAL-00166" summary="&#10;">
+      <created>1400630989116</created>
+      <updated>1400630989117</updated>
+    </task>
+    <task id="LOCAL-00167" summary="&#10;">
+      <created>1400633382114</created>
+      <updated>1400633382115</updated>
+    </task>
+    <task id="LOCAL-00168" summary="&#10;">
+      <created>1400633806113</created>
+      <updated>1400633806114</updated>
+    </task>
+    <task id="LOCAL-00169" summary="&#10;">
+      <created>1400639368114</created>
+      <updated>1400639368115</updated>
+    </task>
+    <task id="LOCAL-00170" summary="&#10;">
+      <created>1400642421113</created>
+      <updated>1400642421114</updated>
+    </task>
+    <task id="LOCAL-00171" summary="&#10;">
+      <created>1400662115113</created>
+      <updated>1400662115113</updated>
+    </task>
+    <task id="LOCAL-00172" summary="&#10;">
+      <created>1400662989113</created>
+      <updated>1400662989113</updated>
+    </task>
+    <task id="LOCAL-00173" summary="&#10;">
+      <created>1400698986111</created>
+      <updated>1400698986112</updated>
+    </task>
+    <task id="LOCAL-00174" summary="&#10;">
+      <created>1400761485113</created>
+      <updated>1400761485113</updated>
+    </task>
+    <task id="LOCAL-00175" summary="&#10;">
+      <created>1400761725113</created>
+      <updated>1400761725113</updated>
+    </task>
+    <task id="LOCAL-00176" summary="&#10;">
+      <created>1400766211113</created>
+      <updated>1400766211113</updated>
+    </task>
+    <task id="LOCAL-00177" summary="&#10;">
+      <created>1400925713124</created>
+      <updated>1400925713125</updated>
+    </task>
+    <task id="LOCAL-00178" summary="&#10;">
+      <created>1400926045114</created>
+      <updated>1400926045115</updated>
+    </task>
+    <task id="LOCAL-00179" summary="&#10;">
+      <created>1400970310113</created>
+      <updated>1400970310114</updated>
+    </task>
+    <task id="LOCAL-00180" summary="&#10;">
+      <created>1400971841113</created>
+      <updated>1400971841113</updated>
+    </task>
+    <task id="LOCAL-00181" summary="&#10;">
+      <created>1400973123113</created>
+      <updated>1400973123113</updated>
+    </task>
+    <task id="LOCAL-00182" summary="&#10;">
+      <created>1400974409113</created>
+      <updated>1400974409113</updated>
+    </task>
+    <task id="LOCAL-00183" summary="&#10;">
+      <created>1400979687114</created>
+      <updated>1400979687114</updated>
+    </task>
+    <task id="LOCAL-00184" summary="&#10;">
+      <created>1400980521113</created>
+      <updated>1400980521113</updated>
+    </task>
+    <task id="LOCAL-00185" summary="&#10;">
+      <created>1400986603114</created>
+      <updated>1400986603114</updated>
+    </task>
+    <task id="LOCAL-00186" summary="&#10;">
+      <created>1401013011113</created>
+      <updated>1401013011113</updated>
+    </task>
+    <task id="LOCAL-00187" summary="&#10;">
+      <created>1401024936128</created>
+      <updated>1401024936129</updated>
+    </task>
+    <task id="LOCAL-00188" summary="&#10;">
+      <created>1401043747114</created>
+      <updated>1401043747115</updated>
+    </task>
+    <task id="LOCAL-00189" summary="&#10;">
+      <created>1401045478114</created>
+      <updated>1401045478115</updated>
+    </task>
+    <task id="LOCAL-00190" summary="&#10;">
+      <created>1401045489113</created>
+      <updated>1401045489114</updated>
+    </task>
+    <task id="LOCAL-00191" summary="&#10;">
+      <created>1401057230112</created>
+      <updated>1401057230113</updated>
+    </task>
+    <task id="LOCAL-00192" summary="&#10;">
+      <created>1401058203112</created>
+      <updated>1401058203113</updated>
+    </task>
+    <task id="LOCAL-00193" summary="&#10;">
+      <created>1401058699105</created>
+      <updated>1401058699105</updated>
+    </task>
+    <task id="LOCAL-00194" summary="&#10;">
+      <created>1401061199105</created>
+      <updated>1401061199105</updated>
+    </task>
+    <task id="LOCAL-00195" summary="&#10;">
+      <created>1401062166114</created>
+      <updated>1401062166114</updated>
+    </task>
+    <task id="LOCAL-00196" summary="&#10;">
+      <created>1401062187113</created>
+      <updated>1401062187113</updated>
+    </task>
+    <task id="LOCAL-00197" summary="&#10;">
+      <created>1401225465126</created>
+      <updated>1401225465127</updated>
+    </task>
+    <task id="LOCAL-00198" summary="&#10;">
+      <created>1401230399126</created>
+      <updated>1401230399127</updated>
+    </task>
+    <task id="LOCAL-00199" summary="&#10;">
+      <created>1401232419114</created>
+      <updated>1401232419115</updated>
+    </task>
+    <task id="LOCAL-00200" summary="&#10;">
+      <created>1401234080115</created>
+      <updated>1401234080115</updated>
+    </task>
+    <task id="LOCAL-00201" summary="&#10;">
+      <created>1401305395125</created>
+      <updated>1401305395127</updated>
+    </task>
+    <task id="LOCAL-00202" summary="&#10;">
+      <created>1401314637123</created>
+      <updated>1401314637124</updated>
+    </task>
+    <task id="LOCAL-00203" summary="&#10;">
+      <created>1401375456115</created>
+      <updated>1401375456116</updated>
+    </task>
+    <task id="LOCAL-00204" summary="&#10;">
+      <created>1401376642114</created>
+      <updated>1401376642114</updated>
+    </task>
+    <task id="LOCAL-00205" summary="&#10;">
+      <created>1401377085113</created>
+      <updated>1401377085113</updated>
+    </task>
+    <task id="LOCAL-00206" summary="&#10;">
+      <created>1401377543118</created>
+      <updated>1401377543118</updated>
+    </task>
+    <task id="LOCAL-00207" summary="&#10;">
+      <created>1401458932111</created>
+      <updated>1401458932111</updated>
+    </task>
+    <task id="LOCAL-00208" summary="&#10;">
+      <created>1401459669113</created>
+      <updated>1401459669113</updated>
+    </task>
+    <task id="LOCAL-00209" summary="&#10;">
+      <created>1401460186114</created>
+      <updated>1401460186114</updated>
+    </task>
+    <task id="LOCAL-00210" summary="&#10;">
+      <created>1401463170106</created>
+      <updated>1401463170106</updated>
+    </task>
+    <task id="LOCAL-00211" summary="&#10;">
+      <created>1401464138114</created>
+      <updated>1401464138114</updated>
+    </task>
+    <task id="LOCAL-00212" summary="&#10;">
+      <created>1401488890106</created>
+      <updated>1401488890106</updated>
+    </task>
+    <task id="LOCAL-00213" summary="&#10;">
+      <created>1401488917114</created>
+      <updated>1401488917114</updated>
+    </task>
+    <task id="LOCAL-00214" summary="&#10;">
+      <created>1401488936105</created>
+      <updated>1401488936105</updated>
+    </task>
+    <task id="LOCAL-00215" summary="&#10;">
+      <created>1401497498104</created>
+      <updated>1401497498104</updated>
+    </task>
+    <task id="LOCAL-00216" summary="&#10;">
+      <created>1401544183106</created>
+      <updated>1401544183106</updated>
+    </task>
+    <task id="LOCAL-00217" summary="&#10;">
+      <created>1401611989114</created>
+      <updated>1401611989114</updated>
+    </task>
+    <task id="LOCAL-00218" summary="&#10;">
+      <created>1401652925114</created>
+      <updated>1401652925114</updated>
+    </task>
+    <task id="LOCAL-00219" summary="&#10;">
+      <created>1401658484114</created>
+      <updated>1401658484114</updated>
+    </task>
+    <task id="LOCAL-00220" summary="&#10;">
+      <created>1401662085125</created>
+      <updated>1401662085126</updated>
+    </task>
+    <task id="LOCAL-00221" summary="&#10;">
+      <created>1401824581127</created>
+      <updated>1401824581128</updated>
+    </task>
+    <task id="LOCAL-00222" summary="&#10;">
+      <created>1401827263122</created>
+      <updated>1401827263123</updated>
+    </task>
+    <task id="LOCAL-00223" summary="&#10;">
+      <created>1401827960113</created>
+      <updated>1401827960114</updated>
+    </task>
+    <task id="LOCAL-00224" summary="&#10;">
+      <created>1401828287114</created>
+      <updated>1401828287115</updated>
+    </task>
+    <task id="LOCAL-00225" summary="&#10;">
+      <created>1401831087127</created>
+      <updated>1401831087129</updated>
+    </task>
+    <task id="LOCAL-00226" summary="&#10;">
+      <created>1401831770112</created>
+      <updated>1401831770114</updated>
+    </task>
+    <task id="LOCAL-00227" summary="&#10;">
+      <created>1401832707111</created>
+      <updated>1401832707112</updated>
+    </task>
+    <task id="LOCAL-00228" summary="&#10;">
+      <created>1401833244112</created>
+      <updated>1401833244114</updated>
+    </task>
+    <task id="LOCAL-00229" summary="&#10;">
+      <created>1401836119112</created>
+      <updated>1401836119113</updated>
+    </task>
+    <task id="LOCAL-00230" summary="&#10;">
+      <created>1401836201104</created>
+      <updated>1401836201105</updated>
+    </task>
+    <task id="LOCAL-00231" summary="&#10;">
+      <created>1401836595113</created>
+      <updated>1401836595114</updated>
+    </task>
+    <task id="LOCAL-00232" summary="&#10;">
+      <created>1401837768124</created>
+      <updated>1401837768126</updated>
+    </task>
+    <task id="LOCAL-00233" summary="&#10;">
+      <created>1401839256114</created>
+      <updated>1401839256115</updated>
+    </task>
+    <task id="LOCAL-00234" summary="&#10;">
+      <created>1401842646120</created>
+      <updated>1401842646121</updated>
+    </task>
+    <task id="LOCAL-00235" summary="&#10;">
+      <created>1401843317113</created>
+      <updated>1401843317114</updated>
+    </task>
+    <task id="LOCAL-00236" summary="&#10;">
+      <created>1401843585113</created>
+      <updated>1401843585114</updated>
+    </task>
+    <task id="LOCAL-00237" summary="&#10;">
+      <created>1401844798114</created>
+      <updated>1401844798115</updated>
+    </task>
+    <task id="LOCAL-00238" summary="&#10;">
+      <created>1401846280114</created>
+      <updated>1401846280115</updated>
+    </task>
+    <task id="LOCAL-00239" summary="&#10;">
+      <created>1401846863115</created>
+      <updated>1401846863115</updated>
+    </task>
+    <task id="LOCAL-00240" summary="&#10;">
+      <created>1401847122112</created>
+      <updated>1401847122113</updated>
+    </task>
+    <task id="LOCAL-00241" summary="&#10;">
+      <created>1401847206114</created>
+      <updated>1401847206114</updated>
+    </task>
+    <task id="LOCAL-00242" summary="&#10;">
+      <created>1401847463114</created>
+      <updated>1401847463115</updated>
+    </task>
+    <task id="LOCAL-00243" summary="&#10;">
+      <created>1401847954112</created>
+      <updated>1401847954113</updated>
+    </task>
+    <task id="LOCAL-00244" summary="&#10;">
+      <created>1401851383126</created>
+      <updated>1401851383127</updated>
+    </task>
+    <task id="LOCAL-00245" summary="&#10;">
+      <created>1401852790114</created>
+      <updated>1401852790115</updated>
+    </task>
+    <task id="LOCAL-00246" summary="&#10;">
+      <created>1401973527103</created>
+      <updated>1401973527103</updated>
+    </task>
+    <task id="LOCAL-00247" summary="&#10;">
+      <created>1401982727113</created>
+      <updated>1401982727113</updated>
+    </task>
+    <task id="LOCAL-00248" summary="&#10;">
+      <created>1401983584112</created>
+      <updated>1401983584112</updated>
+    </task>
+    <task id="LOCAL-00249" summary="&#10;">
+      <created>1401986925113</created>
+      <updated>1401986925113</updated>
+    </task>
+    <task id="LOCAL-00250" summary="&#10;">
+      <created>1401988695115</created>
+      <updated>1401988695115</updated>
+    </task>
+    <task id="LOCAL-00251" summary="&#10;">
+      <created>1401988759116</created>
+      <updated>1401988759116</updated>
+    </task>
+    <task id="LOCAL-00252" summary="&#10;">
+      <created>1402057602115</created>
+      <updated>1402057602115</updated>
+    </task>
+    <task id="LOCAL-00253" summary="&#10;">
+      <created>1402058149114</created>
+      <updated>1402058149114</updated>
+    </task>
+    <task id="LOCAL-00254" summary="&#10;">
+      <created>1402058176113</created>
+      <updated>1402058176114</updated>
+    </task>
+    <task id="LOCAL-00255" summary="&#10;">
+      <created>1402062615113</created>
+      <updated>1402062615113</updated>
+    </task>
+    <task id="LOCAL-00256" summary="&#10;">
+      <created>1402065265113</created>
+      <updated>1402065265114</updated>
+    </task>
+    <task id="LOCAL-00257" summary="&#10;">
+      <created>1402065637114</created>
+      <updated>1402065637114</updated>
+    </task>
+    <task id="LOCAL-00258" summary="&#10;">
+      <created>1402068471113</created>
+      <updated>1402068471114</updated>
+    </task>
+    <task id="LOCAL-00259" summary="&#10;">
+      <created>1402068761112</created>
+      <updated>1402068761112</updated>
+    </task>
+    <task id="LOCAL-00260" summary="&#10;">
+      <created>1402069026114</created>
+      <updated>1402069026114</updated>
+    </task>
+    <task id="LOCAL-00261" summary="&#10;">
+      <created>1402072156113</created>
+      <updated>1402072156113</updated>
+    </task>
+    <task id="LOCAL-00262" summary="&#10;">
+      <created>1402073039114</created>
+      <updated>1402073039114</updated>
+    </task>
+    <task id="LOCAL-00263" summary="&#10;">
+      <created>1402075931114</created>
+      <updated>1402075931114</updated>
+    </task>
+    <task id="LOCAL-00264" summary="&#10;">
+      <created>1402142165116</created>
+      <updated>1402142165117</updated>
+    </task>
+    <task id="LOCAL-00265" summary="&#10;">
+      <created>1402142320113</created>
+      <updated>1402142320115</updated>
+    </task>
+    <task id="LOCAL-00266" summary="&#10;">
+      <created>1402149612146</created>
+      <updated>1402149612148</updated>
+    </task>
+    <option name="localTasksCounter" value="267" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="22" width="1362" height="742" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33173078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30929488" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23076923" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20192307" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30929488" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2621212" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2676282" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23076923" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="4" selection-start="92" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="4777" selection-end="4777" vertical-scroll-proportion="0.0" vertical-offset="2385" max-vertical-offset="3915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="613" column="47" selection-start="22004" selection-end="22004" vertical-scroll-proportion="0.0" vertical-offset="9195" max-vertical-offset="9855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/DrumPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="11" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="7890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="0" selection-start="5037" selection-end="5037" vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="3360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DisplayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="22" selection-start="3732" selection-end="3732" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="2580">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="13" selection-start="4772" selection-end="4772" vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="546" column="28" selection-start="21797" selection-end="21797" vertical-scroll-proportion="0.0" vertical-offset="8190" max-vertical-offset="8280">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="11" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="4822" selection-end="4822" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="613" column="47" selection-start="22064" selection-end="22064" vertical-scroll-proportion="0.0" vertical-offset="9195" max-vertical-offset="9855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/DrumPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="11" selection-start="3042" selection-end="3042" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="7890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="0" selection-start="5082" selection-end="5082" vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="3360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DisplayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="22" selection-start="3777" selection-end="3777" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="2580">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="13" selection-start="4802" selection-end="4802" vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="423" column="20" selection-start="16457" selection-end="16457" vertical-scroll-proportion="0.0" vertical-offset="6345" max-vertical-offset="8685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="11" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/grid/GridListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/grid/GridObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="7" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="25" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="41" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/rectangle/RectangleObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/SaxPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="36" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/PianoPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="21" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/MiscPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="19" selection-start="911" selection-end="911" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/Misc3Popup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="20" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/Misc2Popup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="23" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/InstrumentPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="904" column="40" selection-start="32306" selection-end="32306" vertical-scroll-proportion="0.0" vertical-offset="13222" max-vertical-offset="17970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/GuitarPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="21" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/BassPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/InstrumentPopupFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="11" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/src.zip!/javax/imageio/ImageIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1387" column="0" selection-start="49531" selection-end="49531" vertical-scroll-proportion="0.0" vertical-offset="19942" max-vertical-offset="23850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/InstrumentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="13" selection-start="4772" selection-end="4772" vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/PlayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="613" column="47" selection-start="22004" selection-end="22004" vertical-scroll-proportion="0.0" vertical-offset="9195" max-vertical-offset="9855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/popups/DrumPopup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="11" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="7890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="0" selection-start="5037" selection-end="5037" vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="3360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DisplayPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="22" selection-start="3732" selection-end="3732" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="2580">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/sound/SoundGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="11" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/DirectoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/Sound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/mainwindow/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="4777" selection-end="4777" vertical-scroll-proportion="0.0" vertical-offset="2385" max-vertical-offset="3915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/grid/GridGrabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="5" selection-start="4565" selection-end="4565" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="9105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projekt/frame/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="5" selection-start="220" selection-end="220" vertical-scroll-proportion="0.47368422" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="artifact" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>Sound:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Sound</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Midi2WavRenderer</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

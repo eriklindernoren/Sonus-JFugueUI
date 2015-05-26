@@ -1,0 +1,119 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class SongPanel extends JPanel
+{
+    private JPanel displayPanel;
+    private GridBagLayout songLayout;
+    private GridBagConstraints layoutConstraints;
+    private int DISPLAY_PANEL_WIDTH = 550;
+    private int DISPLAY_PANEL_HEIGHT = 380;
+    private int CHANNEL_HEIGHT = 55;
+    private Color displayBackground = Color.LIGHT_GRAY;
+    private Color channelBackground = Color.BLACK;
+
+    private JPanel channel1, channel2, channel3, channel4, channel5, channel6, channel7;
+
+    public SongPanel()
+    {
+        setPanelLayout();
+        makeChannelPanels();
+        makeDisplayPanel();
+        this.setVisible(true);
+
+    }
+
+    private void setPanelLayout(){
+        songLayout = new GridBagLayout();
+    }
+
+    private void makeDisplayPanel(){
+
+        layoutConstraints = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setBackground(displayBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipady = DISPLAY_PANEL_HEIGHT;
+
+        displayPanel.add(channel1, layoutConstraints);
+        displayPanel.add(channel2, layoutConstraints);
+        displayPanel.add(channel3, layoutConstraints);
+        displayPanel.add(channel4, layoutConstraints);
+        displayPanel.add(channel5, layoutConstraints);
+        displayPanel.add(channel6, layoutConstraints);
+        displayPanel.add(channel7, layoutConstraints);
+
+        this.add(displayPanel, layoutConstraints);
+
+    }
+
+    private void makeChannelPanels(){
+
+        channel1 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel2 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel3 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel4 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel5 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 4;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel6 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 5;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+        channel7 = new JPanel();
+        setBackground(channelBackground);
+        setLayout(songLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 6;
+        layoutConstraints.ipadx = DISPLAY_PANEL_WIDTH;
+        layoutConstraints.ipadx = CHANNEL_HEIGHT;
+
+
+    }
+}

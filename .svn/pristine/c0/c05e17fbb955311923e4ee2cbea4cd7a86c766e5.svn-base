@@ -1,0 +1,88 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class MainFrame extends JFrame{
+    JPanel mypanel;
+
+
+    public MainFrame()
+    {
+        menuMaker();
+        panelMaker();
+        windowMaker();
+
+    }
+
+
+    public void windowMaker()
+    {
+        mypanel = new JPanel();
+
+        this.add(mypanel);
+        this.setTitle("NO SCOPE");
+        this.setSize(800, 400);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);
+
+
+    }
+
+
+    public void menuMaker()
+    {
+
+        final JMenuBar menuBar = new JMenuBar();
+        final JMenu file = new JMenu("File");
+
+        final JMenuItem about = new JMenuItem("About");
+        final JMenuItem save = new JMenuItem("Save");
+        final JMenuItem load = new JMenuItem("Load");
+        final JMenuItem quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        this.setJMenuBar(menuBar);
+
+
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "ARE YOU LAME?",
+                        "Choose",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
+    }
+
+
+    public void panelMaker()
+    {
+        InstrumentPanel ipanel = new InstrumentPanel();
+        PlayPanel ppanel = new PlayPanel();
+        DirectoryPanel dpanel = new DirectoryPanel();
+
+        this.add(ipanel);
+        this.add(ppanel);
+        this.add(dpanel);
+
+    }
+
+
+}

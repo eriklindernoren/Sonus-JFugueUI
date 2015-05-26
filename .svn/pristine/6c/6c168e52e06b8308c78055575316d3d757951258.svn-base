@@ -1,0 +1,585 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+
+import org.jfugue.*;
+
+
+ class InstrumentPopup extends JFrame
+{
+
+    String instrumentID;
+    //LAYOUTS
+    private GridBagLayout upperPanelLayout, lowerPanelLayout, popupLayout, iPanelLayout, midPanelLayout, aPanelLayout, durationPanelLayout, rightPanelLayout;
+    private GridBagConstraints upperC, lowerC, popupC, midC, instrumentC, ackordC, durationC, rightC;
+    //PANELS
+    private JPanel instrumentPanel, midPanel, ackordPanel, durationPanel, rightPanel, upperPanel, lowerPanel;
+    //COLOR
+    private final Color backGroundColor = new Color(240, 240, 240);
+    private final Color buttonBackground = Color.WHITE;
+    private final Color borderColor = Color.WHITE;
+    //CONSTANTS
+    private final static int INSTRUMENT_BUTTON_X = 40;
+    private final static int INSTRUMENT_BUTTON_Y = 40;
+    private final static int ACKORD_BUTTON_X = 10;
+    private final static int ACKORD_BUTTON_Y = 10;
+    private final static int DURATION_BUTTON_X = 12;
+    private final static int DURATION_BUTTON_Y = 12;
+    private final static int VOL_MAX = 16000;
+    private final static int VOL_LOW = 0;
+    private final static int VOL_INIT = 8000;
+    private final static int CHANNEL_LOW = 1;
+    private final static int CHANNEL_MAX = 6;
+    private final static int CHANNEL_INIT = 1;
+    private final static int SLIDER_X = 20;
+    private final static int SLIDER_Y = 20;
+    private final static int RIGHT_BUTTON_X = 20;
+    private final static int RIGHT_BUTTON_Y = 20;
+    private JButton preview, add, clear;
+    //SLIDERS
+    private JSlider volume, channel;
+    //CHANNEL
+    private int channelValue;
+    //VOLUME
+    private int volumeValue;
+    //LIST WITH BUTTONS
+    private JButton[] instrumentButtons;
+    private JButton[] ackordButtons;
+    private JButton[] durationButtons;
+    //LIST WITH SLIDERS
+    private JSlider[] rightSliders;
+    //LIST WITH LABELS
+    private JLabel[] sliderLabels;
+    //LOWER TEXT AREA
+    private JTextField textField;
+    //PLAYER
+    Player player;
+    Sound popupSound;
+    private Sound testSound;
+
+    //MAINFRAME
+    private MainFrame mainFrame;
+    //ACTIVE VALUES
+    private String activeInstrument = "i[PIANO]";
+    // INSTRUMENTS
+    private String[] instrumentLabels;
+    private String[] instrumentList;
+
+
+    void panelMaker(Container pane)
+    {
+        popupLayout = new GridBagLayout();
+        pane.setLayout(popupLayout);
+        popupC = new GridBagConstraints();
+
+        makeUpperPanel();
+
+        makeInstrumentPanel();
+        upperPanel.add(instrumentPanel, upperC);
+
+        makeMidPanel();
+        makeAckordPanel();
+        midPanel.add(ackordPanel, midC);
+        makeDurationPanel();
+        midPanel.add(durationPanel, midC);
+        upperPanel.add(midPanel, upperC);
+
+        makeRightPanel();
+        upperPanel.add(rightPanel, upperC);
+
+        pane.add(upperPanel, popupC);
+
+        makeLowerPanel();
+        pane.add(lowerPanel, popupC);
+
+
+        addActionListenersToButtons("ackords");
+        addActionListenersToButtons("duration");
+        addActionListenersToButtons("rightButtons");
+        addActionListenersToButtons("instruments");
+
+        instrumentButtons[0].doClick();
+
+
+    }
+
+    private void makeUpperPanel(){
+        upperPanel = new JPanel();
+        upperPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        upperPanelLayout = new GridBagLayout();
+        upperC = new GridBagConstraints();
+        upperPanel.setLayout(upperPanelLayout);
+    }
+
+    private void makeInstrumentPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border instrumentBorder = BorderFactory.createTitledBorder(lineBorder, "Instruments",2,3);
+
+        instrumentPanel = new JPanel();
+        instrumentPanel.setBorder(instrumentBorder);
+        instrumentPanel.setBackground(backGroundColor);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = 0;
+        upperC.ipady = 0;
+        upperC.gridx = 0;
+        upperC.gridy = 0;
+
+        iPanelLayout = new GridBagLayout();
+        instrumentC = new GridBagConstraints();
+        instrumentPanel.setLayout(iPanelLayout);
+
+        makeInstrumentButtons();
+
+
+    }
+
+    private void makeInstrumentButtons(){
+
+        JButton instrument1 = new JButton();
+        JButton instrument2 = new JButton();
+        JButton instrument3 = new JButton();
+        JButton instrument4 = new JButton();
+        JButton instrument5 = new JButton();
+        instrumentButtons = new JButton[5];
+        instrumentButtons[0] = instrument1;
+        instrumentButtons[1] = instrument2;
+        instrumentButtons[2] = instrument3;
+        instrumentButtons[3] = instrument4;
+        instrumentButtons[4] = instrument5;
+
+        for(int i = 0; i < instrumentLabels.length; i++){
+            instrumentButtons[i].setText(instrumentLabels[i]);
+            setLayout(iPanelLayout);
+            instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+            instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+            instrumentC.gridx = 0;
+            instrumentC.gridy = i;
+            instrumentC.fill = GridBagConstraints.BOTH;
+            instrumentPanel.add(instrumentButtons[i], instrumentC);
+        }
+
+    }
+
+    private void makeMidPanel(){
+        midPanel = new JPanel();
+        midPanel.setBackground(backGroundColor);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = 0;
+        upperC.ipady = 0;
+        upperC.gridx = 1;
+        upperC.gridy = 0;
+        upperC.fill = GridBagConstraints.BOTH;
+
+        midPanelLayout = new GridBagLayout();
+        midC = new GridBagConstraints();
+        midPanel.setLayout(midPanelLayout);
+    }
+
+    private void makeAckordPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border ackordBorder = BorderFactory.createTitledBorder(lineBorder, "Ackords",2,3);
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(backGroundColor);
+        ackordPanel.setBorder(ackordBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 20;
+        midC.ipady = 20;
+        midC.gridx = 0;
+        midC.gridy = 0;
+        midC.fill = GridBagConstraints.BOTH;
+
+        aPanelLayout = new GridBagLayout();
+        ackordC = new GridBagConstraints();
+        ackordPanel.setLayout(aPanelLayout);
+
+        makeAckordButtons();
+    }
+
+    private void makeAckordButtons(){
+
+        String[] ackords = new String[10];
+        ackords[0] = "A";
+        ackords[1] = "B";
+        ackords[2] = "C";
+        ackords[3] = "D";
+        ackords[4] = "E";
+        ackords[5] = "F";
+        ackords[6] = "G";
+        ackords[7] = "Maj";
+        ackords[8] = "Min";
+        ackords[9] = "#";
+
+        JButton a = new JButton();
+        JButton b = new JButton();
+        JButton c = new JButton();
+        JButton d = new JButton();
+        JButton e = new JButton();
+        JButton f = new JButton();
+        JButton g = new JButton();
+
+        JButton major = new JButton();
+        JButton minor = new JButton();
+        JButton sharp = new JButton();
+
+        ackordButtons = new JButton[10];
+        ackordButtons[0] = a;
+        ackordButtons[1] = b;
+        ackordButtons[2] = c;
+        ackordButtons[3] = d;
+        ackordButtons[4] = e;
+        ackordButtons[5] = f;
+        ackordButtons[6] = g;
+        ackordButtons[7] = major;
+        ackordButtons[8] = minor;
+        ackordButtons[9] = sharp;
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<ackordButtons.length; i++){
+            ackordButtons[i].setText(ackords[i]);
+            ackordButtons[i].setBackground(buttonBackground);
+            setLayout(aPanelLayout);
+            ackordC.gridx = columnIndex;
+            ackordC.gridy = rowIndex;
+            ackordC.ipadx = ACKORD_BUTTON_X;
+            ackordC.ipady = ACKORD_BUTTON_Y;
+            ackordC.fill = GridBagConstraints.BOTH;
+            ackordPanel.add(ackordButtons[i], ackordC);
+
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+
+    }
+
+    private void makeDurationPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border durationBorder = BorderFactory.createTitledBorder(lineBorder, "Duration",2,3);
+
+        durationPanel = new JPanel();
+        durationPanel.setBackground(backGroundColor);
+        durationPanel.setBorder(durationBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 20;
+        midC.ipady = 20;
+        midC.gridx = 0;
+        midC.gridy = 1;
+        midC.fill = GridBagConstraints.BOTH;
+
+        durationPanelLayout = new GridBagLayout();
+        durationC = new GridBagConstraints();
+        durationPanel.setLayout(durationPanelLayout);
+
+        makeDurationButtons();
+    }
+
+    private void makeDurationButtons(){
+
+        String[] duration = new String[4];
+        duration[0] = "Whole";
+        duration[1] = "Half";
+        duration[2] = "Quarter";
+        duration[3] = "Silent";
+
+        JButton whole = new JButton();
+        JButton half = new JButton();
+        JButton quarter = new JButton();
+        JButton silent = new JButton();
+
+        durationButtons = new JButton[4];
+        durationButtons[0] = whole;
+        durationButtons[1] = half;
+        durationButtons[2] = quarter;
+        durationButtons[3] = silent;
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<durationButtons.length; i++){
+            durationButtons[i].setText(duration[i]);
+            durationButtons[i].setBackground(buttonBackground);
+            setLayout(durationPanelLayout);
+            durationC.gridx = columnIndex;
+            durationC.gridy = rowIndex;
+            durationC.ipadx = DURATION_BUTTON_X;
+            durationC.ipady = DURATION_BUTTON_Y;
+            durationC.fill = GridBagConstraints.BOTH;
+            durationPanel.add(durationButtons[i], durationC);
+
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+    }
+
+    private void makeRightPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border rightBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        rightPanel = new JPanel();
+        rightPanel.setBackground(backGroundColor);
+        rightPanel.setBorder(rightBorder);
+        setLayout(upperPanelLayout);
+        upperC.ipadx = 0;
+        upperC.ipady = 0;
+        upperC.gridx = 2;
+        upperC.gridy = 0;
+        upperC.fill = GridBagConstraints.VERTICAL;
+
+        rightPanelLayout = new GridBagLayout();
+        rightC = new GridBagConstraints();
+        rightPanel.setLayout(rightPanelLayout);
+
+        makeRightSliders();
+        makeRightButtons();
+    }
+
+    private void makeRightSliders(){
+
+        String[] sliders = new String[2];
+        sliders[0] = "Volume";
+        sliders[1] = "Channel";
+
+        JLabel volumeLabel = new JLabel(sliders[0], JLabel.CENTER);
+        volume = new JSlider(JSlider.HORIZONTAL, VOL_LOW, VOL_MAX, VOL_INIT);
+        volume.setMajorTickSpacing(VOL_MAX);
+        volume.setMinorTickSpacing(VOL_LOW);
+
+
+        JLabel channelLabel = new JLabel(sliders[1], JLabel.CENTER);
+        channel = new JSlider(JSlider.HORIZONTAL, CHANNEL_LOW, CHANNEL_MAX, CHANNEL_INIT);
+        channel.setMajorTickSpacing(CHANNEL_MAX);
+        channel.setMinorTickSpacing(CHANNEL_LOW);
+        channel.setPaintTicks(true);
+        channel.setSnapToTicks(true);
+
+
+
+        sliderLabels = new JLabel[2];
+        sliderLabels[0] = volumeLabel;
+        sliderLabels[1] = channelLabel;
+
+        rightSliders = new JSlider[2];
+        rightSliders[0] = volume;
+        rightSliders[1] = channel;
+
+        int y = 0;
+        for (int i = 0; i<rightSliders.length; i++){
+            sliderLabels[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+            setLayout(rightPanelLayout);
+            rightC.gridx = 0;
+            rightC.gridy = y;
+            rightC.fill = GridBagConstraints.BOTH;
+            rightPanel.add(sliderLabels[i], rightC);
+            y+=1;
+
+            rightSliders[i].setBackground(buttonBackground);
+            setLayout(rightPanelLayout);
+            rightC.gridx = 0;
+            rightC.gridy = y;
+            rightC.ipadx = SLIDER_X;
+            rightC.ipady = SLIDER_Y;
+            rightC.fill = GridBagConstraints.BOTH;
+            rightPanel.add(rightSliders[i], rightC);
+            y+=1;
+
+        }
+
+
+    }
+
+    private void makeRightButtons(){
+
+        player = new Player();
+        popupSound = new Sound();
+
+        String[] buttons = new String[3];
+        buttons[0] = "Preview";
+        buttons[1] = "Add";
+        buttons[2] = "Clear";
+
+        preview = new JButton();
+        add = new JButton();
+        clear = new JButton();
+
+        JButton[] rightButtons = new JButton[3];
+        rightButtons[0] = preview;
+        rightButtons[1] = add;
+        rightButtons[2] = clear;
+
+        for (int i = 0; i< rightButtons.length; i++){
+            rightButtons[i].setText(buttons[i]);
+            rightButtons[i].setBackground(buttonBackground);
+            setLayout(rightPanelLayout);
+            rightC.gridx = 0;
+            rightC.gridy = sliderLabels.length + rightSliders.length + i;
+            rightC.ipadx = RIGHT_BUTTON_X;
+            rightC.ipady = RIGHT_BUTTON_Y;
+            rightC.fill = GridBagConstraints.BOTH;
+            rightPanel.add(rightButtons[i], rightC);
+        }
+    }
+
+    private void makeLowerPanel(){
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border lowerBorder = BorderFactory.createTitledBorder(lineBorder,"",2,3);
+
+        lowerPanel = new JPanel();
+        lowerPanel.setBackground(backGroundColor);
+        lowerPanel.setBorder(lowerBorder);
+        setLayout(popupLayout);
+        popupC.ipadx = 0;
+        popupC.ipady = 0;
+        popupC.gridx = 0;
+        popupC.gridy = 1;
+
+        lowerPanelLayout = new GridBagLayout();
+        lowerC = new GridBagConstraints();
+        lowerPanel.setLayout(lowerPanelLayout);
+
+        makeLowerTextArea();
+    }
+
+    private void makeLowerTextArea(){
+        textField = new JTextField(50);
+        textField.setEditable(false);
+        setLayout(lowerPanelLayout);
+        lowerC.gridx = 0;
+        lowerC.gridy = 0;
+        lowerC.ipadx = 20;
+        lowerC.ipady = 20;
+        lowerC.fill = GridBagConstraints.HORIZONTAL;
+        lowerPanel.add(textField, lowerC);
+    }
+
+    void addActionListenersToButtons(String identifier){
+
+        String[] ackordStrings = new String[ackordButtons.length];
+        ackordStrings[0] = " A";
+        ackordStrings[1] = " B";
+        ackordStrings[2] = " C";
+        ackordStrings[3] = " D";
+        ackordStrings[4] = " E";
+        ackordStrings[5] = " F";
+        ackordStrings[6] = " G";
+        ackordStrings[7] = "maj";
+        ackordStrings[8] = "min";
+        ackordStrings[9] = "#";
+
+        String[] durationStrings = new String[durationButtons.length];
+        durationStrings[0] = "w";
+        durationStrings[1] = "h";
+        durationStrings[2] = "q";
+        durationStrings[3] = " R";
+
+
+        switch(identifier){
+            case "instruments":
+                setListeners(instrumentButtons, instrumentList);
+                break;
+            case "ackords":
+                setListeners(ackordButtons, ackordStrings);
+                break;
+            case "duration":
+                setListeners(durationButtons, durationStrings);
+                break;
+            case "rightButtons":
+                preview.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        player.play(popupSound);
+                    }
+                });
+                clear.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        popupSound = new Sound();
+                        textField.setText("");
+                        instrumentButtons[0].doClick();
+                    }
+                });
+                add.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        volumeValue = volume.getValue();
+                        popupSound.insertVolume(volumeValue);
+                        channelValue = channel.getValue();
+                        popupSound.insertChannel(channelValue);
+                        mainFrame.addToMainSound(popupSound);
+                        mainFrame.restructureMain(channelValue, instrumentID);
+                        dispose();
+                    }
+                });
+                break;
+        }
+    }
+
+
+    void createWindow(){
+        this.setTitle(instrumentID);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+    }
+
+    private void setListeners(JButton[] buttonList, String[] musicString){
+        for(int i = 0; i<buttonList.length;i++){
+            final String sound = musicString[i];
+            final JButton button = buttonList[i];
+            final JButton[] list = buttonList;
+            final int index = i;
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (Arrays.equals(list, instrumentButtons)) {
+                        activeInstrument = instrumentList[index];
+                    }
+
+                    testSound = new Sound();
+                    testSound.insertVolume(volume.getValue());
+                    testSound.add(sound);
+                    testSound.insertInstrumentToMusicString(activeInstrument);
+                    player.play(testSound);
+
+                    popupSound.add(sound);
+                    textField.setText(textField.getText() + sound);
+                }
+            });
+        }
+
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+    public Sound getPopupSound() {
+        return popupSound;
+    }
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+    public void setInstrumentList(String[] instrumentList) {
+        this.instrumentList = instrumentList;
+    }
+    public void setInstrumentLabels(String[] instrumentLabels) {
+        this.instrumentLabels = instrumentLabels;
+    }
+    public void setInstrumentID(String instrumentID) {
+        this.instrumentID = instrumentID;
+    }
+
+}

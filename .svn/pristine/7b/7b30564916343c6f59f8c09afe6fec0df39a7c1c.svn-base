@@ -1,0 +1,560 @@
+package Projekt.Frame;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static javax.swing.SwingConstants.CENTER;
+import static javax.swing.SwingConstants.HORIZONTAL;
+
+/**
+ * This panel is created in the MainFrame class and is located in the lower part of the application. It houses
+  * the tempo slider and the soundControl button. It implements the SoundObserver so that it gets to know
+  * when the main sound is edited in the popup windows and when the user loads a saved sound file in the
+  * directory panel. It uses the Singleton design pattern to ensure that only one instance of this panel
+  * is created.
+ */
+
+final class PlayPanel extends JPanel implements SoundObserver
+{
+    //SINGLETON
+    private static final PlayPanel INSTANCE = new PlayPanel();
+    //SLIDER
+    private JSlider tempoSlider;
+    private static final int SLIDER_X = 250;
+    private static final int SLIDER_Y = 30;
+    private static final int SLIDER_TICK_SPACE = 20;
+    private static final int TEMPO_LOW = 40;
+    private static final int TEMPO_MAX = 220;
+    private static final int TEMPO_INIT = 120;
+    //BUTTONS
+    private JButton prev;
+    private JButton next;
+    //SOUND CONTROL STATE
+    private String soundControlState = "play";
+    //LEFT PANEL
+    private JPanel leftPanel;
+    private GridBagLayout leftLayout;
+    private GridBagConstraints leftC;
+    private final static int LEFT_C_PAD_X = 40;
+    private final static int LEFT_C_PAD_Y = 20;
+    //MID PANEL
+    private final static int MID_C_PAD_X = 20;
+    private final static int MID_C_PAD_Y = 20;
+    //LAYOUT
+    private GridBagLayout mainLayout;
+    private GridBagConstraints playC;
+    //COLORS
+    private static final Color BUTTON_BACKGROUND = Color.WHITE;
+    private static final Color BACKGROUND_COLOR = new Color(210,210,210);
+    private Color activeColor = Color.GRAY;
+    private static final Color INACTIVE_BUTTON_COLOR = Color.BLACK;
+    //ICONS
+    private String soundControlActiveIcon = "play_focus.png";
+    private String soundControlInactiveIcon = "play.png";
+    private String clearActiveIcon = "clear_focus.png";
+    private String clearInactiveIcon = "clear.png";
+    //SOUND
+    private PlayerThread pThread = null;
+    private Thread threadPlyr = null;
+    //CONSTANTS
+    private static final int CLEAR_BUTTON_X = 20;
+    private static final int CLEAR_BUTTON_Y = 0;
+    private static final int PLAY_BUTTON_X = 75;
+    private static final int PLAY_BUTTON_Y = 5;
+    private static final int STATE_BUTTONS_X = 10;
+    private static final int STATE_BUTTONS_Y = 25;
+    //SOUND
+    private JButton soundControl;
+    private Sound sound;
+    private SoundGrabber soundGrabber = null;
+    //GRID GRABBER
+    private GridGrabber gridGrabber = null;
+    //MAINFRAME
+    private MainFrame mainFrame = null;
+
+
+    public static PlayPanel getInstance(MainFrame main) {
+        INSTANCE.mainFrame = main;
+        return INSTANCE;
+    }
+
+    private PlayPanel()
+    {
+        sound = new Sound();
+        setMainLayout();
+        makePlayPanel();
+
+    }
+
+    private void setMainLayout(){
+
+        mainLayout = new GridBagLayout();
+        this.setLayout(mainLayout);
+
+    }
+
+    private void makeLeftPanel(){
+
+        leftPanel = new JPanel();
+        leftPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        playC.weightx = 0;
+        playC.ipady = LEFT_C_PAD_Y;
+        playC.ipadx = LEFT_C_PAD_X;
+        playC.gridx = 0;
+        playC.gridy = 0;
+
+        leftLayout = new GridBagLayout();
+        leftC = new GridBagConstraints();
+        leftPanel.setLayout(leftLayout);
+
+        makeLeftButtons();
+
+    }
+
+    private void makeMidPanel(){
+        JPanel midPanel = new JPanel();
+        midPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        playC.weightx = 0;
+        playC.ipady = MID_C_PAD_Y;
+        playC.ipadx = MID_C_PAD_X;
+        playC.gridx = 2;
+        playC.gridy = 0;
+
+        GridBagLayout midLayout = new GridBagLayout();
+        GridBagConstraints midLayoutConstraints = new GridBagConstraints();
+        midPanel.setLayout(midLayout);
+
+        final JButton[] buttons = new JButton[3];
+
+        soundControl = new JButton();
+        prev = new JButton("<");
+        next = new JButton(">");
+
+
+        buttons[0] = prev;
+        buttons[1] = soundControl;
+        buttons[2] = next;
+
+        for(int i = 0; i<buttons.length; i++){
+            buttons[i].setBackground(BUTTON_BACKGROUND);
+            buttons[i].setForeground(INACTIVE_BUTTON_COLOR);
+            setLayout(midLayout);
+            midLayoutConstraints.gridx = i;
+            midLayoutConstraints.gridy = 0;
+            if(!buttons[i].equals(soundControl)){
+                midLayoutConstraints.ipadx = STATE_BUTTONS_X;
+                midLayoutConstraints.ipady = STATE_BUTTONS_Y;
+            }
+            else{
+                midLayoutConstraints.ipadx = PLAY_BUTTON_X;
+                midLayoutConstraints.ipady = PLAY_BUTTON_Y;
+            }
+            midPanel.add(buttons[i], midLayoutConstraints);
+
+            final int index = i;
+            buttons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    buttons[index].setForeground(activeColor);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    buttons[index].setForeground(INACTIVE_BUTTON_COLOR);
+                }
+            });
+}
+        soundControl.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                try {
+                    Image img = ImageIO.read(getClass().getResource(soundControlActiveIcon));
+                    soundControl.setIcon(new ImageIcon(img));
+                } catch (IOException ignored) {
+                    System.out.println("Icon error");
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                try {
+                    Image img = ImageIO.read(getClass().getResource(soundControlInactiveIcon));
+                    soundControl.setIcon(new ImageIcon(img));
+                } catch (IOException ignored) {
+                    System.out.println("Icon error");
+                }
+            }
+        });
+            try {
+                Image img = ImageIO.read(getClass().getResource("play.png"));
+                soundControl.setIcon(new ImageIcon(img));
+            } catch (IOException ignored) {
+                System.out.println("Icon error");
+            }
+            /*
+            * Makes it possible to start and stop the music using threads.
+            */
+            soundControl.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println(sound.getMusicString());
+                    if(!soundGrabber.getSoundWithTempo().getMusicString().isEmpty()){
+                        if(soundControlState.equals("play")){
+                            soundControlActiveIcon = "stop_focus.png";
+                            soundControlInactiveIcon = "stop.png";
+                            try {
+                                Image img = ImageIO.read(getClass().getResource(soundControlActiveIcon));
+                                soundControl.setIcon(new ImageIcon(img));
+                            } catch (IOException ignored) {
+                                System.out.println("Icon error");
+                            }
+                            tempoSlider.setEnabled(false);
+                            pThread = new PlayerThread(INSTANCE);
+                            pThread.setSound(soundGrabber.getSoundWithTempo());
+                            threadPlyr = new Thread(pThread);
+                            threadPlyr.start();
+                            soundControlState = "stop";
+                        }
+                        else{
+                            pThread.stopPlayer();
+                            threadPlyr.interrupt();
+                            threadPlyr = null;
+                            pThread = null;
+                            soundControlActiveIcon = "play_focus.png";
+                            soundControlInactiveIcon = "play.png";
+                            try {
+                                Image img = ImageIO.read(getClass().getResource(soundControlActiveIcon));
+                                soundControl.setIcon(new ImageIcon(img));
+                            } catch (IOException ignored) {
+                                System.out.println("Icon error");
+                            }
+                            soundControlState = "play";
+                            tempoSlider.setEnabled(true);
+                        }
+                    }
+
+                }
+            });
+
+            /*
+            * When the prev buttons is activated it loads the saved previous grid and saves the actual grid
+            * as the grid that is loaded when the next button is activated.
+             */
+            prev.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //To make sure the user doesn't change the window while the application is playing
+                    if(!soundControlState.equals("stop")){
+                        gridGrabber.backChannelCount1();
+                        gridGrabber.backChannelCount2();
+                        gridGrabber.backChannelCount2();
+                        gridGrabber.backChannelCount3();
+                        gridGrabber.backChannelCount4();
+                        gridGrabber.backChannelCount5();
+                        gridGrabber.backChannelCount6();
+                        gridGrabber.backChannelCount7();
+                        gridGrabber.backFillCells();
+                        gridGrabber.backCellColor();
+                        gridGrabber.backIcons();
+                        soundGrabber.backSound();
+                        System.out.println(gridGrabber.getChannelCount1());
+                    }
+
+                }
+            });
+            /*
+            * When the next button is activated it loads the previously grid that was previously saved when the
+            * prev button was last activated.
+             */
+            next.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //To make sure the user doesn't change the window while the application is playing
+                    if(!soundControlState.equals("stop")){
+                        gridGrabber.forwardChannelCount1();
+                        gridGrabber.forwardChannelCount2();
+                        gridGrabber.forwardChannelCount2();
+                        gridGrabber.forwardChannelCount3();
+                        gridGrabber.forwardChannelCount4();
+                        gridGrabber.forwardChannelCount5();
+                        gridGrabber.forwardChannelCount6();
+                        gridGrabber.forwardChannelCount7();
+                        gridGrabber.forwardFillCells();
+                        gridGrabber.forwardCellColor();
+                        gridGrabber.forwardIcons();
+                        soundGrabber.forwardSound();
+                    }
+                }
+            });
+
+
+            this.add(midPanel, playC);
+    }
+
+    private void makeSliderPanel(){
+
+        JPanel sliderPanel = new JPanel();
+        sliderPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        playC.gridx = 4;
+        playC.gridy = 0;
+
+        GridBagLayout sliderLayout = new GridBagLayout();
+        GridBagConstraints sliderC = new GridBagConstraints();
+        this.setLayout(sliderLayout);
+
+        //Tempo Slider
+        JLabel sliderLabel = new JLabel("Tempo", CENTER);
+        sliderLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        sliderPanel.setLayout(sliderLayout);
+        sliderC.gridx=0;
+        sliderC.gridy=0;
+        sliderPanel.add(sliderLabel, sliderC);
+
+        tempoSlider = new JSlider(HORIZONTAL, TEMPO_LOW, TEMPO_MAX, TEMPO_INIT);
+        tempoSlider.setPreferredSize(new Dimension(SLIDER_X,SLIDER_Y));
+        tempoSlider.setMinorTickSpacing(SLIDER_TICK_SPACE);
+        tempoSlider.setSnapToTicks(true);
+        tempoSlider.setPaintTicks(true);
+        tempoSlider.setPaintTrack(true);
+        sliderPanel.setLayout(sliderLayout);
+        sliderC.gridx=0;
+        sliderC.gridy=3;
+        sliderPanel.add(tempoSlider, sliderC);
+
+        tempoSlider.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try{mainFrame.clearDirectoryList();}
+                catch (IndexOutOfBoundsException ex){
+                    System.out.println("clearListSelection(); gives " + ex.toString());
+                    System.out.println("Everything works though..");
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                String tempo = "T" + tempoSlider.getValue();
+                Sound tempSound = new Sound();
+                tempSound.add(tempo + sound.getMusicString());
+                soundGrabber.setSoundWithTempo(tempSound);
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+
+        this.add(sliderPanel,  playC);
+
+    }
+
+    private void makePlayPanel(){
+
+        playC = new GridBagConstraints();
+
+        makeLeftPanel();
+        this.add(leftPanel, playC);
+
+        //To get the right separation between components. Used between clear and soundControl
+        JLabel separator = new JLabel("                                                                 ");
+        setLayout(mainLayout);
+        playC.gridx = 1;
+        playC.gridy = 0;
+        this.add(separator, playC);
+
+        makeMidPanel();
+
+        /*
+        * This empty JLabel is used so that the components gets the right separation. Used between soundControl and
+        * tempo.
+         */
+        JLabel separator1 = new JLabel("                    ");
+        setLayout(mainLayout);
+        playC.gridx = 3;
+        playC.gridy = 0;
+        this.add(separator1, playC);
+
+        makeSliderPanel();
+
+
+
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try{mainFrame.clearDirectoryList();}
+                catch (IndexOutOfBoundsException ex){
+                    System.out.println("clearListSelection(); gives " + ex.toString());
+                    System.out.println("Everything works though..");
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+
+
+    });
+    }
+
+    public void makeLeftButtons(){
+
+        final JButton clear = new JButton();
+        clear.setBackground(BUTTON_BACKGROUND);
+        clear.setForeground(INACTIVE_BUTTON_COLOR);
+        setLayout(leftLayout);
+        leftC.gridx = 0;
+        leftC.gridy = 0;
+        leftC.ipadx = CLEAR_BUTTON_X;
+        leftC.ipady = CLEAR_BUTTON_Y;
+        leftPanel.add(clear, leftC);
+
+        try {
+            Image img = ImageIO.read(getClass().getResource(clearInactiveIcon));
+            clear.setIcon(new ImageIcon(img));
+        } catch (IOException ignored) {
+            System.out.println("Icon error");
+        }
+
+        clear.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                try {
+                    Image img = ImageIO.read(getClass().getResource(clearActiveIcon));
+                    clear.setIcon(new ImageIcon(img));
+                } catch (IOException ignored) {
+                    System.out.println("Icon error");
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                try {
+                    Image img = ImageIO.read(getClass().getResource(clearInactiveIcon));
+                    clear.setIcon(new ImageIcon(img));
+                } catch (IOException ignored) {
+                    System.out.println("Icon error");
+                }
+            }
+        });
+
+
+
+        clear.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                //To make sure the user doesn't clear the window while the application is playing
+                if(!soundControlState.equals("stop")){
+                    soundGrabber.setSound(new Sound());
+                    soundGrabber.setSoundWithTempo(new Sound());
+                    gridGrabber.setGrid(new ArrayList<Point>(gridGrabber.getListSize()),
+                    new ArrayList<Color>(gridGrabber.getListSize()),
+                    new ArrayList<String>(gridGrabber.getListSize()),0,0,0,0,0,0,0);
+                    soundGrabber.setBackTrackable(false);
+                    gridGrabber.setBackTrackable(false);
+                }
+            }
+        });
+
+
+    }
+
+    public void finishedPlaying(){
+        soundControl.setForeground(activeColor);
+        soundControlActiveIcon = "play_focus.png";
+        soundControlInactiveIcon = "play.png";
+        try {
+            Image img = ImageIO.read(getClass().getResource(soundControlInactiveIcon));
+            soundControl.setIcon(new ImageIcon(img));
+        } catch (IOException ignored) {
+            System.out.println("Icon error");
+        }
+        soundControlState = "play";
+        tempoSlider.setEnabled(true);
+    }
+
+    /*
+    * Gets called when the sound is updated. It sets the tempo slider to the initial value
+    * and updates the sound that has the tempo taken into consideration.
+     */
+    @Override
+    public void update(Sound sound) {
+        this.sound = sound;
+        tempoSlider.setValue(TEMPO_INIT);
+        String tempo = "T" + tempoSlider.getValue();
+        Sound tempSound = new Sound();
+        tempSound.add(tempo + sound.getMusicString());
+        soundGrabber.setSoundWithTempo(tempSound);
+    }
+
+    public void registerSoundObserver(SoundListener listener) {
+        listener.register(INSTANCE);
+    }
+
+    public void setSoundGrabber(SoundGrabber soundGrabber) {
+       this.soundGrabber = soundGrabber;
+    }
+    public void setGridGrabber(GridGrabber gridGrabber){this.gridGrabber=gridGrabber;}
+}

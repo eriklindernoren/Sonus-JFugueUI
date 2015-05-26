@@ -1,0 +1,46 @@
+package Projekt.frame;
+
+
+import java.util.ArrayList;
+
+/*
+ * This class handles the information needed to draw out new separate rectangles in the grid when the user adds
+ * a new sound to the project in the popup windows. It tells the DisplayPanel which type of rectangle to
+ * draw out dependent on the type of instrument is selected and in which channel to draw it.
+ */
+
+public class RectangleGrabber implements RectangleListener {
+    private final ArrayList<RectangleObserver> observers;
+    private int channel;
+    private String instrument;
+
+    public RectangleGrabber(){
+        observers = new ArrayList<>();
+        channel = 0;
+        instrument = null;
+    }
+
+    @Override
+    public void register(RectangleObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(RectangleObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(RectangleObserver observer: observers){
+            observer.update(channel, instrument);
+        }
+    }
+
+    public void setChannelAndInstrument(int channel, String instrument) {
+        this.channel = channel;
+        this.instrument = instrument;
+        notifyObserver();
+    }
+}

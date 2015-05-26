@@ -1,0 +1,14 @@
+package Projekt.Frame;
+
+/**
+* The SoundListener class keeps track and adds the classes which needs to know about changes made to the
+* sound.We decided to use the Observer Design Patterns for this project but do not have need for
+* the unregister method so hence it isn't used anywhere in our code.
+*
+ */
+
+interface SoundListener {
+    public void register(SoundObserver o);
+    public void unregister(SoundObserver o);
+    public void notifyObserver();
+}

@@ -1,0 +1,212 @@
+package Projekt.Frame;
+
+import java.io.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+
+final class DirectoryPanel extends JPanel
+{
+    private JList saveList;
+    private DefaultListModel<String> listModel;
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+
+    private final Color borderColor = Color.LIGHT_GRAY;
+    private final Color buttonBackground = Color.WHITE;
+
+    private JButton load;
+
+    private final static int COMPONENT_WIDTH = 100;
+    private final static int BUTTON_HEIGHT = 20;
+    private final static int LIST_HEIGHT = 80;
+
+    private final MainFrame mainframe;
+
+    //Constructor
+    public DirectoryPanel(MainFrame m)
+    {
+        mainframe = m;
+        setPanelLayout();
+        initializeComponents();
+    }
+
+
+    //Methods
+    private void setPanelLayout () {
+        listLayout = new GridBagLayout();
+
+    }
+
+    private void initializeComponents(){
+
+        addElementsToList();
+        createList();
+        createScrollPane();
+        createButtons();
+
+    }
+
+    private void createButtons(){
+        JButton save = new JButton("SAVE");
+        save.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(save, layoutConstraints);
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
+
+
+
+        load = new JButton("LOAD");
+        load.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(load, layoutConstraints);
+
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                load();
+            }
+        });
+
+        JButton delete = new JButton("DELETE");
+        delete.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(delete, layoutConstraints);
+    }
+
+    private void createList(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border listBorder = BorderFactory.createTitledBorder(lineBorder, "Sweet Tunes",2,3);
+
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setBorder(listBorder);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        System.out.println("Norrland");
+                    }
+                }
+        );
+
+    }
+
+    private void createScrollPane(){
+        layoutConstraints = new GridBagConstraints();
+
+
+        JScrollPane myScrollPane = new JScrollPane(saveList);
+        setLayout(listLayout);
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = LIST_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(myScrollPane, layoutConstraints);
+
+    }
+
+    private void addElementsToList(){
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Row1");
+        listModel.addElement("Row2");
+        listModel.addElement("Row3");
+        listModel.addElement("Row4");
+        listModel.addElement("Row5");
+        listModel.addElement("Row6");
+        listModel.addElement("Row7");
+        listModel.addElement("Älg");
+    }
+
+
+
+    /*
+    public static void main(String[] args) {
+        String first = JOptionPane.showInputDialog("Please input a startvalue");
+        String second = JOptionPane.showInputDialog("Please input a endvalue");
+        String metod = JOptionPane.showInputDialog("Please enter for, while or do");
+        int a = Integer.parseInt(first);
+        int b = Integer.parseInt(second);
+    */
+
+    private void save(){
+        try{
+
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File("."));
+            chooser.showSaveDialog(this.getParent());
+            File file = new File();
+
+            FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile());
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(mainframe.getSound());
+            oos.close();
+
+            System.out.println("Saving Completed");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    private void load(){
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File("."));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("txt");
+        chooser.setFileFilter(filter);
+        chooser.showOpenDialog(this.getParent());
+        File a = chooser.getSelectedFile();
+        String b = a.getAbsolutePath();
+
+        try{
+            FileInputStream loadFile = new FileInputStream(b);
+            ObjectInputStream load = new ObjectInputStream(loadFile);
+            Object loadObject = load.readObject();
+            //Slänga in någon "repaint" metod här..
+
+
+            load.close();
+            System.out.println("Loading Completed");
+
+        }
+        catch (Exception exc){
+            exc.printStackTrace();
+        }
+    }
+
+
+
+}

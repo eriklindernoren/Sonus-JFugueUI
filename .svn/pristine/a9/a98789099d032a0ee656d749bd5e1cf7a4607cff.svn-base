@@ -1,0 +1,13 @@
+package Projekt.frame;
+
+/*
+* The GridListener class keeps track and adds the classes which needs to know about the information needed to enable saving
+* and loading of the grid.
+*
+ */
+
+interface GridListener {
+    public void register(GridObserver o);
+    public void unregister(GridObserver o);
+    public void notifyObserver();
+}

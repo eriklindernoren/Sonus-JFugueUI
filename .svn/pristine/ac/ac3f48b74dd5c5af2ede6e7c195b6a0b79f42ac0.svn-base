@@ -1,0 +1,43 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+class HorsePopup extends InstrumentPopup {
+
+    private static final String horse1 = " I[VOICE] ";
+    private static final String horse2 = " I[WARM] ";
+    private static final String horse3 = " I[NEW_AGE] ";
+    private static final String horse4 = " I[MUSIC_BOX] ";
+    private static final String horse5 = " I[HONKEY_TONK] ";
+    private final Color horseColor = new Color(227, 100, 20);
+
+    public HorsePopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Horse");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(horseColor);
+
+        String []horseLabels = new String[5];
+        horseLabels[0] = "Voice";
+        horseLabels[1] = "Warm";
+        horseLabels[2] = "New age";
+        horseLabels[3] = "Music box";
+        horseLabels[4] = "Honkey tonk";
+
+        String[] horseList = new String[5];
+        horseList[0] = horse1;
+        horseList[1] = horse2;
+        horseList[2] = horse3;
+        horseList[3] = horse4;
+        horseList[4] = horse5;
+
+        this.setInstrumentLabels(horseLabels);
+        this.setInstrumentList(horseList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

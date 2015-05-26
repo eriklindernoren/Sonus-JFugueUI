@@ -1,0 +1,47 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
+
+public class Grid extends JPanel {
+
+    private List<Point> fillCells;
+    private List<Color> cellColor;
+    private int colorListIndex;
+    public Grid() {
+        fillCells = new ArrayList<>(25);
+        cellColor = new ArrayList<>(25);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        colorListIndex = 0;
+        for (Point fillCell : fillCells) {
+            int cellX = (fillCell.x * 140);
+            int cellY = (fillCell.y * 60);
+            g.setColor(cellColor.get(colorListIndex));
+            g.fillRect(cellX, cellY, 140, 60);
+            colorListIndex += 1;
+        }
+        g.setColor(Color.GRAY);
+        g.drawRect(0, 0, 700, 420);
+
+        for (int i = 0; i <= 700; i += 140) {
+            g.drawLine(i, 0, i, 420);
+        }
+
+        for (int i = 0; i <= 420; i += 60) {
+            g.drawLine(0, i, 700, i);
+        }
+    }
+
+    public void fillCell(int x, int y, Color c){
+        fillCells.add(new Point(x, y));
+        cellColor.add(c);
+        repaint();
+    }
+}

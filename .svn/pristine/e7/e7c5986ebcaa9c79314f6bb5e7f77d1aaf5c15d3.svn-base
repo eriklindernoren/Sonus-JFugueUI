@@ -1,0 +1,99 @@
+package Projekt.Frame;
+
+import com.sun.tools.javac.comp.Flow;
+
+import javax.swing.*;
+import java.awt.*;
+import java.lang.reflect.Array;
+
+
+public class SongPanel extends JPanel
+{
+    //PANELS
+    private JPanel displayPanel;
+    //GRID
+    private Grid grid;
+
+    //LAYOUT
+    private GridBagLayout displayLayout;
+    private GridBagConstraints layoutConstraintsSong;
+    private GridBagLayout gridLayout;
+    private GridBagConstraints gridC;
+    //INSTRUMENT COLOR
+    private final Color guitarColor = Color.BLACK;
+    private final Color saxColor = Color.RED;
+    private final Color drumsColor = Color.BLUE;
+    private final Color bassColor = Color.YELLOW;
+    private final Color pianoColor = Color.PINK;
+    private final Color miscColor = Color.GREEN;
+    private final Color swagColor = Color.ORANGE;
+    private final Color horseColor = Color.LIGHT_GRAY;
+
+    //Constructor
+    public SongPanel()
+    {
+        makeDisplayPanel();
+        makeGrid();
+        this.add(displayPanel, layoutConstraintsSong);
+
+    }
+
+    //Methods
+
+    //Handles the added sound
+
+    public void addRectangle(int channel, String instrument){
+        switch (instrument){
+            case "Guitar":
+                grid.fillCell(0, channel-1, guitarColor);
+                break;
+            case "Sax":
+                grid.fillCell(0, channel-1, saxColor);
+                break;
+            case "Drums":
+                grid.fillCell(0, channel-1, drumsColor);
+                break;
+            case "Bass":
+                grid.fillCell(0, channel-1, bassColor);
+                break;
+            case "Piano":
+                grid.fillCell(0, channel-1, pianoColor);
+                break;
+            case "Misc":
+                grid.fillCell(0, channel-1, miscColor);
+                break;
+
+        }
+
+    }
+
+    private void makeDisplayPanel(){
+
+        displayLayout = new GridBagLayout();
+        layoutConstraintsSong = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setLayout(displayLayout);
+        layoutConstraintsSong.weightx = 1;
+        layoutConstraintsSong.gridx = 0;
+        layoutConstraintsSong.gridy = 0;
+        layoutConstraintsSong.fill = GridBagConstraints.BOTH;
+
+    }
+
+    private void makeGrid(){
+
+        gridLayout = new GridBagLayout();
+        gridC = new GridBagConstraints();
+        displayPanel.setLayout(gridLayout);
+
+        grid = new Grid();
+        setLayout(gridLayout);
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+        gridC.ipadx = 691;
+        gridC.ipady = 411;
+        gridC.fill = GridBagConstraints.BOTH;
+        displayPanel.add(grid, gridC);
+    }
+}

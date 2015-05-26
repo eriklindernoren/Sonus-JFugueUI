@@ -1,0 +1,14 @@
+package Projekt.Frame;
+
+/**
+* The RectangleListener class keeps track and adds the classes which needs to know about the information change
+* related to new rectangles in the grid.
+*
+ */
+
+
+interface RectangleListener {
+    public void register(RectangleObserver o);
+    public void unregister(RectangleObserver o);
+    public void notifyObserver();
+}

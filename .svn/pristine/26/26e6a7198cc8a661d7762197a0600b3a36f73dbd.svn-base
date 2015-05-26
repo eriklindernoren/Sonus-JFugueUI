@@ -1,0 +1,161 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import org.jfugue.*;
+
+final class PlayPanel extends JPanel implements SoundObserver
+{
+    private JSlider tempoSlider;
+    //LAYOUT
+    private GridBagLayout mainLayout;
+    //COLORS
+    private static final Color buttonBackground = Color.WHITE;
+    private static final Color backgroundColor = new Color(210,210,210);
+    //SOUND
+    private final Player player;
+    //CONSTANTS
+    private static final int BUTTON_SIZE_X = 130;
+    private static final int BUTTON_SIZE_Y = 25;
+    //SLIDER VALUES
+    private static final int TEMPO_LOW = 40;
+    private static final int TEMPO_MAX = 220;
+    private static final int TEMPO_INIT = 120;
+    //SOUND
+    private Sound sound;
+    //MAIN FRAME
+    private final MainFrame mainFrame;
+
+    //SOUND OBSERVER
+    private SoundListener playSoundListener;
+
+
+    public PlayPanel(Sound s, MainFrame m, SoundListener soundListener)
+    {
+        this.playSoundListener = soundListener;
+        playSoundListener.register(this);
+        mainFrame = m;
+        sound = s;
+        player = new Player();
+        setMainLayout();
+        playPanel();
+    }
+
+    private void setMainLayout(){
+
+        mainLayout = new GridBagLayout();
+        this.setLayout(mainLayout);
+
+    }
+
+    private void playPanel(){
+
+        GridBagConstraints c = new GridBagConstraints();
+
+        //To get the right separation between components
+        JLabel separator = new JLabel("                                                                                   ");
+        setLayout(mainLayout);
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(separator, c);
+
+        JPanel midPanel = new JPanel();
+        midPanel.setBackground(backgroundColor);
+        setLayout(mainLayout);
+        c.weightx = 0;
+        c.ipady = 20;
+        c.ipadx = 20;
+        c.gridx = 1;
+        c.gridy = 0;
+
+        GridBagLayout midLayout = new GridBagLayout();
+        GridBagConstraints midLayoutConstraints = new GridBagConstraints();
+        midPanel.setLayout(midLayout);
+
+        JButton play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        setLayout(midLayout);
+        midLayoutConstraints.gridx = 0;
+        midLayoutConstraints.gridy = 0;
+        midLayoutConstraints.ipadx = BUTTON_SIZE_X;
+        midLayoutConstraints.ipady = BUTTON_SIZE_Y;
+        midPanel.add(play, midLayoutConstraints);
+
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Sound tempSound = new Sound();
+                tempSound.add("T" + tempoSlider.getValue() + sound.getMusicString());
+                System.out.println(tempSound);
+                player.play(tempSound);
+            }
+        });
+
+        JButton clear = new JButton("CLEAR");
+        clear.setBackground(buttonBackground);
+        setLayout(midLayout);
+        midLayoutConstraints.gridx = 1;
+        midLayoutConstraints.gridy = 0;
+        midLayoutConstraints.ipadx = BUTTON_SIZE_X;
+        midLayoutConstraints.ipady = BUTTON_SIZE_Y;
+        midPanel.add(clear, midLayoutConstraints);
+
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.resetGrid();
+            }
+        });
+
+        this.add(midPanel, c);
+
+
+        //To get the right separation between components
+        JLabel separator1 = new JLabel("            ");
+        setLayout(mainLayout);
+        c.gridx = 2;
+        c.gridy = 0;
+        this.add(separator1, c);
+
+
+        JPanel sliderPanel = new JPanel();
+        sliderPanel.setBackground(backgroundColor);
+        setLayout(mainLayout);
+        c.gridx = 3;
+        c.gridy = 0;
+
+        GridBagLayout sliderLayout = new GridBagLayout();
+        GridBagConstraints sliderC = new GridBagConstraints();
+        this.setLayout(sliderLayout);
+
+        //Volume Slider
+        JLabel sliderLabel = new JLabel("Tempo", JLabel.CENTER);
+        sliderLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        sliderPanel.setLayout(sliderLayout);
+        sliderC.gridx=0;
+        sliderC.gridy=0;
+        sliderPanel.add(sliderLabel, sliderC);
+
+        tempoSlider = new JSlider(JSlider.HORIZONTAL, TEMPO_LOW, TEMPO_MAX, TEMPO_INIT);
+        tempoSlider.setPreferredSize(new Dimension(250,30));
+        tempoSlider.setMinorTickSpacing(20);
+        tempoSlider.setPaintTicks(true);
+        tempoSlider.setPaintTrack(true);
+        sliderPanel.setLayout(sliderLayout);
+        sliderC.gridx=0;
+        sliderC.gridy=3;
+        sliderPanel.add(tempoSlider, sliderC);
+
+        this.add(sliderPanel,  c);
+
+
+    }
+
+
+    @Override
+    public void update(Sound sound) {
+        this.sound = sound;
+    }
+}

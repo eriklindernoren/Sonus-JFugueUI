@@ -1,0 +1,119 @@
+package Projekt.Frame;
+
+import com.sun.tools.javac.comp.Flow;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class SongPanel extends JPanel
+{
+    //PANELS
+    private JPanel displayPanel;
+    private JPanel channel1, channel2, channel3, channel4, channel5, channel6, channel7;
+    //PANEL LIST
+    private JPanel[] panelList;
+    //LAYOUT
+    private GridBagLayout displayLayout;
+    private GridBagLayout channelLayout;
+    private GridBagConstraints layoutConstraintsSong;
+    private GridBagConstraints layoutConstraintsChannel;
+    //CONSTANTS
+    private int CHANNEL_WIDTH = 550;
+    private int CHANNEL_HEIGHT = 45;
+    //COLORS
+    private Color channelBackground = new Color(250, 250, 250);
+    private Color channelBackground1 = new Color(240,240,240);
+
+
+    //Constructor
+    public SongPanel()
+    {
+        makeDisplayPanel();
+        makeGrid();
+        this.add(displayPanel, layoutConstraintsSong);
+
+    }
+
+    //Methods
+
+    //Handles the added sound
+    public void changeChannelColour(int channel, Color c){
+        panelList[channel - 1].setBackground(c);
+    }
+    public void addRectangle(int channel, int numbOfAckords, String instrument){
+        System.out.println("Hej");
+
+    }
+
+    private void makeDisplayPanel(){
+
+        displayLayout = new GridBagLayout();
+        layoutConstraintsSong = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setLayout(displayLayout);
+        layoutConstraintsSong.weightx = 1;
+        layoutConstraintsSong.gridx = 0;
+        layoutConstraintsSong.gridy = 0;
+        layoutConstraintsSong.fill = GridBagConstraints.BOTH;
+
+    }
+
+    private void makeGrid(){
+/*
+        channelLayout = new GridBagLayout();
+        layoutConstraintsChannel = new GridBagConstraints();
+        displayPanel.setLayout(channelLayout);
+
+        channel1 = new JPanel();
+        channel2 = new JPanel();
+        channel3 = new JPanel();
+        channel4 = new JPanel();
+        channel5 = new JPanel();
+        channel6 = new JPanel();
+        channel7 = new JPanel();
+
+        panelList = new JPanel[7];
+        panelList[0] = channel1;
+        panelList[1] = channel2;
+        panelList[2] = channel3;
+        panelList[3] = channel4;
+        panelList[4] = channel5;
+        panelList[5] = channel6;
+        panelList[6] = channel7;
+
+        //Adds and configures the panels
+        for(int i = 0; i<panelList.length; i++){
+            Color background = (i%2 == 0 ? channelBackground: channelBackground1);
+            panelList[i].setBackground(background);
+            setLayout(channelLayout);
+            layoutConstraintsChannel.gridx = 0;
+            layoutConstraintsChannel.gridy = i;
+            layoutConstraintsChannel.ipadx = CHANNEL_WIDTH;
+            layoutConstraintsChannel.ipady = CHANNEL_HEIGHT;
+            layoutConstraintsChannel.fill = GridBagConstraints.BOTH;
+            displayPanel.add(panelList[i], layoutConstraintsChannel);
+        }
+        */
+        GridBagLayout gLayout = new GridBagLayout();
+        GridBagConstraints gridC = new GridBagConstraints();
+        displayPanel.setLayout(gLayout);
+
+        Grid grid = new Grid();
+        setLayout(gLayout);
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+        gridC.ipadx = 700;
+        gridC.ipady = 420;
+        gridC.fill = GridBagConstraints.BOTH;
+        displayPanel.add(grid, gridC);
+        grid.fillCell(0, 3);
+        grid.fillCell(1, 3);
+        grid.fillCell(0, 2);
+        grid.fillCell(0, 4);
+        grid.fillCell(0, 0);
+        grid.fillCell(1, 0);
+        grid.fillCell(2, 0);
+    }
+}

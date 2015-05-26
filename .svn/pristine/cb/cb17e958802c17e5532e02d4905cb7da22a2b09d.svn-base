@@ -1,0 +1,106 @@
+package Projekt.Frame;
+
+import sun.jvm.hotspot.code.ConstantOopReadValue;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class InstrumentPopup extends JFrame
+{
+    private GridBagLayout popupLayout;
+    private GridBagConstraints c;
+    private JPanel ackordPanel, functionPanel;
+    private Color backGroundColor = Color.lightGray;
+    private int LINE_LENGTH = 400;
+
+
+    public InstrumentPopup(String identifier)
+    {
+        layoutMaker();
+        panelMaker(getContentPane());
+        this.setTitle(identifier);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+
+
+        switch(identifier){
+
+            case("Guitar"):
+                System.out.println("Guitar");
+                break;
+            case("Sax"):
+                System.out.println("Sax");
+                break;
+            case("Drums"):
+                System.out.println("Drums");
+                break;
+            case("Bass"):
+                System.out.println("Bass");
+                break;
+            case("Piano"):
+                System.out.println("Piano");
+                break;
+            case("Yolo"):
+                System.out.println("Yolo");
+                break;
+            case("Swag"):
+                System.out.println("Swag");
+                break;
+            case("Horse"):
+                System.out.println("Horse");
+                break;
+            default:
+                System.out.println("End");
+                break;
+
+
+        }
+
+    }
+
+
+
+
+    public void layoutMaker()
+    {
+        popupLayout = new GridBagLayout();
+
+    }
+
+
+    public void panelMaker(Container pane)
+    {
+        pane.setLayout(popupLayout);
+        c = new GridBagConstraints();
+
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(Color.BLUE);
+        setLayout(popupLayout);
+        c.ipadx = 200;
+        c.ipady = 500;
+        c.gridx = 0;
+        c.gridy = 0;
+        pane.add(ackordPanel, c);
+
+        JSeparator separatorLine = new JSeparator(SwingConstants.VERTICAL);
+        separatorLine.setBackground(Color.RED);
+        setLayout(popupLayout);
+        c.gridx = 1;
+        c.gridy = 0;
+        pane.add(separatorLine, c);
+
+
+        functionPanel = new JPanel();
+        functionPanel.setBackground(Color.BLACK);
+        setLayout(popupLayout);
+        c.ipadx = 200;
+        c.ipady = 500;
+        c.gridx = 2;
+        c.gridy = 0;
+        pane.add(functionPanel, c);
+
+    }
+}

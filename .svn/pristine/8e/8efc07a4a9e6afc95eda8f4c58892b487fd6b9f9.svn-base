@@ -1,0 +1,30 @@
+package Projekt.Frame;
+
+import org.jfugue.Pattern;
+import org.jfugue.Player;
+
+/*
+* Makes it possible to start and later stop the music using a separate thread.
+*/
+public class PlayerThread implements Runnable {
+    private Sound sound;
+    private Player player = new Player();
+    public void setSound(Sound sound)
+    {
+        this.sound = sound;
+    }
+    @Override
+    public void run()
+    {
+        try{
+            player.play(sound);
+        }
+        catch (Exception exception)
+        {
+        }
+    }
+
+    public void stopPlayer(){
+        player.stop();
+    }
+}

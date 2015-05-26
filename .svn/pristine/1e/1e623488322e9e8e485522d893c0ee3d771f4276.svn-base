@@ -1,0 +1,76 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class InstrumentPanel extends JPanel
+{
+    JButton guitar;
+    JButton saxophone;
+    JButton drums;
+    JButton bass;
+
+    public InstrumentPanel()
+    {
+
+        this.setBackground(Color.GRAY);
+        this.setLocation(0, 0);
+        this.setSize(200, 400);
+        gridMaker();
+        this.setVisible(true);
+
+
+    }
+
+
+
+    public void gridMaker()
+    {
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        //c.ipadx = 90;
+        //c.ipady = 40;
+        c.gridwidth = 2;
+        c.gridheight = 8;
+
+
+        guitar = new JButton("Guitar");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.FIRST_LINE_START;
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(guitar, c);
+
+
+        saxophone = new JButton("Saxophone");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.gridx = 100;
+        //c.gridy = 0;
+
+        this.add(saxophone, c);
+
+        drums = new JButton("Drums");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.gridx = 0;
+        //c.gridy = 50;
+        this.add(drums, c);
+
+        bass = new JButton("Bass");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.gridx = 100;
+        //c.gridy = 50;
+        this.add(bass, c);
+
+
+        //GridLayout grid = new GridLayout(8, 2, 50, 100);
+
+
+    }
+
+
+}

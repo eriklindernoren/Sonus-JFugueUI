@@ -1,0 +1,53 @@
+
+    package Projekt.Frame;
+
+    import org.jfugue.Pattern;
+
+    public class Sound extends Pattern{
+
+
+        public void addSoundLoop(String sound, int times){
+            for(int i = 1; i <= times; i++){
+                this.add(sound);
+            }
+
+        }
+
+        public void addMusicToMusicstring(String channel, String sound){
+            this.add(channel + " " + sound);
+        }
+
+        public void addInstrumentToMusicString(String channel, String instrument){
+            this.add(channel + " " + instrument);
+        }
+
+        public void addDrumToMusicString(String drum){
+            String drumChannel = "V09";
+            this.add(drumChannel + " " + drum);
+        }
+
+        public void addBeatToMusicString(String beat, int times){
+            String drumChannel = "V09";
+            this.add(drumChannel + " ");
+            for(int i = 1; i <= times; i++){
+                this.add(beat);
+            }
+        }
+
+        public void setStartTime(int startTime){
+            startTime *= 1000; //converting milliseconds to seconds
+            this.add("@" + startTime);
+        }
+
+        public void setVolume(int volumeLevel){
+            if (volumeLevel >= 0 && volumeLevel <= 10){
+                int lowestVolume = 1600;
+                int volume = lowestVolume * volumeLevel;
+                this.add("x[volume]=" + volume);
+            }
+        }
+
+        public Sound getSound(){
+            return this;
+        }
+}

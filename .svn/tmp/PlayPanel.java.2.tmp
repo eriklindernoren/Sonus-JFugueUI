@@ -1,0 +1,158 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class PlayPanel extends JPanel
+{
+    private JPanel leftPanel, midPanel, rightPanel;
+    private JButton play, stop;
+    private GridBagLayout mainLayout, leftLayout, midLayout, rightLayout;
+    private GridBagConstraints midlayoutConstraints, rightlayoutConstraints, mainLayoutConstraints;
+    private Color buttonBackground = Color.WHITE;
+    private SoundPlay player;
+    private int BUTTON_SIZE_X = 200;
+    private int BUTTON_SIZE_Y = 50;
+    private JSlider volumeSlider;
+    private int PANEL_SIZE_X = 166;
+    private int PANEL_SIZE_Y = 40;
+
+
+    public PlayPanel()
+    {
+        player = new SoundPlay();
+        playPanel();
+        this.setVisible(true);
+
+    }
+
+
+    /*
+    private void setMainLayout(){
+
+        mainLayout = new GridBagLayout();
+        this.setLayout(mainLayout);
+
+    }
+
+       */
+
+
+
+    private void playPanel(){
+
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+
+        play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        c.anchor = GridBagConstraints.CENTER;
+
+        c.gridx = 0;
+        c.gridy = 0;
+        c.ipadx = BUTTON_SIZE_X;
+        c.ipady = BUTTON_SIZE_Y;
+        this.add(play, c);
+
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.playEpicSax();
+            }
+        });
+
+        stop = new JButton("STOP");
+        stop.setBackground(buttonBackground);
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridx = 1;
+        c.gridy = 0;
+        c.ipadx = BUTTON_SIZE_X;
+        c.ipady = BUTTON_SIZE_Y;
+        this.add(stop, c);
+
+        stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.stopSound();
+            }
+        });
+
+
+        //Volume Slider
+        volumeSlider = new JSlider(JSlider.HORIZONTAL, 0, 10, 2);
+        volumeSlider.setPreferredSize(new Dimension(100, 20));
+        c.gridx = 2;
+        c.gridy = 0;
+        c.anchor = GridBagConstraints.LINE_END;
+        this.add(volumeSlider,  c);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
+
+    private void addLeftPanel(){
+
+        leftPanel = new JPanel();
+        leftPanel.setLayout(mainLayout);
+
+        //Position to mainPanel
+        mainLayoutConstraints.gridx = 0;
+        mainLayoutConstraints.gridy = 0;
+        //mainLayoutConstraints.weightx = 1.0;
+
+
+        //Adding leftpanel to mainpanel
+        leftPanel.setBackground(Color.black);
+        this.add(leftPanel, mainLayoutConstraints);
+
+    }
+    */
+
+
+
+
+
+
+    /*
+
+    private void addRightPanel(){
+        rightLayout = new GridBagLayout();
+        rightPanel = new JPanel();
+        rightPanel.setLayout(mainLayout);
+
+        //Position to mainPanel
+        mainLayoutConstraints.gridx = 2;
+        mainLayoutConstraints.gridy = 0;
+        //mainLayoutConstraints.weightx = 1.0;
+
+        //Right layout
+        rightlayoutConstraints = new GridBagConstraints();
+        volumeSlider = new JSlider(JSlider.HORIZONTAL, 0, 50, 10);
+        //rightlayoutConstraints.ipadx = 0;
+        rightPanel.add(volumeSlider, rightlayoutConstraints);
+
+
+        //Adding rightpanel to mainpanel.
+        rightPanel.setBackground(Color.BLUE);
+        this.add(rightPanel, mainLayoutConstraints);
+    }
+
+    */
+
+
+}

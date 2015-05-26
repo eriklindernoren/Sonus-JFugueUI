@@ -1,0 +1,358 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+
+
+public class InstrumentPopup extends JFrame
+{
+    //LAYOUTS
+    private GridBagLayout popupLayout, iPanelLayout, midPanelLayout, aPanelLayout, durationPanelLayout;
+    private GridBagConstraints popupC, midC, instrumentC, ackordC, durationC;
+    //PANELS
+    private JPanel instrumentPanel, midPanel, ackordPanel, durationPanel, valuePanel;
+    //COLOR
+    private Color backGroundColor = new Color(240, 240, 240);
+    private Color buttonBackground = Color.WHITE;
+    private Color borderColor = Color.WHITE;
+    //CONSTANTS
+    private int LINE_LENGTH = 400;
+    private int INSTRUMENT_BUTTON_X = 40;
+    private int INSTRUMENT_BUTTON_Y = 39;
+    private int ACKORD_BUTTON_X = 10;
+    private int ACKORD_BUTTON_Y = 10;
+    private int DURATION_BUTTON_X = 10;
+    private int DURATION_BUTTON_Y = 10;
+    //BUTTONS
+    private JButton instrument1, instrument2, instrument3, instrument4, instrument5;
+    private JButton a, b, c, d, e, f, g;
+    private JButton minor, major, sharp;
+    private JButton whole, half, quarter, eighth;
+    //LIST WITH BUTTONS
+    private JButton[] instrumentButtons;
+    private JButton[] ackordButtons;
+    private JButton[] durationButtons;
+    //INSTRUMENT LISTS
+    private String[] guitarList, saxList, drumList, bassList, pianoList;
+
+
+    public InstrumentPopup(String identifier)
+    {
+        panelMaker(getContentPane(), identifier);
+        this.setTitle(identifier);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+
+    }
+
+    public void panelMaker(Container pane, String identifier)
+    {
+        popupLayout = new GridBagLayout();
+        pane.setLayout(popupLayout);
+        popupC = new GridBagConstraints();
+
+        makeInstrumentPanel(identifier);
+        pane.add(instrumentPanel, popupC);
+
+        makeMidPanel();
+        makeAckordPanel();
+        midPanel.add(ackordPanel, midC);
+        makeDurationPanel();
+        midPanel.add(durationPanel, midC);
+        pane.add(midPanel, popupC);
+
+        makeValuePanel();
+        pane.add(valuePanel, popupC);
+
+    }
+
+    private void makeInstrumentPanel(String identifier){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border instrumentBorder = BorderFactory.createTitledBorder(lineBorder, "Instruments",2,3);
+
+        instrumentPanel = new JPanel();
+        instrumentPanel.setBorder(instrumentBorder);
+        instrumentPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 40;
+        popupC.ipady = 40;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        iPanelLayout = new GridBagLayout();
+        instrumentC = new GridBagConstraints();
+        instrumentPanel.setLayout(iPanelLayout);
+
+        addInstrumentsToLists();
+
+
+        switch(identifier){
+
+            case("Guitar"):
+                makeInstrumentButtons(guitarList);
+                System.out.println("Guitar");
+                break;
+            case("Sax"):
+                makeInstrumentButtons(saxList);
+                System.out.println("Sax");
+                break;
+            case("Drums"):
+                makeInstrumentButtons(drumList);
+                System.out.println("Drums");
+                break;
+            case("Bass"):
+                makeInstrumentButtons(bassList);
+                System.out.println("Bass");
+                break;
+            case("Piano"):
+                makeInstrumentButtons(pianoList);
+                System.out.println("Piano");
+                break;
+            /*case("Yolo"):
+                makeInstrumentButtons();
+                break;
+            case("Swag"):
+                makeInstrumentButtons();
+                break;
+            case("Horse"):
+                makeInstrumentButtons();
+                System.out.println("Horse");
+                break;
+                */
+        }
+    }
+
+    private void addInstrumentsToLists(){
+
+        guitarList = new String[5];
+        guitarList[0] = "G1";
+        guitarList[1] = "G2";
+        guitarList[2] = "G3";
+        guitarList[3] = "G4";
+        guitarList[4] = "G5";
+
+        saxList = new String[5];
+        saxList[0] = "S1";
+        saxList[1] = "S2";
+        saxList[2] = "S3";
+        saxList[3] = "S4";
+        saxList[4] = "S5";
+
+        drumList = new String[5];
+        drumList[0] = "D1";
+        drumList[1] = "D2";
+        drumList[2] = "D3";
+        drumList[3] = "D4";
+        drumList[4] = "D5";
+
+        bassList = new String[5];
+        bassList[0] = "B1";
+        bassList[1] = "B2";
+        bassList[2] = "B3";
+        bassList[3] = "B4";
+        bassList[4] = "B5";
+
+        pianoList = new String[5];
+        pianoList[0] = "1";
+        pianoList[1] = "2";
+        pianoList[2] = "3";
+        pianoList[3] = "4";
+        pianoList[4] = "5";
+
+    }
+
+    private void makeInstrumentButtons(String [] instrumentList){
+
+        instrument1 = new JButton();
+        instrument2 = new JButton();
+        instrument3 = new JButton();
+        instrument4 = new JButton();
+        instrument5 = new JButton();
+        instrumentButtons = new JButton[5];
+        instrumentButtons[0] = instrument1;
+        instrumentButtons[1] = instrument2;
+        instrumentButtons[2] = instrument3;
+        instrumentButtons[3] = instrument4;
+        instrumentButtons[4] = instrument5;
+
+        for(int i = 0; i < instrumentList.length; i++){
+            instrumentButtons[i].setText(instrumentList[i]);
+            setLayout(iPanelLayout);
+            instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+            instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+            instrumentC.gridx = 0;
+            instrumentC.gridy = i;
+            instrumentC.fill = GridBagConstraints.BOTH;
+            instrumentPanel.add(instrumentButtons[i], instrumentC);
+        }
+
+    }
+
+    private void makeMidPanel(){
+        midPanel = new JPanel();
+        midPanel.setBackground(backGroundColor);
+        setLayout(popupLayout);
+        popupC.ipadx = 20;
+        popupC.ipady = 20;
+        popupC.gridx = 1;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.BOTH;
+
+        midPanelLayout = new GridBagLayout();
+        midC = new GridBagConstraints();
+        midPanel.setLayout(midPanelLayout);
+    }
+
+    private void makeAckordPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border ackordBorder = BorderFactory.createTitledBorder(lineBorder, "Ackords",2,3);
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(backGroundColor);
+        ackordPanel.setBorder(ackordBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 20;
+        midC.ipady = 20;
+        midC.gridx = 0;
+        midC.gridy = 0;
+        midC.fill = GridBagConstraints.BOTH;
+
+        aPanelLayout = new GridBagLayout();
+        ackordC = new GridBagConstraints();
+        ackordPanel.setLayout(aPanelLayout);
+
+        makeAckordButtons();
+    }
+
+    private void makeAckordButtons(){
+
+        String[] ackords = new String[10];
+        ackords[0] = "A";
+        ackords[1] = "B";
+        ackords[2] = "C";
+        ackords[3] = "D";
+        ackords[4] = "E";
+        ackords[5] = "F";
+        ackords[6] = "G";
+        ackords[7] = "Maj";
+        ackords[8] = "Min";
+        ackords[9] = "#";
+
+        a = new JButton();
+        b = new JButton();
+        c = new JButton();
+        d = new JButton();
+        e = new JButton();
+        f = new JButton();
+        g = new JButton();
+
+        major = new JButton();
+        minor = new JButton();
+        sharp = new JButton();
+
+        ackordButtons = new JButton[10];
+        ackordButtons[0] = a;
+        ackordButtons[1] = b;
+        ackordButtons[2] = c;
+        ackordButtons[3] = d;
+        ackordButtons[4] = e;
+        ackordButtons[5] = f;
+        ackordButtons[6] = g;
+        ackordButtons[7] = major;
+        ackordButtons[8] = minor;
+        ackordButtons[9] = sharp;
+
+        int columnindex = 0;
+        int rowindex = 0;
+        for (int i = 0; i<ackordButtons.length; i++){
+            ackordButtons[i].setText(ackords[i]);
+            ackordButtons[i].setBackground(buttonBackground);
+            setLayout(aPanelLayout);
+            ackordC.gridx = columnindex;
+            ackordC.gridy = rowindex;
+            ackordC.ipadx = ACKORD_BUTTON_X;
+            ackordC.ipady = ACKORD_BUTTON_Y;
+            ackordC.fill = GridBagConstraints.BOTH;
+            ackordPanel.add(ackordButtons[i], ackordC);
+
+            columnindex = (columnindex < 1  ? columnindex+1: 0);
+            if(columnindex==0){rowindex+=1;}
+        }
+
+    }
+
+    private void makeDurationPanel(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border durationBorder = BorderFactory.createTitledBorder(lineBorder, "Duration",2,3);
+
+        durationPanel = new JPanel();
+        durationPanel.setBackground(backGroundColor);
+        durationPanel.setBorder(durationBorder);
+        setLayout(midPanelLayout);
+        midC.ipadx = 20;
+        midC.ipady = 20;
+        midC.gridx = 0;
+        midC.gridy = 1;
+        midC.fill = GridBagConstraints.BOTH;
+
+        durationPanelLayout = new GridBagLayout();
+        durationC = new GridBagConstraints();
+        durationPanel.setLayout(durationPanelLayout);
+
+        makeDurationButtons();
+    }
+
+    private void makeDurationButtons(){
+
+        String[] duration = new String[4];
+        duration[0] = "Whole";
+        duration[1] = "Half";
+        duration[2] = "Quarter";
+        duration[3] = "Eighth";
+
+        whole = new JButton();
+        half = new JButton();
+        quarter = new JButton();
+        eighth = new JButton();
+
+        durationButtons = new JButton[4];
+        durationButtons[0] = whole;
+        durationButtons[1] = half;
+        durationButtons[2] = quarter;
+        durationButtons[3] = eighth;
+
+        int columnIndex = 0;
+        int rowIndex = 0;
+        for (int i = 0; i<durationButtons.length; i++){
+            durationButtons[i].setText(duration[i]);
+            durationButtons[i].setBackground(buttonBackground);
+            setLayout(durationPanelLayout);
+            durationC.gridx = columnIndex;
+            durationC.gridy = rowIndex;
+            durationC.ipadx = DURATION_BUTTON_X;
+            durationC.ipady = DURATION_BUTTON_Y;
+            durationC.fill = GridBagConstraints.BOTH;
+            durationPanel.add(durationButtons[i], durationC);
+
+            columnIndex = (columnIndex < 1  ? columnIndex+1: 0);
+            if(columnIndex==0){rowIndex+=1;}
+        }
+    }
+
+    private void makeValuePanel(){
+
+        valuePanel = new JPanel();
+        valuePanel.setBackground(Color.LIGHT_GRAY);
+        setLayout(popupLayout);
+        popupC.ipadx = 200;
+        popupC.ipady = 20;
+        popupC.gridx = 2;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.VERTICAL;
+    }
+}

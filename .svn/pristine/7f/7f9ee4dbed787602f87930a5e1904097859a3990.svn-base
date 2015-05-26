@@ -1,0 +1,12 @@
+package Projekt.Frame;
+
+/**
+* The RectangleListener class defines what methods are needed in the SoundGrabber class.
+ */
+
+
+interface RectangleListener {
+    public void register(RectangleObserver o);
+    public void unregister(RectangleObserver o);
+    public void notifyObserver();
+}

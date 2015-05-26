@@ -1,0 +1,41 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ * Created by mattiasramstrand on 2014-03-29.
+ */
+public class InstrumentPopup extends JPanel
+{
+
+    InstrumentPanel iPanel = new InstrumentPanel();
+    private JButton guitar = iPanel.getGuitar();
+
+
+    public InstrumentPopup()
+    {
+        guitarMenu();
+    }
+
+
+
+
+    public void guitarMenu(){
+
+        guitar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame guitarFrame = new JFrame();
+                guitarFrame.setSize(400, 400);
+                guitarFrame.setVisible(true);
+            }
+        });
+
+    }
+
+
+
+
+}

@@ -1,0 +1,8 @@
+package Projekt.Frame;
+
+
+interface SoundListener {
+    public void register(SoundObserver o);
+    public void unregister(SoundObserver o);
+    public void notifyObserver();
+}

@@ -1,0 +1,55 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by mattiasramstrand on 2014-03-26.
+ */
+public class PlayPanel extends JPanel
+{
+    private JButton play, stop;
+    private GridBagLayout playLayout;
+    private GridBagConstraints layoutConstraints;
+    private Color buttonBackground = Color.WHITE;
+    private int BUTTON_SIZE_X = 10;
+    private int BUTTON_SIZE_Y = 10;
+
+    public PlayPanel()
+    {
+        setPanelLayout();
+        makeButtons();
+        this.setVisible(true);
+    }
+
+    private void setPanelLayout(){
+        playLayout = new GridBagLayout();
+    }
+
+    private void makeButtons(){
+
+        layoutConstraints = new GridBagConstraints();
+
+        play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.add(play, layoutConstraints);
+
+        stop = new JButton("STOP");
+        stop.setBackground(buttonBackground);
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.add(stop, layoutConstraints);
+
+}
+
+
+
+}

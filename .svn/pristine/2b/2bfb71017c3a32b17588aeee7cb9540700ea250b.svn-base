@@ -1,0 +1,237 @@
+package Projekt.frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+/*
+ * Creates the main window. The "MainFrame"-class handles the creation of all the other panels.
+ * The Grabbers created in this class handles the changes needed to be made in the application when the sound-file is
+ * edited. Since every panel is created in this class we decided that this class would be a good hub passing those
+ * variables. This frame and all of its inner panels uses the GridBagLayout for optimal configuration possibility.
+ * It is possible to activate a cross-platform look in the constructor if you're on a Mac computer.
+ */
+
+final class MainFrame extends JFrame{
+
+    //LAYOUT
+    private GridBagLayout mainLayout;
+    //COLORS
+    private static final Color BACKGROUND_COLOR = new Color(210,210,210);
+    private static final Color SEPARATOR_BACKGROUND = Color.WHITE;
+    //CONSTANTS
+    private static final int LINE_LENGTH = 500;
+    //SOUND GRABBER
+    private SoundGrabber soundGrabber;
+    //RECTANGLE GRABBER
+    private RectangleGrabber rectangleGrabber;
+    //GRID GRABBER
+    private GridGrabber gridGrabber;
+    private DirectoryPanel directoryPanel;
+    // Constructor
+    public MainFrame()
+    {
+        /*
+        * The out-commented part of the constructor disables the cross-platform look.
+        */
+
+        /*
+        try {
+            UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        */
+
+
+        soundGrabber = new SoundGrabber();
+        rectangleGrabber = new RectangleGrabber();
+        gridGrabber = new GridGrabber();
+
+        layoutMaker();
+        menuMaker();
+        panelMaker(getContentPane());
+
+        windowMaker();
+
+    }
+
+
+    private void layoutMaker(){
+        mainLayout = new GridBagLayout();
+    }
+
+    void windowMaker()
+    {
+
+        setBackground(BACKGROUND_COLOR);
+        String windowTitle = "NoScope";
+        setTitle(windowTitle);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setVisible(true);
+
+    }
+
+    /*
+    * Creates the menus of the application and adds the saving and loading functionality to those menus.
+     */
+    void menuMaker()
+    {
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu file = new JMenu("File");
+
+        JMenuItem about = new JMenuItem("About");
+        JMenuItem save = new JMenuItem("Save");
+        JMenuItem load = new JMenuItem("Load");
+        JMenuItem export = new JMenuItem("Export");
+        JMenuItem quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(export);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        setJMenuBar(menuBar);
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "Are you sure you want to quit?",
+                        "Quit?",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                directoryPanel.save();
+            }
+   });
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                directoryPanel.load();
+            }
+        });
+        export.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    directoryPanel.export();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
+
+    }
+
+    /*
+    * Creates all the panels used in the main window of the application and passes the grabbers needed to communicate
+    * between those panels. The ".ipadX" and ".ipadY"-values makes sure the panels are aligned in the application.
+    */
+
+    void panelMaker(Container pane)
+    {
+        pane.setLayout(mainLayout);
+        GridBagConstraints layoutConstraints = new GridBagConstraints();
+
+        InstrumentPanel instrumentPanel = InstrumentPanel.getInstance(this);
+        instrumentPanel.setRectangleGrabber(rectangleGrabber);
+        instrumentPanel.setSoundGrabber(soundGrabber);
+        instrumentPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(instrumentPanel, layoutConstraints);
+
+
+        DisplayPanel displayPanel = DisplayPanel.getInstance(gridGrabber, gridGrabber, this);
+        displayPanel.registerRectangleObserver(rectangleGrabber);
+        displayPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 0;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridwidth = 3;
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(displayPanel, layoutConstraints);
+
+        directoryPanel = DirectoryPanel.getInstance();
+        directoryPanel.setGridGrabber(gridGrabber);
+        directoryPanel.setSoundGrabber(soundGrabber);
+        directoryPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 20;
+        layoutConstraints.gridx = 4;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.gridheight = 2;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(directoryPanel, layoutConstraints);
+
+        /*
+        * Makes the separator line in the lower part of the main window.
+         */
+        JSeparator separatorLine = new JSeparator();
+        separatorLine.setBackground(SEPARATOR_BACKGROUND);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.gridwidth = 8;
+        layoutConstraints.ipadx = LINE_LENGTH;
+        pane.add(separatorLine, layoutConstraints);
+
+
+        PlayPanel playPanel = PlayPanel.getInstance(this);
+        playPanel.setGridGrabber(gridGrabber);
+        playPanel.setSoundGrabber(soundGrabber);
+        playPanel.registerSoundObserver(soundGrabber);
+        playPanel.setBackground(BACKGROUND_COLOR);
+        setLayout(mainLayout);
+        layoutConstraints.weightx = 0.0;
+        layoutConstraints.ipadx = 20;
+        layoutConstraints.ipady = 40;
+        layoutConstraints.gridwidth = 8;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+        pane.add(playPanel, layoutConstraints);
+    }
+
+    /*
+    * Is called from the other panels when they register a mouse click. It
+    * removes the highlighted object in the DirectoryPanels directory list to enable the user to save the project to a new file
+    * or a file not currently in the directory list. Decided that the MainFrame would be the best class for this method
+    * since it works well as a hub between classes.
+    */
+
+
+    void clearDirectoryList(){
+        directoryPanel.clearListSelection();
+    }
+
+}

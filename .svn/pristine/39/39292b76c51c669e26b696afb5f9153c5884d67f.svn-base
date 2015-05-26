@@ -1,0 +1,8 @@
+package Projekt.Frame;
+
+
+interface GridListener {
+    public void register(GridObserver o);
+    public void unregister(GridObserver o);
+    public void notifyObserver();
+}

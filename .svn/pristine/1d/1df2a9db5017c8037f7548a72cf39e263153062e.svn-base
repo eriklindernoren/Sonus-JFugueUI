@@ -1,0 +1,40 @@
+package Projekt.Frame;
+
+
+import java.util.ArrayList;
+
+public class RectangleGrabber implements RectangleListener {
+    private final ArrayList<RectangleObserver> observers;
+    private int channel;
+    private String instrument;
+
+    public RectangleGrabber(){
+        observers = new ArrayList<RectangleObserver>();
+        channel = 0;
+        instrument = null;
+    }
+
+    @Override
+    public void register(RectangleObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(RectangleObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(RectangleObserver observer: observers){
+            observer.update(channel, instrument);
+        }
+    }
+
+    public void setChannelAndInstrument(int channel, String instrument) {
+        this.channel = channel;
+        this.instrument = instrument;
+        notifyObserver();
+    }
+}

@@ -1,0 +1,10 @@
+package Projekt.Frame;
+
+
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+
+interface GridObserver {
+    public void update(List<Point> fillCells, List<Color> cellColor, List<String> icons, int channel1, int channel2, int channel3, int channel4, int channel5, int channel6, int channel7);
+}

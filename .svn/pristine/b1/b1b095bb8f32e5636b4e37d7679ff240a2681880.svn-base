@@ -1,0 +1,149 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
+class DisplayPanel extends JPanel implements RectangleObserver
+{
+    //SINGLETON
+    private static volatile DisplayPanel instance = null;
+    //PANELS
+    private JPanel displayPanel;
+    private JPanel contentPanel;
+    private final static int CONTENT_WIDTH = 700;
+    private final static int CONTENT_HEIGHT = 440;
+    //GRID
+    private Grid grid;
+    private final static int GRID_HEIGHT = 420;
+    private final static int GRID_WIDTH = 2800;
+    //LAYOUT
+    private GridBagConstraints layoutConstraintsSong;
+    private GridBagLayout gridLayout;
+    private GridBagConstraints gridC;
+    //INSTRUMENT COLOR
+    private final Color guitarColor = new Color(171,130,255);
+    private final Color saxColor = new Color(0,199,140);
+    private final Color drumsColor = new Color(205,198,115);
+    private final Color bassColor = new Color(227,168,105);
+    private final Color pianoColor = new Color(238,99,99);
+    private final Color miscColor = new Color(100, 100, 180);
+    private final Color swagColor = Color.ORANGE;
+    private final Color horseColor = new Color(227, 100, 20);
+    //RECTANGLE LISTENER
+    private RectangleListener rectangleListener;
+    //MAINFRAME
+    MainFrame mainFrame;
+
+
+
+    public static DisplayPanel getInstance(GridListener listener, GridGrabber grabber, MainFrame main) {
+        if (instance == null) {
+            synchronized (DisplayPanel.class) {
+                if (instance == null) {
+                    instance = new DisplayPanel(listener, grabber, main);
+                }
+            }
+        }
+        return instance;
+    }
+
+    //Constructor
+    private DisplayPanel(GridListener listener, GridGrabber grabber, MainFrame main)
+    {
+        mainFrame = main;
+        makeDisplayPanel();
+        makeGrid(listener, grabber, main);
+        makeContentPanel();
+        this.add(contentPanel, layoutConstraintsSong);
+    }
+
+    //Methods
+
+    //Draws rectangles representing the added sound
+    void addRectangle(int channel, String instrument){
+        switch (instrument){
+            case "Guitar":
+                grid.fillCell(channel, guitarColor, "guitar.png");
+                break;
+            case "Sax":
+                grid.fillCell(channel, saxColor, "saxophone.png");
+                break;
+            case "Drums":
+                grid.fillCell(channel, drumsColor, "drums.png");
+                break;
+            case "Bass":
+                grid.fillCell(channel, bassColor, "bass.png");
+                break;
+            case "Piano":
+                grid.fillCell(channel, pianoColor, "piano.png");
+                break;
+            case "Misc":
+                grid.fillCell(channel, miscColor, "note.png");
+                break;
+            case "Swag":
+                grid.fillCell(channel, swagColor, "swag.png");
+                break;
+            case "Horse":
+                grid.fillCell(channel, horseColor, "horse.png");
+                break;
+
+        }
+    }
+
+    private void makeContentPanel(){
+
+        JScrollPane scrollPane = new JScrollPane(displayPanel);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(0, 0, CONTENT_WIDTH, CONTENT_HEIGHT);
+        scrollPane.setWheelScrollingEnabled(true);
+        contentPanel = new JPanel(null);
+        contentPanel.setPreferredSize(new Dimension(CONTENT_WIDTH, CONTENT_HEIGHT));
+        contentPanel.setBackground(Color.LIGHT_GRAY);
+        contentPanel.add(scrollPane);
+    }
+
+    private void makeDisplayPanel(){
+
+        GridBagLayout displayLayout = new GridBagLayout();
+        layoutConstraintsSong = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setLayout(displayLayout);
+        layoutConstraintsSong.weightx = 1;
+        layoutConstraintsSong.gridx = 0;
+        layoutConstraintsSong.gridy = 0;
+        layoutConstraintsSong.fill = GridBagConstraints.BOTH;
+
+        gridLayout = new GridBagLayout();
+        gridC = new GridBagConstraints();
+        displayPanel.setLayout(gridLayout);
+
+    }
+
+    private void makeGrid(GridListener listener, GridGrabber grabber, MainFrame main){
+        grid = new Grid(grabber, main);
+        grid.registerGridListener(listener);
+        setLayout(gridLayout);
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+        gridC.ipadx = GRID_WIDTH;
+        gridC.ipady = GRID_HEIGHT - 9;
+        gridC.fill = GridBagConstraints.BOTH;
+        displayPanel.add(grid, gridC);
+    }
+
+
+
+    public void registerGridObserver(RectangleListener listener){
+        rectangleListener = listener;
+        rectangleListener.register(this);
+    }
+    @Override
+    public void update(int channel, String instrument) {
+        addRectangle(channel, instrument);
+        System.out.println(channel + " " + instrument);
+    }
+}

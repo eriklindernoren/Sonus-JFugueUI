@@ -1,0 +1,300 @@
+package Projekt.Frame;
+
+import javafx.stage.DirectoryChooser;
+import sun.org.mozilla.javascript.internal.ErrorReporter;
+
+import java.io.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.StyledEditorKit;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.util.List;
+import java.util.Scanner;
+import java.io.IOException;
+
+final class DirectoryPanel extends JPanel
+{
+    private JList<String> saveList;
+    private DefaultListModel<String> listModel;
+    private GridBagLayout listLayout;
+    private GridBagConstraints layoutConstraints;
+
+    private final Color borderColor = Color.LIGHT_GRAY;
+    private final Color buttonBackground = Color.WHITE;
+
+    private JButton load;
+
+    private final static int COMPONENT_WIDTH = 100;
+    private final static int BUTTON_HEIGHT = 20;
+    private final static int LIST_HEIGHT = 130;
+
+    private File folder;
+    private File[] listOfFiles;
+    private String chosenFilePath;
+
+    private final MainFrame mainFrame;
+
+    //Constructor
+    public DirectoryPanel(MainFrame m)
+    {
+        mainFrame = m;
+        setPanelLayout();
+        initializeComponents();
+
+        folder = new File("./Saves");
+        listOfFiles = folder.listFiles();
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile() && !listOfFiles[i].getName().startsWith(".")) {
+                listModel.addElement(listOfFiles[i].getName());
+            }
+        }
+    }
+
+
+    //Methods
+    private void setPanelLayout () {
+        listLayout = new GridBagLayout();
+
+    }
+
+    private void initializeComponents(){
+
+
+        createList();
+        createScrollPane();
+        createButtons();
+
+    }
+
+    private void createButtons(){
+        JButton save = new JButton("SAVE");
+        save.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 1;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(save, layoutConstraints);
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
+
+
+
+        load = new JButton("LOAD");
+        load.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(load, layoutConstraints);
+
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                load();
+            }
+        });
+
+        JButton delete = new JButton("DELETE");
+        delete.setBackground(buttonBackground);
+        setLayout(listLayout);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 3;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = BUTTON_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(delete, layoutConstraints);
+
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!(saveList.getSelectedIndex() == -1)){
+
+                        int selectedOption = JOptionPane.showConfirmDialog(null,
+                                "Are you sure you want to delete '" + listModel.get(saveList.getSelectedIndex()) + "'?",
+                                "Delete?",
+                                JOptionPane.YES_NO_OPTION);
+                        if (selectedOption == JOptionPane.YES_OPTION) {
+                            delete();
+                        }
+                }
+            }
+        });
+
+    }
+
+    private void createList(){
+
+        Border lineBorder = BorderFactory.createLineBorder(borderColor, 2);
+        Border listBorder = BorderFactory.createTitledBorder(lineBorder, "Sweet Tunes",2,3);
+        listModel = new DefaultListModel<>();
+        saveList = new JList<>(listModel);
+        saveList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        saveList.setBorder(listBorder);
+        saveList.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        chosenFilePath = folder.listFiles()[saveList.getSelectedIndex()+1].getAbsolutePath();
+                    }
+                }
+        );
+
+    }
+
+    private void createScrollPane(){
+        layoutConstraints = new GridBagConstraints();
+
+
+        JScrollPane myScrollPane = new JScrollPane(saveList);
+        setLayout(listLayout);
+        layoutConstraints.gridy = 0;
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridwidth = 2;
+        layoutConstraints.ipadx = COMPONENT_WIDTH;
+        layoutConstraints.ipady = LIST_HEIGHT;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        add(myScrollPane, layoutConstraints);
+
+    }
+
+    private void save(){
+        try{
+
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File("./Saves"));
+            chooser.showSaveDialog(this.getParent());
+
+            String fileName = chooser.getSelectedFile().getName();
+            String path = chooser.getSelectedFile().getAbsolutePath();
+            File file = chooser.getSelectedFile();
+
+            if(file.exists()){
+                listModel.remove(0);
+                listModel.addElement(fileName);
+            }
+            else{
+                listModel.addElement(fileName);
+            }
+
+            FileOutputStream fos = new FileOutputStream(path);
+            ObjectOutputStream save = new ObjectOutputStream(fos);
+            save.writeObject(mainFrame.getSound());
+            save.writeObject(mainFrame.getGridIcons());
+            save.writeObject(mainFrame.getGridColors());
+            save.writeObject(mainFrame.getGridCells());
+
+
+
+            System.out.println("Saving Completed");
+
+            save.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void load(){
+        if(saveList.getSelectedIndex() == -1){
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new File("./Saves"));
+            //FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt");
+            //chooser.setFileFilter(filter);
+            chooser.showOpenDialog(this.getParent());
+            File chosenFile = chooser.getSelectedFile();
+            String chosenFilePath = chosenFile.getAbsolutePath();
+            System.out.println(chosenFilePath);
+        }
+
+        try{
+            FileInputStream loadFile = new FileInputStream(chosenFilePath);
+            ObjectInputStream load = new ObjectInputStream(loadFile);
+
+            Sound sound  = (Sound) load.readObject();
+            List<String> icons = (List<String>) load.readObject();
+            List<Color> colors = (List<Color>) load.readObject();
+            List<Point> cells = (List<Point>) load.readObject();
+            mainFrame.resetGrid();
+            mainFrame.addToMainSound(sound);
+            mainFrame.setGridCells(cells);
+            mainFrame.setGridIcons(icons);
+            mainFrame.setGridColors(colors);
+
+
+            mainFrame.refreshGrid();
+
+
+            //Loadobject är laddat med låten.
+            //Bör kunna använda loadObject på samma sätt som vi använder sound?
+            // Slänga in någon "repaint" metod här..
+
+
+            load.close();
+            System.out.println("Loading Completed");
+
+        }
+        catch (Exception exc){
+            exc.printStackTrace();
+        }
+    }
+
+
+
+    private static void test(){
+
+        //get a reference to the directory that holds our data files
+        File inputData = new File("inputData");
+
+        //Get a list of all the files in this directory
+        File[] allFiles = inputData.listFiles();
+
+
+        //Iterate over the files and process them
+        for (File datafile : allFiles){
+            try{
+                String fileName = datafile.getName();
+                //find the location of the underscore in the filename
+                int underscoreLocation = fileName.indexOf("_");
+                //Using that location, get the type of file out of the filename
+                String fileType = fileName.substring(0, underscoreLocation);
+                //Invoke a factory method that will create the appropiate class that will process this data.
+
+
+                // Scanner will allows us to read the data in a file
+                Scanner scanFile = new Scanner(datafile);
+                //get the first string out of the file
+                String data = scanFile.nextLine();
+            }
+            catch (FileNotFoundException exc){
+
+            }
+
+
+
+        }
+
+    }
+    private void delete(){
+        int index = saveList.getSelectedIndex();
+        listModel.remove(index);
+        folder.listFiles()[index+1].delete();
+        repaint();
+        System.out.println("Delete Completed");
+        }
+}

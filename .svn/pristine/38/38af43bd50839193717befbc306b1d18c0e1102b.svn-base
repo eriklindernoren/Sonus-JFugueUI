@@ -1,0 +1,45 @@
+package Projekt.Sound;
+
+/**
+ * Created by Erik on 2014-03-25.
+ */
+
+import org.jfugue.*;
+
+public class Main{
+
+    private static final String bass = "I[ACOUSTIC_BASS]";
+    private static final String guitar = "I[NYLON_STRING_GUITAR]";
+    private static final String synth = "I[ELECTRIC_PIANO]";
+    private static final String saxophone = "I[SOPRANO_SAX]";
+    private static final String piano = "I[PIANO]";
+    private static final String drum1 = "I[BASS_DRUM]";
+    private static final String choir = "I[VOICE_OOHS]";
+
+    private static final String row1 = "V0";
+    private static final String row2 = "V1";
+    private static final String row3 = "V2";
+    private static final String row4 = "V3";
+    private static final String row5 = "V4";
+    private static final String row6 = "V5";
+
+
+    public static void main(String[] args) {
+
+        Player player = new Player();
+        Sound epicSaxGuyMelody = new Sound();
+        epicSaxGuyMelody.addInstrumentToMusicString(row1, saxophone);
+        epicSaxGuyMelody.addMusicToMusicstring(row1, "Bhi Bq");
+        epicSaxGuyMelody.addSoundLoop("Bs Bs Bs As Bs Bh Bs Bs Bs As Bs Bh D6h Bs Ah Gs Eq Es F#q Gs E", 2);
+        Sound epicSaxGuyMelody1 = new Sound();
+        epicSaxGuyMelody1.addInstrumentToMusicString(row1, guitar);
+        epicSaxGuyMelody1.addMusicToMusicstring(row1, "Bhi Bg");
+        epicSaxGuyMelody1.addSoundLoop("Bs Bs Bs As Bs Bh Bs Bs Bs As Bs Bh D6h Bs Ah Gs Eq Es F#q Gs E", 2);
+        epicSaxGuyMelody.addDrumToMusicString(drum1);
+        epicSaxGuyMelody.addBeatToMusicString("B A D B A D", 3);
+        epicSaxGuyMelody.add(epicSaxGuyMelody1);
+
+        player.play(epicSaxGuyMelody);
+
+    }
+}

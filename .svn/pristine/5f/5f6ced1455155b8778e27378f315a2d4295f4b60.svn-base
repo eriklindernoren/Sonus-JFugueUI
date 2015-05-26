@@ -1,0 +1,40 @@
+
+    package Projekt.Sound;
+
+    import org.jfugue.*;
+
+    public class Sound extends Pattern{
+
+        private static final String drumRow = "V9";
+
+        public Sound() {
+            new Pattern();
+        }
+
+        public void addSoundLoop(String sound, int times){
+            for(int i = 1; i <= times; i++){
+                this.add(sound);
+            }
+
+        }
+
+        public void addMusicToMusicstring(int time, String voice, String sound){
+            this.add("@" + time*1000 + voice + " " + sound);
+        }
+
+        public void addInstrumentToMusicString(int time, String voice, String instrument){
+            this.add("@" + time*1000 + " " + voice + " " + instrument);
+        }
+
+        public void addDrumToMusicString(Time time, String drum){
+            this.add(time + drumRow + " " + drum);
+        }
+
+        public void addBeatToMusicString(Time time, String beat, int times){
+            this.add(time + " " + drumRow + " ");
+            for(int i = 1; i <= times; i++){
+                this.add(beat);
+            }
+        }
+
+}

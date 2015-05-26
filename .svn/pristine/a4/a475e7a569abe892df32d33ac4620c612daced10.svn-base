@@ -1,0 +1,12 @@
+package Projekt.Frame;
+
+/**
+ * Created by Erik on 2014-05-14.
+ */
+public interface DataListener {
+
+
+    public void dataChanged(Object dataObject);
+
+
+}

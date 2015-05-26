@@ -1,0 +1,120 @@
+package Projekt.Frame;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class MainFrame extends JFrame{
+    JPanel myPanel;
+    private int PANEL_SIZE_X = 1000;
+    private int PANEL_SIZE_Y = 500;
+    private InstrumentPanel iPanel;
+    private PlayPanel pPanel;
+    private DirectoryPanel dPanel;
+    private GridBagLayout mainLayout;
+    private GridBagConstraints layoutConstraints;
+    private JMenuBar menuBar;
+    private JMenu file;
+    private JMenuItem about;
+    private JMenuItem quit;
+    private JMenuItem load;
+    private JMenuItem save;
+
+
+    public MainFrame()
+    {
+        layoutMaker();
+        menuMaker();
+        panelMaker();
+        windowMaker();
+
+
+    }
+
+    private void layoutMaker(){
+        mainLayout = new GridBagLayout();
+        layoutConstraints = new GridBagConstraints();
+
+    }
+
+    public void windowMaker()
+    {
+        myPanel = new JPanel();
+        myPanel.setLayout(mainLayout);
+        myPanel.add(iPanel);
+        myPanel.add(dPanel);
+        myPanel.add(pPanel);
+
+        this.add(myPanel);
+        this.setTitle("NO SCOPE");
+        this.setSize(PANEL_SIZE_X, PANEL_SIZE_Y);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);
+
+
+    }
+
+
+    public void menuMaker()
+    {
+
+        menuBar = new JMenuBar();
+        file = new JMenu("File");
+
+        about = new JMenuItem("About");
+        save = new JMenuItem("Save");
+        load = new JMenuItem("Load");
+        quit = new JMenuItem("Quit");
+
+        file.add(about);
+        file.add(save);
+        file.add(load);
+        file.add(quit);
+
+        menuBar.add(file);
+
+        this.setJMenuBar(menuBar);
+
+
+
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "ARE YOU LAME?",
+                        "Choose",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
+    }
+
+
+    public void panelMaker()
+    {
+        iPanel = new InstrumentPanel();
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+
+        pPanel = new PlayPanel();
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+
+        dPanel = new DirectoryPanel();
+        layoutConstraints.gridx = 2;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.fill = GridBagConstraints.BOTH;
+
+    }
+
+
+}

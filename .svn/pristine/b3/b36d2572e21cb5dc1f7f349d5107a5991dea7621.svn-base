@@ -1,0 +1,25 @@
+package projekt.frame;
+
+import projekt.frame.mainwindow.MainFrame;
+
+/**
+ * The main function of the application. The menubar is set to the MacOS look.
+ */
+
+
+public final class MainClass {
+
+    private MainClass() {
+    }
+
+    //MainClass function
+    public static void main(String[] args)
+    {
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+
+        MainFrame mainFrame = new MainFrame();
+        System.out.println(mainFrame.getTitle() + " is live.");
+
+    }
+
+}

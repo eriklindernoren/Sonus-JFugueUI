@@ -1,0 +1,11 @@
+package Projekt.Frame;
+
+/**
+* The SoundListener class defines what methods are needed in the SoundGrabber class.
+ */
+
+interface SoundListener {
+    public void register(SoundObserver o);
+    public void unregister(SoundObserver o);
+    public void notifyObserver();
+}

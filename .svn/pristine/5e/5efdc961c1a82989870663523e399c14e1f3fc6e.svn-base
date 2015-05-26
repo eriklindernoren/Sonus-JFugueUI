@@ -1,0 +1,72 @@
+package Projekt.Test;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+
+public class CoreControl {
+
+    public static class Grid extends JPanel {
+
+        private List<Point> fillCells;
+
+        public Grid() {
+            fillCells = new ArrayList<>(25);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            for (Point fillCell : fillCells) {
+                int cellX = 90 + (fillCell.x * 10);
+                int cellY = 10 + (fillCell.y * 10);
+                g.setColor(Color.RED);
+                g.fillRect(cellX, cellY, 90, 80);
+            }
+            g.setColor(Color.BLACK);
+            g.drawRect(10, 10, 630, 80);
+
+            for (int i = 10; i <= 650; i += 90) {
+                g.drawLine(i, 10, i, 90);
+            }
+
+            for (int i = 10; i <= 60; i += 70) {
+                g.drawLine(10, i, 610, i);
+            }
+        }
+
+        public void fillCell(int x, int y) {
+            fillCells.add(new Point(x, y));
+            repaint();
+        }
+
+    }
+
+    public static void main(String[] a) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                }
+
+                Grid grid = new Grid();
+                JFrame window = new JFrame();
+                window.setSize(650, 150);
+                window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window.add(grid);
+                window.setVisible(true);
+                grid.fillCell(1,0);
+
+            }
+        });
+    }
+}

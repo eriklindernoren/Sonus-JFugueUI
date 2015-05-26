@@ -1,0 +1,38 @@
+package Projekt.Frame;
+
+class MiscPopup extends InstrumentPopup {
+
+    private static final String misc1 = " I[GOBLINS] ";
+    private static final String misc2 = " I[GUNSHOT] ";
+    private static final String misc3 = " I[SEASHORE] ";
+    private static final String misc4 = " I[RAIN] ";
+    private static final String misc5 = " I[HELICOPTER] ";
+
+    public MiscPopup(MainFrame main, SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Misc");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setMainFrame(main);
+
+        String [] miscLabels = new String[5];
+        miscLabels[0] = "Goblins";
+        miscLabels[1] = "Gunshot";
+        miscLabels[2] = "Seashore";
+        miscLabels[3] = "Rain";
+        miscLabels[4] = "Helicopter";
+
+
+        String[] miscList = new String[5];
+        miscList[0] = misc1;
+        miscList[1] = misc2;
+        miscList[2] = misc3;
+        miscList[3] = misc4;
+        miscList[4] = misc5;
+
+        this.setInstrumentLabels(miscLabels);
+        this.setInstrumentList(miscList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

@@ -1,0 +1,8 @@
+package Projekt.Frame;
+
+/**
+ * Created by Erik on 2014-05-20.
+ */
+public interface SoundObserver {
+    public void update(Sound sound);
+}

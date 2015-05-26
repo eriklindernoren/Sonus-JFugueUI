@@ -1,0 +1,51 @@
+package Projekt.Frame;
+
+import java.awt.*;
+
+/*
+ * This class is called from the InstrumentPopupFactory.
+ * Handles the creation and look of the popup window for the Swag.
+ * It uses the framework set in the "instrumentpopup"-class and
+ * passes the desired instruments and corresponding labels.
+ *
+ */
+
+class SwagPopup extends InstrumentPopup {
+
+    private static final int INSTRUMENT_SIZE = 5;
+
+    private final static Color SWAG_COLOR = Color.ORANGE;
+
+    private static final String SWAG_1 = " I[BREATH_NOISE] ";
+    private static final String SWAG_2 = " I[BAGPIPE] ";
+    private static final String SWAG_3 = " I[ATMOSPHERE] ";
+    private static final String SWAG_4 = " I[CHOIR] ";
+    private static final String SWAG_5 = " I[HARMONICA] ";
+
+    public SwagPopup(SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        this.setInstrumentID("Swag");
+        this.setRectangleGrabber(rectangleGrabber);
+        this.setSoundGrabber(soundGrabber);
+        this.setInstrumentColor(SWAG_COLOR);
+
+        String []swagLabels = new String[INSTRUMENT_SIZE];
+        swagLabels[0] = "Breath noise";
+        swagLabels[1] = "Bagpipe";
+        swagLabels[2] = "Atmosphere";
+        swagLabels[3] = "Choir";
+        swagLabels[4] = "Harmonica";
+
+        String[] swagList = new String[INSTRUMENT_SIZE];
+        swagList[0] = SWAG_1;
+        swagList[1] = SWAG_2;
+        swagList[2] = SWAG_3;
+        swagList[3] = SWAG_4;
+        swagList[4] = SWAG_5;
+
+        this.setInstrumentLabels(swagLabels);
+        this.setInstrumentList(swagList);
+
+        panelMaker(getContentPane());
+        createWindow();
+    }
+}

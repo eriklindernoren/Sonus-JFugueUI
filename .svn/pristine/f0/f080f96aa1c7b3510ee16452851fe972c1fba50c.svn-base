@@ -1,0 +1,71 @@
+package Projekt.Frame;
+
+import org.jfugue.Player;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class PlayPanel extends JPanel
+{
+    private JButton play, stop;
+    private GridBagLayout playLayout;
+    private GridBagConstraints layoutConstraints;
+    private Color buttonBackground = Color.WHITE;
+    private SoundPlay player;
+    private int BUTTON_SIZE_X = 20;
+    private int BUTTON_SIZE_Y = 10;
+
+    public PlayPanel()
+    {
+        player = new SoundPlay();
+        setPanelLayout();
+        makeButtons();
+        this.setVisible(true);
+    }
+
+    private void setPanelLayout(){
+        playLayout = new GridBagLayout();
+    }
+
+    private void makeButtons(){
+
+        layoutConstraints = new GridBagConstraints();
+
+        play = new JButton("PLAY");
+        play.setBackground(buttonBackground);
+        layoutConstraints.gridx = 0;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.add(play, layoutConstraints);
+
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.playEpicSax();
+            }
+        });
+
+        stop = new JButton("STOP");
+        stop.setBackground(buttonBackground);
+        layoutConstraints.gridx = 1;
+        layoutConstraints.gridy = 0;
+        layoutConstraints.ipadx = BUTTON_SIZE_X;
+        layoutConstraints.ipady = BUTTON_SIZE_Y;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.add(stop, layoutConstraints);
+
+        stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.stopSound();
+            }
+        });
+
+}
+
+}

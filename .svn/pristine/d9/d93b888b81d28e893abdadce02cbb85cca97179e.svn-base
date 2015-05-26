@@ -1,0 +1,131 @@
+package Projekt.Frame;
+
+import java.util.ArrayList;
+
+/*
+ * This class updates the main sound for the application after a new sound is added in a popup window. It also
+ * keeps information about a separate sound type in which the tempo selected in the PlayPanels is taken into account.
+ * The soundWithTempo is the sound object that the user has the option to export, this enable the user to make wav-files with varying
+ * tempos.
+ */
+
+class SoundGrabber implements SoundListener {
+
+    private final ArrayList<SoundObserver> observers;
+    private Sound sound;
+    private Sound soundWithTempo;
+
+
+
+    private static boolean backTrackable = false;
+    private static int tracker;
+    private final static int backTrackerLimit = -1;
+
+    private Sound oldestSound;
+    private Sound olderSound;
+    private Sound prevSound;
+    private Sound nextSound;
+    private Sound newerSound;
+    private Sound newestSound;
+
+    public SoundGrabber(){
+        observers = new ArrayList<>();
+        sound = new Sound();
+        soundWithTempo = new Sound();
+
+        tracker = 0;
+        oldestSound = null;
+        olderSound = null;
+        prevSound = null;
+        nextSound = null;
+        newerSound = null;
+        newestSound = null;
+    }
+
+    @Override
+    public void register(SoundObserver newObserver) {
+        observers.add(newObserver);
+    }
+
+    @Override
+    public void unregister(SoundObserver deleteObserver) {
+        int observerIndex = observers.indexOf(deleteObserver);
+        System.out.println("Observer " + (observerIndex+1) +  " deleted");
+
+        observers.remove(observerIndex);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(SoundObserver observer: observers){
+            observer.update(sound);
+        }
+    }
+
+    public void setSound(Sound newSound){
+        this.sound = newSound;
+    }
+
+    public void backSound(){
+        if(tracker > backTrackerLimit && prevSound != null && backTrackable){
+            tracker -= 1;
+            newestSound = newerSound;
+            newerSound = nextSound;
+            nextSound = sound;
+            sound = prevSound;
+            System.out.println(sound.getMusicString());
+            prevSound = olderSound;
+            olderSound = oldestSound;
+            oldestSound = null;
+            notifyObserver();
+        }
+    }
+
+    public void forwardSound(){
+        if(tracker < 0 && nextSound != null){
+            tracker += 1;
+            oldestSound = olderSound;
+            olderSound = oldestSound;
+            prevSound = sound;
+            sound = nextSound;
+            System.out.println(sound.getMusicString());
+            nextSound = newerSound;
+            newerSound = newestSound;
+            newestSound = null;
+            notifyObserver();
+        }
+    }
+
+    public void setSoundWithTempo(Sound newSound){
+        this.soundWithTempo = newSound;
+    }
+
+    public Sound getSoundWithTempo(){
+        return soundWithTempo;
+    }
+
+    public void addToSound(Sound s){
+        tracker = 0;
+        setBackTrackable(true);
+        Sound tempSound = new Sound();
+        tempSound.add(sound.getMusicString() + s);
+
+        oldestSound = olderSound;
+        olderSound = prevSound;
+        prevSound = sound;
+        this.sound = tempSound;
+        nextSound = null;
+        newerSound = null;
+        newestSound = null;
+        System.out.println(sound.getMusicString());
+        notifyObserver();
+    }
+
+    void setBackTrackable(boolean backTrackable) {
+        SoundGrabber.backTrackable = backTrackable;
+    }
+    public Sound getSound(){
+        return sound;
+    }
+
+}

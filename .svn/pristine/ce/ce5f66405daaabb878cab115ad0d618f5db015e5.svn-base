@@ -1,0 +1,30 @@
+package Projekt.Frame;
+
+/*
+ * This class is called from the InstrumentPanel a popup window for the instrument that matches the string that
+ * is passed from the InstrumentPanel.
+ */
+
+
+class InstrumentPopupFactory {
+
+    InstrumentPopup makeInstrumentPopup(String popupType, SoundGrabber soundGrabber, RectangleGrabber rectangleGrabber){
+        switch(popupType){
+            case "Guitar":
+                return new GuitarPopup(soundGrabber, rectangleGrabber);
+            case "Sax":
+                return new SaxPopup(soundGrabber, rectangleGrabber);
+            case "Bass":
+                return new BassPopup(soundGrabber, rectangleGrabber);
+            case "Piano":
+                return new PianoPopup(soundGrabber, rectangleGrabber);
+            case "Misc":
+                return new MiscPopup(soundGrabber, rectangleGrabber);
+            case "Swag":
+                return new SwagPopup(soundGrabber, rectangleGrabber);
+            default:
+                return new HorsePopup(soundGrabber, rectangleGrabber);
+        }
+    }
+
+}

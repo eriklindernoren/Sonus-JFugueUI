@@ -1,0 +1,73 @@
+package Projekt.Frame;
+
+import com.sun.tools.javac.comp.Flow;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class SongPanel extends JPanel
+{
+    //PANELS
+    private JPanel displayPanel;
+    //GRID
+    private Grid grid;
+    //PANEL LIST
+    private JPanel[] panelList;
+    //LAYOUT
+    private GridBagLayout displayLayout;
+    private GridBagConstraints layoutConstraintsSong;
+    private GridBagLayout gridLayout;
+    private GridBagConstraints gridC;
+    //COLORS
+    private Color channelBackground = new Color(250, 250, 250);
+    private Color channelBackground1 = new Color(240,240,240);
+
+
+    //Constructor
+    public SongPanel()
+    {
+        makeDisplayPanel();
+        makeGrid();
+        this.add(displayPanel, layoutConstraintsSong);
+
+    }
+
+    //Methods
+
+    //Handles the added sound
+
+    public void addRectangle(int channel, int numbOfAckords, String instrument){
+        grid.fillCell(0, channel-1, Color.BLUE);
+    }
+
+    private void makeDisplayPanel(){
+
+        displayLayout = new GridBagLayout();
+        layoutConstraintsSong = new GridBagConstraints();
+
+        displayPanel = new JPanel();
+        setLayout(displayLayout);
+        layoutConstraintsSong.weightx = 1;
+        layoutConstraintsSong.gridx = 0;
+        layoutConstraintsSong.gridy = 0;
+        layoutConstraintsSong.fill = GridBagConstraints.BOTH;
+
+    }
+
+    private void makeGrid(){
+
+        gridLayout = new GridBagLayout();
+        gridC = new GridBagConstraints();
+        displayPanel.setLayout(gridLayout);
+
+        grid = new Grid();
+        setLayout(gridLayout);
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+        gridC.ipadx = 691;
+        gridC.ipady = 411;
+        gridC.fill = GridBagConstraints.BOTH;
+        displayPanel.add(grid, gridC);
+    }
+}

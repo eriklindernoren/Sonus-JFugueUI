@@ -1,0 +1,155 @@
+package Projekt.Frame;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class InstrumentPopup extends JFrame
+{
+    //LAYOUTS
+    private GridBagLayout popupLayout, iPanelLayout;
+    private GridBagConstraints popupC, instrumentC;
+    //PANELS
+    private JPanel instrumentPanel, ackordPanel, valuePanel;
+    //COLOR
+    private Color backGroundColor = Color.lightGray;
+    //CONSTANTS
+    private int LINE_LENGTH = 400;
+    private int INSTRUMENT_BUTTON_X = 40;
+    private int INSTRUMENT_BUTTON_Y = 30;
+    //INSTRUMENT PANEL BUTTONS
+    private JButton instrument1, instrument2, instrument3, instrument4, instrument5;
+
+
+    public InstrumentPopup(String identifier)
+    {
+        layoutMaker();
+        panelMaker(getContentPane(), identifier);
+        this.setTitle(identifier);
+        this.setResizable(false);
+        pack();
+        this.setVisible(true);
+
+    }
+
+    public void layoutMaker()
+    {
+        popupLayout = new GridBagLayout();
+
+    }
+
+
+    public void panelMaker(Container pane, String identifier)
+    {
+        pane.setLayout(popupLayout);
+        popupC = new GridBagConstraints();
+
+        makeInstrumentPanel(identifier);
+        pane.add(instrumentPanel, popupC);
+
+        makeAckordPanel();
+        pane.add(ackordPanel, popupC);
+
+        makeValuePanel();
+        pane.add(valuePanel, popupC);
+
+    }
+
+    private void makeInstrumentPanel(String identifier){
+
+        instrumentPanel = new JPanel();
+        setLayout(popupLayout);
+        popupC.ipadx = 40;
+        popupC.ipady = 40;
+        popupC.gridx = 0;
+        popupC.gridy = 0;
+
+        iPanelLayout = new GridBagLayout();
+        instrumentC = new GridBagConstraints();
+        instrumentPanel.setLayout(iPanelLayout);
+
+        switch(identifier){
+            case "Guitar":
+                makeInstrumentButtons();
+                break;
+            case "Drums":
+        }
+        makeInstrumentButtons();
+
+
+    }
+
+    private void makeInstrumentButtons(){
+
+        instrument1 = new JButton("instr1");
+        setLayout(iPanelLayout);
+        instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+        instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+        instrumentC.weighty = 0.0;
+        instrumentC.gridx = 0;
+        instrumentC.gridy = 0;
+        instrumentC.fill = GridBagConstraints.BOTH;
+        instrumentPanel.add(instrument1, instrumentC);
+
+        instrument2 = new JButton("instr2");
+        setLayout(iPanelLayout);
+        instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+        instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+        instrumentC.gridx = 0;
+        instrumentC.gridy = 1;
+        instrumentC.fill = GridBagConstraints.BOTH;
+        instrumentPanel.add(instrument2, instrumentC);
+
+        instrument3 = new JButton("instr3");
+        setLayout(iPanelLayout);
+        instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+        instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+        instrumentC.gridx = 0;
+        instrumentC.gridy = 2;
+        instrumentC.fill = GridBagConstraints.BOTH;
+        instrumentPanel.add(instrument3, instrumentC);
+
+        instrument4 = new JButton("instr4");
+        setLayout(iPanelLayout);
+        instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+        instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+        instrumentC.gridx = 0;
+        instrumentC.gridy = 3;
+        instrumentC.fill = GridBagConstraints.BOTH;
+        instrumentPanel.add(instrument4, instrumentC);
+
+        instrument5 = new JButton("instr5");
+        setLayout(iPanelLayout);
+        instrumentC.ipadx = INSTRUMENT_BUTTON_X;
+        instrumentC.ipady = INSTRUMENT_BUTTON_Y;
+        instrumentC.gridx = 0;
+        instrumentC.gridy = 4;
+        instrumentC.fill = GridBagConstraints.BOTH;
+        instrumentPanel.add(instrument5, instrumentC);
+
+    }
+
+    private void makeAckordPanel(){
+
+        ackordPanel = new JPanel();
+        ackordPanel.setBackground(Color.GRAY);
+        setLayout(popupLayout);
+        popupC.ipadx = 200;
+        popupC.ipady = 20;
+        popupC.gridx = 1;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.VERTICAL;
+    }
+
+    private void makeValuePanel(){
+
+        valuePanel = new JPanel();
+        valuePanel.setBackground(Color.LIGHT_GRAY);
+        setLayout(popupLayout);
+        popupC.ipadx = 200;
+        popupC.ipady = 20;
+        popupC.gridx = 2;
+        popupC.gridy = 0;
+        popupC.fill = GridBagConstraints.VERTICAL;
+    }
+}

@@ -1,0 +1,6 @@
+package Projekt.Frame;
+
+
+interface SoundObserver {
+    public void update(Sound sound);
+}
