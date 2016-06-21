@@ -7,3 +7,4 @@ The app was built with the goal of being able to compose music using the JFugue 
 
 Sonus.app should be executable on the OSX platform.
 
+![alt tag](http://eriklindernoren.se/images/sonus.jpeg)
